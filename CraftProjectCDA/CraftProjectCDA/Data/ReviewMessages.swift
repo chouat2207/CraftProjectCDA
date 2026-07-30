@@ -8,13 +8,19 @@
 import Foundation
 
 var reviewMessages: [ReviewMessage] = [
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[1].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4)
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32),
+    ReviewMessage(content: "", postDate: "21/07/2026 11:07", senderID: user[0].id, receiverID: user[2].id, rating: 4.32)
 ]
