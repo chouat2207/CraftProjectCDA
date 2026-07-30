@@ -10,8 +10,9 @@ import Foundation
 struct UserToUserMessage: Identifiable {
     var id: UUID = UUID()
     var content: String
-    var date: Date
+    var postDate: Date
     var senderID: UUID
     var receiverID: UUID
-    var itemID: UUID
+    
+    var itemID: UUID?
 }

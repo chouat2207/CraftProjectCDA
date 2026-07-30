@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct Message: Identifiable {
+struct Artwork: Identifiable {
     var id: UUID = UUID()
-    var content: String
-    var date: Date
-    var senderID: UUID
-    var receiverID: UUID
-    var itemID: UUID
+    var name: String
+    var imageName: String
+    var artCategory: String
+    var description: String
+    var details: String
+    var artistID: UUID
 }
