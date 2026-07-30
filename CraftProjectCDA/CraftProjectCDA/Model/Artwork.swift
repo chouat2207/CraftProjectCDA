@@ -16,3 +16,5 @@ struct Artwork: Identifiable {
     var details: String
     var artistID: UUID
 }
+
+
