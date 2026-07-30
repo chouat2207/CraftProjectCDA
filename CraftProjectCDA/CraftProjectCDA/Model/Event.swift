@@ -13,7 +13,7 @@ struct Event: Identifiable {
     var name: String
     var imageName: String
     
-    var postDate: Date
+    var postDate: String
     var participantsID: [UUID]
     var authorID: UUID
     
@@ -22,6 +22,6 @@ struct Event: Identifiable {
     
     var adress: String
     var location: CLLocationCoordinate2D
-    var startingDate: Date
-    var endingDate: Date
+    var startingDate: String
+    var endingDate: String
 }

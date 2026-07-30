@@ -14,7 +14,7 @@ struct User: Identifiable {
     var lastName: String
     var pseudonym: String
     var imageName: String
-    var joinedDate: Date
+    var joinedDate: String
     var artisanProfile: ArtisanProfile?
     var address: String
     var city: String
