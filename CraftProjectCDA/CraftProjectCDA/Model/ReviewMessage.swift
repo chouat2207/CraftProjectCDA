@@ -12,7 +12,7 @@ struct ReviewMessage: Identifiable, Message {
     var content: String
     var senderID: UUID
     var receiverID: UUID
-    var postDate: Date
+    var postDate: String
     
     var rating: Double
 }
