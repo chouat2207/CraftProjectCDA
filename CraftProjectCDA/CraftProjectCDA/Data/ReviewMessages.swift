@@ -8,13 +8,13 @@
 import Foundation
 
 var reviewMessages: [ReviewMessage] = [
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[1].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4),
-    ReviewMessage(content: "", senderID: user[0].id, receiverID: user[0].id, postDate: Date.now, rating: 4)
+    ReviewMessage(content: "", postDate: "27/07/2026 23:12", senderID: users[0].id, receiverID: users[1].id,  rating: 4),
+    ReviewMessage(content: "", postDate: "27/07/2026 23:12",senderID: users[0].id, receiverID: users[0].id, rating: 4),
+    ReviewMessage(content: "", postDate: "27/07/2026 23:12",senderID: users[0].id, receiverID: users[0].id, rating: 4),
+    ReviewMessage(content: "", postDate: "27/07/2026 23:12",senderID: users[0].id, receiverID: users[0].id, rating: 4),
+    ReviewMessage(content: "", postDate: "27/07/2026 23:12",senderID: users[0].id, receiverID: users[0].id, rating: 4),
+    ReviewMessage(content: "", postDate: "27/07/2026 23:12",senderID: users[0].id, receiverID: users[0].id, rating: 4),
+    ReviewMessage(content: "", postDate: "27/07/2026 23:12",senderID: users[0].id, receiverID: users[0].id, rating: 4),
+    ReviewMessage(content: "",postDate: "27/07/2026 23:12", senderID: users[0].id, receiverID: users[0].id, rating: 4),
+    ReviewMessage(content: "",postDate: "27/07/2026 23:12", senderID: users[0].id, receiverID: users[0].id, rating: 4)
 ]
