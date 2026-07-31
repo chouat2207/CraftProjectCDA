@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "House_of_Faberge_-_Gatchina_Palace_Egg_-_Walters_44500_-_Open_View_B-1.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
