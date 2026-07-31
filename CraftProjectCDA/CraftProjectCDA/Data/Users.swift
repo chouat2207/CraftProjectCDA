@@ -7,7 +7,7 @@
 
 import Foundation
 
-var users = [
+var users: [User] = [
     User(
         firstName: "Marie",
         lastName: "Dubois",
