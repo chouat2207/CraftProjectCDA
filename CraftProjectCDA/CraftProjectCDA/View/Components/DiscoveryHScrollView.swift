@@ -8,8 +8,27 @@
 import SwiftUI
 
 struct DiscoveryHScrollView: View {
+    @State private var artworkList = artworks
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            HStack {
+                Text("Créations qui pourraient vous intéresser")
+                    .padding()
+                Spacer()
+            }
+            ScrollView(.horizontal) {
+                LazyHStack {
+                    ForEach($artworkList) { $artwork in
+                        DiscoveryCard(itemName: $artwork.name, itemImageName: $artwork.imageName)
+//                        Text(String($artwork.name))
+                            .onAppear {
+                                print(index)
+                            }
+                    }
+                }
+            }
+            .padding()
+        }
     }
 }
 
