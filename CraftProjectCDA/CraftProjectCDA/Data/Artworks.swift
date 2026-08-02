@@ -7,8 +7,7 @@
 
 import Foundation
 
-var artworks = [
-    
+var artworks: [Artwork] = [
 Artwork(name: "Louis Vuitton",
         imageName: "HaeghenAmandeLouisVuitton",
         artCategory: "Céramique",
