@@ -15,7 +15,7 @@ struct DiscoveryCard: View {
             Rectangle()
                 
                 .cornerRadius(10)
-                .foregroundStyle(.blue)
+                .foregroundStyle(.white)
             VStack {
                 Image(itemImageName)
                     .resizable()

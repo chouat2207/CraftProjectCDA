@@ -20,7 +20,7 @@ struct DiscoveryHScrollView: View {
                 LazyHStack {
                     ForEach($artworkList) { $artwork in
                         DiscoveryCard(itemName: $artwork.name, itemImageName: $artwork.imageName)
-//                        Text(String($artwork.name))
+
                             .onAppear {
                                 print(index)
                             }
