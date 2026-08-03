@@ -7,8 +7,21 @@
 
 import Foundation
 
+extension UUID {
+    static let marie = UUID()
+    static let amande = UUID()
+    static let anneSophie = UUID()
+    static let julie = UUID()
+    static let lisa = UUID()
+    static let haruto = UUID()
+    static let eloise = UUID()
+    static let lucas = UUID()
+    static let sofia = UUID()
+}
 
-let marie = User(
+var users: [User] = [
+    User(
+        id: .marie,
         firstName: "Marie",
         lastName: "Dubois",
         pseudonym: "@MarieDubois",
@@ -18,11 +31,12 @@ let marie = User(
         city: "Bessens",
         description: "Passionnée de céramique",
         favoriteArtworksID: [],
-        followingID: [amande.id],
+        followingID: [.amande, .eloise],
         reviewsID: []
-    )
+    ),
     
-let amande = User(
+    User(
+        id: .amande,
         firstName: "Amande",
         lastName: "Haeghen",
         pseudonym: "@AmandeHaeghen",
@@ -32,11 +46,12 @@ let amande = User(
         city: "Lisbonne",
         description: "Amoureuse des matières naturelles et de la céramique",
         favoriteArtworksID: [],
-        followingID: [],
+        followingID: [.marie, .lisa],
         reviewsID: []
-    )
+    ),
 
-let anneSophie = User(
+    User(
+        id: .anneSophie,
         firstName: "Anne-Sophie",
         lastName: "Deillon",
         pseudonym: "@PlumesDeSoie",
@@ -46,11 +61,12 @@ let anneSophie = User(
         city: "Grenoble",
         description: "Passionnée de broderie d'art, de soie et de savoir-faire haute couture.",
         favoriteArtworksID: [],
-        followingID: [],
+        followingID: [.julie, .sofia],
         reviewsID: []
-    )
+    ),
     
-let julie = User(
+    User(
+        id: .julie,
         firstName: "Julie",
         lastName: "Boucherat",
         pseudonym: "@JulieBoucherat",
@@ -60,11 +76,12 @@ let julie = User(
         city: "Bayonne",
         description: "Inspirée par l'artisanat, la terre et les pièces uniques.",
         favoriteArtworksID: [],
-        followingID: [],
+        followingID: [.anneSophie, .haruto],
         reviewsID: []
-    )
+    ),
     
-let lisa = User(
+    User(
+        id: .lisa,
         firstName: "Lisa",
         lastName: "Allegra",
         pseudonym: "@LisaAllegra",
@@ -74,11 +91,12 @@ let lisa = User(
         city: "Barcelone",
         description: "Amoureuse des formes minimalistes et des matières naturelles",
         favoriteArtworksID: [],
-        followingID: [],
+        followingID: [.marie, .amande],
         reviewsID: []
-    )
+    ),
     
-let haruto = User(
+    User(
+        id: .haruto,
         firstName: "Haruto",
         lastName: "Aoki",
         pseudonym: "@GARASU",
@@ -88,11 +106,12 @@ let haruto = User(
         city: "Marseille",
         description: "Passionné de verrerie",
         favoriteArtworksID: [],
-        followingID: [],
+        followingID: [.eloise, .lucas],
         reviewsID: []
-    )
+    ),
     
-let eloise = User(
+    User(
+        id: .eloise,
         firstName: "Éloise",
         lastName: "Ocre",
         pseudonym: "@TIERRAOCRE",
@@ -102,46 +121,37 @@ let eloise = User(
         city: "Marseille",
         description: "Passionnée par la poterie depuis l'enfance. J'aime façonner des pièces uniques inspirées des terres méditerranéennes et partager les savoir-faire artisanaux.",
         favoriteArtworksID: [],
-        followingID: [],
+        followingID: [.marie, .haruto],
+        reviewsID: []
+    ),
+
+    User(
+        id: .lucas,
+        firstName: "Lucas",
+        lastName: "Bernard",
+        pseudonym: "@WoodSoul",
+        imageName: "",
+        joinedDate: "30/07/2026",
+        address: "14 rue des Tilleuls",
+        city: "Lyon",
+        description: "Ébéniste amateur, amoureux du bois brut et du mobilier contemporain.",
+        favoriteArtworksID: [],
+        followingID: [.lisa, .sofia],
+        reviewsID: []
+    ),
+
+    User(
+        id: .sofia,
+        firstName: "Sofia",
+        lastName: "Martins",
+        pseudonym: "@FilEtLin",
+        imageName: "",
+        joinedDate: "29/07/2026",
+        address: "82 rue Victor Hugo",
+        city: "Bordeaux",
+        description: "Passionnée de broderie et de lin naturel.",
+        favoriteArtworksID: [],
+        followingID: [.anneSophie, .julie],
         reviewsID: []
     )
-
-let lucas = User(
-    firstName: "Lucas",
-    lastName: "Bernard",
-    pseudonym: "@WoodSoul",
-    imageName: "",
-    joinedDate: "30/07/2026",
-    address: "14 rue des Tilleuls",
-    city: "Lyon",
-    description: "Ébéniste amateur, amoureux du bois brut et du mobilier contemporain.",
-    favoriteArtworksID: [],
-    followingID: [],
-    reviewsID: []
-)
-
-let sofia = User(
-    firstName: "Sofia",
-    lastName: "Martins",
-    pseudonym: "@FilEtLin",
-    imageName: "",
-    joinedDate: "29/07/2026",
-    address: "82 rue Victor Hugo",
-    city: "Bordeaux",
-    description: "Passionnée de broderie et de lin naturel.",
-    favoriteArtworksID: [],
-    followingID: [marie.id],
-    reviewsID: []
-)
-
-var users: [User] = [
-    marie,
-    amande,
-    anneSophie,
-    julie,
-    lisa,
-    haruto,
-    eloise,
-    lucas,
-    sofia
 ]
