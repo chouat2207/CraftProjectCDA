@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 
 struct User: Identifiable {
-    var id: UUID = UUID()
+    var id = UUID()
     var firstName: String
     var lastName: String
     var pseudonym: String
