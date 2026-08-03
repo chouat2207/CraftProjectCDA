@@ -7,20 +7,21 @@
 
 import SwiftUI
 
-struct DiscoveryHScrollView <T: DisplayableItem & Identifiable>: View {
-    var itemList: [T]
+struct DiscoveryHScrollView: View {
+    var sectionTitle: String
+    var items: [any DisplayableItem & Identifiable]
     
 //    @Environment(DiscoveryViewModel.self) var discoveryVM
     var body: some View {
         VStack{
             HStack {
-                Text("Créations qui pourraient vous intéresser")
+                Text(sectionTitle)
                     .padding()
                 Spacer()
             }
             ScrollView(.horizontal) {
                 LazyHStack {
-                    ForEach(itemList) { item in
+                    ForEach(items, id:\.id) { item in
                         DiscoveryCard(itemName: item.name, itemImageName: item.imageName)
                     }
                 }

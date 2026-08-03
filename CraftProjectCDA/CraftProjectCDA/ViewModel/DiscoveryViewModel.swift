@@ -25,8 +25,20 @@ class DiscoveryViewModel {
 //    
 //     artwork : comparer preferences user + filtrer pour ignore favoris + date + views du post + rating ?
 //    
-//     events : comparer preferences user + order by date
+//     events : comparer preferences user + order by date + order by location
+    
+    // Instantiating sections with title + item collection
+    var discoverySections: [DiscoverySection] {
+        [
+            DiscoverySection(title: "Créations qui pourraient vous intéresser", items: artworkData),
+            DiscoverySection(title: "Artisans autour de vous", items: userData),
+            DiscoverySection(title: "Évènements autour de vous", items: eventData),
+        ]
+    }
+    
     var filteredUserListByArtisanProfileActive: [User] {
         userData.filter({$0.artisanProfileID != nil})
     }
+    
+    
 }

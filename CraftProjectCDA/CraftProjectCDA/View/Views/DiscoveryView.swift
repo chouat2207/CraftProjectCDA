@@ -14,8 +14,10 @@ struct DiscoveryView: View {
             VStack {
                 ScrollView {
                     DiscoveryNewsScrollView()
-                    DiscoveryHScrollView(itemList: discoveryVM.artworkData)
-                    DiscoveryHScrollView(itemList: discoveryVM.eventData)
+                    ForEach(discoveryVM.discoverySections){
+                        section in
+                        DiscoveryHScrollView(sectionTitle: section.title, items: section.items)
+                    }
                 }
             }
             .navigationTitle("À découvrir")
