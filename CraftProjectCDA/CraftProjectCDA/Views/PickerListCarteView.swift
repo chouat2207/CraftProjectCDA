@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct PickerListCarteView: View {
-
+    let displayedUser : User = users[1]
     let displayedArtisans: [ArtisanProfile]
   //  @State private var searchText: SearchBarCarte = ""
-
+    @State private var searchText = ""
     @State private var selection: PickerCarte.Content = .liste
 
  
@@ -20,13 +20,77 @@ struct PickerListCarteView: View {
         VStack{
             switch selection {
             case .liste:
-             //  SearchBarCarte(searchText: $searchText)
+                HStack(){
+                    SearchBarCarte(searchText: $searchText)
+                        .frame(width: 290)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 1)
+                        }
+                    
+                    Image(systemName: "slider.vertical.3")
+                        .font(.system(size: 20))
+                        .foregroundStyle(.gray)
+                        .frame(width: 38, height: 44)
+                        .background(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.black, lineWidth: 1)
+                            
+                        }
+                    Image(displayedUser.imageName)
+                        .font(.system(size: 20))
+                        .foregroundStyle(.gray)
+                        .frame(width: 40, height: 44)
+                        .background(.white)
+                        .clipShape(Circle())
+                        .overlay {
+                            Circle()
+                                .stroke(.black, lineWidth: 1)
+                        }
+                }
+                .padding(.horizontal, 3)
                 PickerCarte(selection: $selection)
                 CardList()
             case .carte:
                 ZStack(alignment: .top){
                     CarteView()
-                    PickerCarte(selection: $selection)}
+                    VStack{
+                        HStack(){
+                            SearchBarCarte(searchText: $searchText)
+                                .frame(width: 290)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.black, lineWidth: 1)
+                                }
+                            
+                            Image(systemName: "slider.vertical.3")
+                                .font(.system(size: 20))
+                                .foregroundStyle(.gray)
+                                .frame(width: 38, height: 44)
+                                .background(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(.black, lineWidth: 1)
+                                    
+                                }
+                            Image(displayedUser.imageName)
+                                .font(.system(size: 20))
+                                .foregroundStyle(.gray)
+                                .frame(width: 40, height: 44)
+                                .background(.white)
+                                .clipShape(Circle())
+                                .overlay {
+                                    Circle()
+                                        .stroke(.black, lineWidth: 1)
+                                }
+                        }
+                        .padding(.horizontal, 3)                
+                        PickerCarte(selection: $selection)
+                    }
+                }
             }
             
         }
