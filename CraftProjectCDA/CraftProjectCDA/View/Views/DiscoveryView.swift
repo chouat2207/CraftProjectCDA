@@ -20,10 +20,10 @@ struct DiscoveryView: View {
             }
             .navigationTitle("À découvrir")
         }
-        
     }
 }
 
 #Preview {
     DiscoveryView()
+        .environment(DiscoveryViewModel())
 }

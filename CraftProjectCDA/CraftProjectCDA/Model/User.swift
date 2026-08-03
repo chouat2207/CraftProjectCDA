@@ -15,7 +15,7 @@ struct User: Identifiable {
     var pseudonym: String
     var imageName: String
     var joinedDate: String
-    var artisanProfile: ArtisanProfile?
+    var artisanProfileID: UUID?
     var address: String
     var city: String
     var description: String

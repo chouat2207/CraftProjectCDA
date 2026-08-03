@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 @Observable
 class DiscoveryViewModel {
@@ -25,5 +26,7 @@ class DiscoveryViewModel {
 //     artwork : comparer preferences user + filtrer pour ignore favoris + date + views du post + rating ?
 //    
 //     events : comparer preferences user + order by date
-    
+    var filteredUserListByArtisanProfileActive: [User] {
+        userData.filter({$0.artisanProfileID != nil})
+    }
 }

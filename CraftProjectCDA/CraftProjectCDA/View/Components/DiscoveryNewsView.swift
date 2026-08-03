@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DiscoveryNewsView: View {
-    @Binding var imageName: String
+    var imageName: String
     var body: some View {
         ZStack {
             Circle()
@@ -25,6 +25,6 @@ struct DiscoveryNewsView: View {
     }
 }
 
-#Preview {
-    DiscoveryNewsView(imageName: .constant(""))
-}
+//#Preview {
+//    DiscoveryNewsView(imageName: .constant(""))
+//}
