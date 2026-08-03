@@ -1,12 +1,12 @@
+////
+////  Artworks.swift
+////  
+////
+////  Created by Apprenant 85 on 30/07/2026.
+////
 //
-//  Artworks.swift
-//  
+//import Foundation
 //
-//  Created by Apprenant 85 on 30/07/2026.
-//
-
-import Foundation
-
 var artworks = [
     
 Artwork(name: "Louis Vuitton",
@@ -20,7 +20,7 @@ Artwork(name: "Louis Vuitton",
         La prise de conscience de ce temps qui passe, la sédimentation, un processus au cours duquel les particules de toute matière cessent progressivement de bouger et s’agglomèrent en couches. Ces couches qui se créent, année après année, pour former une mémoire universelle, celle de la Terre et de notre empreinte. Autant d’épaisseurs, comme les pages d’un livre qui nous racontent l’histoire, notre histoire.
         """,
         details: "",
-       // artistID: users[1].id
+       //artistID: users[1].id
        ),
 Artwork(name: "Deco 156",
         imageName: "JemezPuebloDeco156",
@@ -56,7 +56,8 @@ Artwork(name: "Applique Abanico",
         La finition texturée, légèrement granuleuse, joue avec les ombres et les reflets pour créer une atmosphère chaleureuse et apaisante. Lorsqu’elle est allumée, la lumière glisse délicatement le long de ses courbes, dessinant sur le mur un halo raffiné et architectural. Disponible en version intérieur, ou extérieur.
         """,
         details: "",
-        artistID: <#T##UUID#>),
+       // artistID: UUID
+       ),
 Artwork(name: "Armchair",
         imageName: "AllegraLisaArmchair",
         artCategory: "Ceramique",
@@ -66,7 +67,8 @@ Artwork(name: "Armchair",
             Chaque pièce en céramique est associée à un autre matériau : le chêne ou le tissu. Des planches de bois ou des coussins moelleux relient les monolithes en céramique, tel un pont reliant deux rives. Un demi-cylindre en coton plissé s'enroule autour de son jumeau en céramique, comme un pull autour de la taille. L'équilibre est toujours au rendez-vous : un coussin en apesanteur ou un demi-cylindre en lévitation.
             """,
         details: "",
-        artistID: <#T##UUID#>),
+        //artistID: UUID
+       ),
 Artwork(name: "White Offering",
         imageName: "MouyssinatNadegeWhiteOffering",
         artCategory: "Porcelaine",
@@ -122,25 +124,29 @@ Artwork(name: "Codex Seraphinianus",
         artCategory: "Dessin",
         description: "",
         details: "",
-        artistID: <#T##UUID#>),
+        //artistID: T##UUID
+       ),
 Artwork(name: "Pueblo Saucer",
         imageName: "TierraOcrePuebloSaucer",
         artCategory: "Poterie",
         description: "",
         details: "",
-        artistID: <#T##UUID#>),
+        //artistID: T##UUID
+       ),
 Artwork(name: "Pueblo Vase",
         imageName: "TierraOcrePuebloPottery",
         artCategory: "Poterie",
         description: "",
         details: "",
-        artistID: <#T##UUID#>),
+        //artistID: T##UUID
+       ),
 Artwork(name: "Pueblo Pot",
         imageName: "TierraOcrePuebloPottery2",
         artCategory: "Poterie",
         description: "",
         details: "",
-        artistID: <#T##UUID#>),
+        //artistID: T##UUID
+       ),
 Artwork(name: "Navajo Vase",
         imageName: "TierraOcreNavajoPottery",
         artCategory: "Poterie",

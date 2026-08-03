@@ -15,7 +15,7 @@ struct DiscoveryCard: View {
             Rectangle()
                 
                 .cornerRadius(10)
-                .foregroundStyle(.blue)
+                .foregroundStyle(.white)
             VStack {
                 Image(itemImageName)
                     .resizable()
@@ -32,6 +32,7 @@ struct DiscoveryCard: View {
                 Spacer()
             }
         }
+        .padding()
         .frame(width: 180, height: 190)
         .shadow(radius: 2)
     }

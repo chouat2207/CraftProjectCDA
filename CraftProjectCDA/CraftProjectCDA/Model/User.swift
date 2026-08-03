@@ -19,10 +19,10 @@ struct User: Identifiable {
     var address: String
     var city: String
     var description: String
-    var favoriteArtworksID: [UUID]
-    
-    // Array of artisans the user is following
-    var followingID: [UUID]
-    
-    var reviewsID: [UUID]
+//    var favoriteArtworksID: [UUID]
+//    
+//    // Array of artisans the user is following
+//    var followingID: [UUID]
+//    
+//    var reviewsID: [UUID]
 }
