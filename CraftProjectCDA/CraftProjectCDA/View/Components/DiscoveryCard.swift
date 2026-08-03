@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DiscoveryCard: View {
-    @Binding var itemName: String
-    @Binding var itemImageName: String
+    var itemName: String
+    var itemImageName: String
     var body: some View {
         ZStack {
             Rectangle()
@@ -39,5 +39,5 @@ struct DiscoveryCard: View {
 }
 
 #Preview {
-    DiscoveryCard(itemName: .constant("Ninja"), itemImageName: .constant("HaeghenAmandeLouisVuitton"))
+    DiscoveryCard(itemName: "String", itemImageName: "String"/*itemName: .constant("Ninja"), itemImageName: .constant("HaeghenAmandeLouisVuitton")*/)
 }

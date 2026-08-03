@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct DiscoveryHScrollView: View {
-    @State private var artworkList = artworks
+struct DiscoveryHScrollView <T: DisplayableItem & Identifiable>: View {
+    var itemList: [T]
+    
+//    @Environment(DiscoveryViewModel.self) var discoveryVM
     var body: some View {
         VStack{
             HStack {
@@ -18,11 +20,8 @@ struct DiscoveryHScrollView: View {
             }
             ScrollView(.horizontal) {
                 LazyHStack {
-                    ForEach($artworkList) { $artwork in
-                        DiscoveryCard(itemName: $artwork.name, itemImageName: $artwork.imageName)
-                            .onAppear {
-                                print(index)
-                            }
+                    ForEach(itemList) { item in
+                        DiscoveryCard(itemName: item.name, itemImageName: item.imageName)
                     }
                 }
             }
@@ -31,6 +30,7 @@ struct DiscoveryHScrollView: View {
     }
 }
 
-#Preview {
-    DiscoveryHScrollView()
-}
+//#Preview {
+//    DiscoveryHScrollView<T: DisplayableItem & Identifiable>()
+//        .environment(DiscoveryViewModel())
+//}

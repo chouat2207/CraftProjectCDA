@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct DiscoveryView: View {
-    @State var discoveryVM: DiscoveryViewModel = DiscoveryViewModel(artworkData: artworks)
+    @State var discoveryVM: DiscoveryViewModel = DiscoveryViewModel()
     var body: some View {
         NavigationStack {
             VStack {
                 ScrollView {
-                    DiscoveryHScrollView()
-                    DiscoveryHScrollView()
-                    DiscoveryHScrollView()
-                    DiscoveryHScrollView()
+                    DiscoveryNewsScrollView()
+                    DiscoveryHScrollView(itemList: discoveryVM.artworkData)
+                    DiscoveryHScrollView(itemList: discoveryVM.eventData)
                 }
             }
             .navigationTitle("À découvrir")
