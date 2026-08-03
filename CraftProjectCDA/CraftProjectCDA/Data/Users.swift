@@ -7,22 +7,22 @@
 
 import Foundation
 
-var users: [User] = [
-    User(
+
+let marie = User(
         firstName: "Marie",
         lastName: "Dubois",
         pseudonym: "@MarieDubois",
-        imageName: "",
+        imageName: "DuboisMarie",
         joinedDate: "27/07/2026",
         address: "193 Chemin des Vignes",
         city: "Bessens",
         description: "Passionnée de céramique",
-        favoriteArtworksID: [artworks[0].id],
-        followingID: [users[1].id],
-        reviewsID: [reviewMessages[1].id]
-    ),
+        favoriteArtworksID: [],
+        followingID: [amande.id],
+        reviewsID: []
+    )
     
-    User(
+let amande = User(
         firstName: "Amande",
         lastName: "Haeghen",
         pseudonym: "@AmandeHaeghen",
@@ -31,12 +31,12 @@ var users: [User] = [
         address: "Rua Damasceno Monteiro 75A,",
         city: "Lisbonne",
         description: "Amoureuse des matières naturelles et de la céramique",
-        favoriteArtworksID: [artworks[5].id],
-        followingID: [users[0].id],
-        reviewsID: [reviewMessages[5].id]
-    ),
-    
-    User(
+        favoriteArtworksID: [],
+        followingID: [],
+        reviewsID: []
+    )
+
+let anneSophie = User(
         firstName: "Anne-Sophie",
         lastName: "Deillon",
         pseudonym: "@PlumesDeSoie",
@@ -45,12 +45,12 @@ var users: [User] = [
         address: "Grenoble",
         city: "Grenoble",
         description: "Passionnée de broderie d'art, de soie et de savoir-faire haute couture.",
-        favoriteArtworksID: [artworks[0].id],
-        followingID: [users[8].id],
-        reviewsID: [reviewMessages[8].id]
-    ),
+        favoriteArtworksID: [],
+        followingID: [],
+        reviewsID: []
+    )
     
-    User(
+let julie = User(
         firstName: "Julie",
         lastName: "Boucherat",
         pseudonym: "@JulieBoucherat",
@@ -59,12 +59,12 @@ var users: [User] = [
         address: "17 rue Lagréou",
         city: "Bayonne",
         description: "Inspirée par l'artisanat, la terre et les pièces uniques.",
-        favoriteArtworksID: [artworks[6].id],
-        followingID: [users[2].id],
-        reviewsID: [reviewMessages[6].id]
-    ),
+        favoriteArtworksID: [],
+        followingID: [],
+        reviewsID: []
+    )
     
-    User(
+let lisa = User(
         firstName: "Lisa",
         lastName: "Allegra",
         pseudonym: "@LisaAllegra",
@@ -73,12 +73,12 @@ var users: [User] = [
         address: "C. de Quevedo, 12, 08012",
         city: "Barcelone",
         description: "Amoureuse des formes minimalistes et des matières naturelles",
-        favoriteArtworksID: [artworks[7].id],
-        followingID: [users[0].id],
-        reviewsID: [reviewMessages[7].id]
-    ),
+        favoriteArtworksID: [],
+        followingID: [],
+        reviewsID: []
+    )
     
-    User(
+let haruto = User(
         firstName: "Haruto",
         lastName: "Aoki",
         pseudonym: "@GARASU",
@@ -87,12 +87,12 @@ var users: [User] = [
         address: "3 avenue République Dame",
         city: "Marseille",
         description: "Passionné de verrerie",
-        favoriteArtworksID: [artworks[1].id],
-        followingID: [users[0].id],
-        reviewsID: [reviewMessages[2].id]
-    ),
+        favoriteArtworksID: [],
+        followingID: [],
+        reviewsID: []
+    )
     
-    User(
+let eloise = User(
         firstName: "Éloise",
         lastName: "Ocre",
         pseudonym: "@TIERRAOCRE",
@@ -101,12 +101,12 @@ var users: [User] = [
         address: "38 rue Saint-Jacques",
         city: "Marseille",
         description: "Passionnée par la poterie depuis l'enfance. J'aime façonner des pièces uniques inspirées des terres méditerranéennes et partager les savoir-faire artisanaux.",
-        favoriteArtworksID: [artworks[2].id],
-        followingID: [users[0].id],
-        reviewsID: [reviewMessages[3].id]
-    ),
+        favoriteArtworksID: [],
+        followingID: [],
+        reviewsID: []
+    )
 
-User(
+let lucas = User(
     firstName: "Lucas",
     lastName: "Bernard",
     pseudonym: "@WoodSoul",
@@ -115,12 +115,12 @@ User(
     address: "14 rue des Tilleuls",
     city: "Lyon",
     description: "Ébéniste amateur, amoureux du bois brut et du mobilier contemporain.",
-    favoriteArtworksID: [artworks[4].id],
-    followingID: [users[4].id],
-    reviewsID: [reviewMessages[5].id]
-),
+    favoriteArtworksID: [],
+    followingID: [],
+    reviewsID: []
+)
 
-User(
+let sofia = User(
     firstName: "Sofia",
     lastName: "Martins",
     pseudonym: "@FilEtLin",
@@ -129,9 +129,19 @@ User(
     address: "82 rue Victor Hugo",
     city: "Bordeaux",
     description: "Passionnée de broderie et de lin naturel.",
-    favoriteArtworksID: [artworks[5].id],
-    followingID: [users[3].id],
-    reviewsID: [reviewMessages[4].id]
+    favoriteArtworksID: [],
+    followingID: [marie.id],
+    reviewsID: []
 )
-]
 
+var users: [User] = [
+    marie,
+    amande,
+    anneSophie,
+    julie,
+    lisa,
+    haruto,
+    eloise,
+    lucas,
+    sofia
+]

@@ -7,9 +7,9 @@
 
 import Foundation
 
-var artworks = [
+
     
-Artwork(name: "Louis Vuitton",
+let artworkLouisVuitton = Artwork(name: "Louis Vuitton",
         imageName: "HaeghenAmandeLouisVuitton",
         artCategory: "Céramique",
         description: """
@@ -20,14 +20,16 @@ Artwork(name: "Louis Vuitton",
         La prise de conscience de ce temps qui passe, la sédimentation, un processus au cours duquel les particules de toute matière cessent progressivement de bouger et s’agglomèrent en couches. Ces couches qui se créent, année après année, pour former une mémoire universelle, celle de la Terre et de notre empreinte. Autant d’épaisseurs, comme les pages d’un livre qui nous racontent l’histoire, notre histoire.
         """,
         details: "",
-        artistID: users[1].id),
-Artwork(name: "Deco 156",
+        artistID: users[1].id)
+
+let artworkDeco156 = Artwork(name: "Deco 156",
         imageName: "JemezPuebloDeco156",
         artCategory: "Poterie",
         description: "",
         details: "",
-        artistID: users[1].id),
-Artwork(name: "Jeong 정",
+        artistID: users[1].id)
+
+let artworkJeong = Artwork(name: "Jeong 정",
         imageName: "DuboisMarieJeong",
         artCategory: "Céramique",
         description: """
@@ -36,14 +38,16 @@ Artwork(name: "Jeong 정",
         À travers mes recherches d'émaux, je privilégie des tonalités naturelles  et   nuancées   comme  des  blancs  cassés, verts sourds, bruns profonds,  laissant apparaître les variations de cuisson et les singularités propres à chaque pièce. 
         """,
         details: "",
-        artistID: users[1].id),
-Artwork(name: "Josie, Albert & Michel",
+                           artistID: marie.id)
+
+let artworkJosieAlbertMichel = Artwork(name: "Josie, Albert & Michel",
         imageName: "BoucheratJulieJosieAlbertMichel",
         artCategory: "Céramique",
         description: "",
         details: "",
-        artistID: users[1].id),
-Artwork(name: "Applique Abanico",
+        artistID: users[1].id)
+
+let artworkAppliqueAbanico = Artwork(name: "Applique Abanico",
         imageName: "AllegraLisaAppliqueAbanico",
         artCategory: "Argile",
         description: """
@@ -52,8 +56,9 @@ Artwork(name: "Applique Abanico",
         La finition texturée, légèrement granuleuse, joue avec les ombres et les reflets pour créer une atmosphère chaleureuse et apaisante. Lorsqu’elle est allumée, la lumière glisse délicatement le long de ses courbes, dessinant sur le mur un halo raffiné et architectural. Disponible en version intérieur, ou extérieur.
         """,
         details: "",
-        artistID: users[1].id),
-Artwork(name: "White Offering",
+        artistID: users[1].id)
+
+let artworkWhiteOffering = Artwork(name: "White Offering",
         imageName: "MouyssinatNadegeWhiteOffering",
         artCategory: "Porcelaine",
         description: """
@@ -62,14 +67,16 @@ Artwork(name: "White Offering",
             Hommage à la blancheur légendaire de la porcelaine de Limoges, cette création explore la puissance de cette teinte dans toute sa majesté et sa profonde luminosité.
             """,
         details: "",
-        artistID: users[1].id),
-Artwork(name: "Carnigrass",
+        artistID: users[1].id)
+
+let artworkCarnigrass = Artwork(name: "Carnigrass",
         imageName: "GarasuAboutMeCarnigrass",
         artCategory: "Verrerie",
         description: "",
         details: "",
-        artistID: users[1].id),
-Artwork(name: "Whale Tail",
+        artistID: users[1].id)
+
+let artworkWhaleTail = Artwork(name: "Whale Tail",
         imageName: "SeaLeaWhaleTail",
         artCategory: "",
         description: """
@@ -78,35 +85,55 @@ Artwork(name: "Whale Tail",
             Nos sculptures en vitrail sont méticuleusement réalisées dans cet esprit, à partir de verre irisé qui offre un jeu fascinant de couleurs et de reflets imitant la lueur éthérée et les teintes de l’océan. Chaque pièce est un véritable atout pour votre intérieur, apportant une touche de merveille aquatique à n’importe quel espace.
             """,
         details: "",
-        artistID: users[1].id),
-Artwork(name: "Oeuf de Fabergé",
+        artistID: users[1].id)
+
+
+let artworkOeufFaberge = Artwork(name: "Oeuf de Fabergé",
         imageName: "GarasuInspirationOeufDeFaberge",
         artCategory: "Joaillerie",
         description: "",
         details: "",
-        artistID: users[1].id),
-Artwork(name: "Corallia",
+        artistID: users[1].id)
+
+let artworkCorallia = Artwork(name: "Corallia",
         imageName: "GarasuInspirationCorallia",
         artCategory: "Verrerie",
         description: "",
         details: "",
-        artistID: users[1].id),
-Artwork(name: "Anomalys",
+        artistID: users[1].id)
+
+let artworkAnomalys = Artwork(name: "Anomalys",
         imageName: "GarasuInspirationAnomalys",
         artCategory: "Verrerie",
         description: "",
         details: "",
-        artistID: users[1].id),
-Artwork(name: "Codex Seraphinianus",
+        artistID: users[1].id)
+
+let artworkCodex = Artwork(name: "Codex Seraphinianus",
         imageName: "GarasuInspirationCodexSeraphinianus",
         artCategory: "Dessin",
         description: "",
         details: "",
-        artistID: users[1].id),
-Artwork(name: "",
+        artistID: users[1].id)
+
+let artwork = Artwork(name: "",
         imageName: "",
         artCategory: "",
         description: "",
         details: "",
-        artistID: users[1].id),
+        artistID: users[1].id)
+
+var artworks = [
+    artworkLouisVuitton,
+    artworkDeco156,
+    artworkJeong,
+    artworkJosieAlbertMichel,
+    artworkAppliqueAbanico,
+    artworkWhiteOffering,
+    artworkCarnigrass,
+    artworkWhaleTail,
+    artworkOeufFaberge,
+    artworkCorallia,
+    artworkAnomalys,
+    artworkCodex
 ]

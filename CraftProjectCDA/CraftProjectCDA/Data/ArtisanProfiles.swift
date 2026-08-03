@@ -8,8 +8,7 @@
 import Foundation
 import MapKit
 
-var artisanProfiles = [
-    ArtisanProfile(
+let lisaArtisanProfile = ArtisanProfile(
         isActive: true,
         shopAddress: "C. de Quevedo, 12, 08012, Barcelone, Espagne",
         shopLocation: CLLocationCoordinate2D(latitude: 41.4035, longitude: 2.1603),
@@ -22,9 +21,9 @@ var artisanProfiles = [
         artworksID: [artworks[0].id],
         about: "",
         followedByID: [users[0].id]
-    ),
+    )
     
-    ArtisanProfile(
+let julieArtisanProfile = ArtisanProfile(
         isActive: true,
         shopAddress: "17 rue Lagréou, 64100 Bayonne",
         shopLocation: CLLocationCoordinate2D(latitude: 43.4929, longitude: -1.4748),
@@ -37,8 +36,9 @@ var artisanProfiles = [
         artworksID: [artworks[1].id],
         about: "Julie Boucherat est la fondatrice de MANO MANI. Elle crée des pièces en grès aux formes organiques, inspirées de la nature du Pays basque. Son travail mêle recherche de textures, émaux personnels et cuissons traditionnelles au bois, notamment en four Anagama.",
         followedByID: [users[2].id]
-    ),
-    ArtisanProfile(
+    )
+
+let marieArtisanProfile = ArtisanProfile(
         isActive: true,
         shopAddress: "Bessens, 82170 Tarn-et-Garonne, France",
         shopLocation: CLLocationCoordinate2D(
@@ -54,8 +54,9 @@ var artisanProfiles = [
         artworksID: [artworks[2].id],
         about: "Marie Dubois imagine une céramique contemporaine aux lignes sobres et sensibles. Chaque pièce est façonnée à la main dans une recherche d'équilibre entre matière, lumière et usage quotidien.",
         followedByID: [users[3].id]
-    ),
-    ArtisanProfile(
+    )
+
+let amandeArtisanProfile = ArtisanProfile(
         isActive: true,
         shopAddress: "Rua Damasceno Monteiro 75A, 1170-110 Lisboa, Portugal",
         shopLocation: CLLocationCoordinate2D(
@@ -71,9 +72,9 @@ var artisanProfiles = [
         artworksID: [artworks[3].id],
         about: "Amande Haeghen réalise des sculptures contemporaines où le volume, les textures et les matières naturelles dialoguent. Son univers explore les formes organiques et la relation entre l'objet et l'espace.",
         followedByID: [users[4].id]
-    ),
+    )
     
-    ArtisanProfile(
+let nadegeArtisanProfile = ArtisanProfile(
         isActive: true,
         shopAddress: "15 rue Madame de Sévigné, 87100 Limoges, France",
         shopLocation: CLLocationCoordinate2D(
@@ -89,9 +90,9 @@ var artisanProfiles = [
         artworksID: [artworks[4].id],
         about: "Nadège Mouyssinat conçoit du mobilier sculptural fabriqué artisanalement. Ses créations associent matériaux nobles, lignes minimalistes et savoir-faire traditionnel pour créer des pièces fonctionnelles et intemporelles.",
         followedByID: [users[5].id]
-    ),
+    )
     
-    ArtisanProfile(
+let leaArtisanProfile = ArtisanProfile(
         isActive: true,
         shopAddress: "12 rue Mazagran, 64200 Biarritz",
         shopLocation: CLLocationCoordinate2D(
@@ -107,9 +108,9 @@ var artisanProfiles = [
         artworksID: [artworks[5].id],
         about: "Lea Sea est une céramiste inspirée par l'océan Atlantique. Elle façonne des objets du quotidien aux émaux bleutés et sableux, évoquant les paysages marins et les falaises de la côte basque.",
         followedByID: [users[6].id]
-    ),
-    
-    ArtisanProfile(
+    )
+
+let anneSophieArtisanProfile = ArtisanProfile(
         isActive: true,
         shopAddress: "Le Clos du Moulin 4, 1 route de Fontcouvert, 38570 Goncelin, France",
         shopLocation: CLLocationCoordinate2D(
@@ -125,8 +126,8 @@ var artisanProfiles = [
         artworksID: [artworks[6].id],
         about: "Anne-Sophie Deillon est brodeuse d'art. À travers Plumes de Soie, elle réalise des broderies contemporaines et des créations textiles mêlant finesse, savoir-faire traditionnel et poésie.",
         followedByID: [users[7].id]
-    ),
-    ArtisanProfile(
+    )
+let eloiseArtisanProfile = ArtisanProfile(
         isActive: true,
         shopAddress: "38 rue Saint-Jacques, 13006 Marseille",
         shopLocation: CLLocationCoordinate2D(
@@ -143,4 +144,14 @@ var artisanProfiles = [
         about: "Sous le pseudonyme TIERRAOCRE, Éloïse imagine et façonne des pièces uniques inspirées des terres méditerranéennes. Passionnée de poterie depuis l'enfance, elle privilégie les matières brutes, les émaux naturels et le partage des savoir-faire artisanaux lors d'ateliers ouverts au public.",
         followedByID: [users[8].id]
     )
+
+var artisanProfiles = [
+    lisaArtisanProfile,
+    julieArtisanProfile,
+    marieArtisanProfile,
+    amandeArtisanProfile,
+    nadegeArtisanProfile,
+    leaArtisanProfile,
+    anneSophieArtisanProfile,
+    eloiseArtisanProfile
 ]
