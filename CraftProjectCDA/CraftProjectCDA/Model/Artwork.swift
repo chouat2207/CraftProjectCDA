@@ -14,7 +14,7 @@ struct Artwork: Identifiable {
     var artCategory: String
     var description: String
     var details: String
-    // var artistID: UUID
+    var artistID: UUID
 }
 
 
