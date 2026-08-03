@@ -32,6 +32,7 @@ struct DiscoveryCard: View {
                 Spacer()
             }
         }
+        .padding()
         .frame(width: 180, height: 190)
         .shadow(radius: 2)
     }

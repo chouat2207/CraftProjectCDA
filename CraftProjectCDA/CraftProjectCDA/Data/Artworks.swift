@@ -1,12 +1,12 @@
+////
+////  Artworks.swift
+////  
+////
+////  Created by Apprenant 85 on 30/07/2026.
+////
 //
-//  Artworks.swift
-//  
+//import Foundation
 //
-//  Created by Apprenant 85 on 30/07/2026.
-//
-
-import Foundation
-
 var artworks = [
     
 Artwork(name: "Louis Vuitton",
@@ -20,7 +20,7 @@ Artwork(name: "Louis Vuitton",
         La prise de conscience de ce temps qui passe, la sédimentation, un processus au cours duquel les particules de toute matière cessent progressivement de bouger et s’agglomèrent en couches. Ces couches qui se créent, année après année, pour former une mémoire universelle, celle de la Terre et de notre empreinte. Autant d’épaisseurs, comme les pages d’un livre qui nous racontent l’histoire, notre histoire.
         """,
         details: "",
-       // artistID: users[1].id
+       //artistID: users[1].id
        ),
 Artwork(name: "Deco 156",
         imageName: "JemezPuebloDeco156",
