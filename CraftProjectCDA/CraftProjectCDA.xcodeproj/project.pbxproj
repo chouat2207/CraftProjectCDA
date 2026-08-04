@@ -8,6 +8,7 @@
 
 /* Begin PBXFileReference section */
 		873F46BB3012B22100EBA8AE /* CraftProjectCDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CraftProjectCDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF987E703021CA0C00AF1668 /* ExoCompteur.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ExoCompteur.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -41,6 +42,13 @@
 			isa = PBXGroup;
 			children = (
 				873F46BB3012B22100EBA8AE /* CraftProjectCDA.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF987E723021CA0C00AF1668 /* Products */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +105,12 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 873F46BC3012B22100EBA8AE /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BF987E723021CA0C00AF1668 /* Products */;
+					ProjectRef = BF987E703021CA0C00AF1668 /* ExoCompteur.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				873F46BA3012B22100EBA8AE /* CraftProjectCDA */,

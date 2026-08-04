@@ -84,10 +84,36 @@ struct ProfileView: View {
             }
             .ignoresSafeArea()
             
+            HStack{
+                
+                Button{
+                    
+                }label: {
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 15)
+                            .frame(width: 150,height: 40)
+                            .foregroundStyle(.mint.secondary)
+                        Text("Abonnements")
+                            .foregroundStyle(.black)
+                    }
+                }
+                Button{
+                    
+                }label: {
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 15)
+                            .frame(width: 150,height: 40)
+                            .foregroundStyle(.gray.quinary)
+                        Text("Avis")
+                            .foregroundStyle(.black)
+                    }
+                }
+                }
+            }
             Spacer()
             
             
-        }
+        
         
     }
     
