@@ -16,7 +16,8 @@ struct DiscoveryHScrollView: View {
         VStack{
             HStack {
                 Text(sectionTitle)
-                    .padding()
+                    .font(.title2)
+                    .padding(.leading)
                 Spacer()
             }
             ScrollView(.horizontal) {
@@ -26,7 +27,7 @@ struct DiscoveryHScrollView: View {
                     }
                 }
             }
-            .padding()
+            .padding([.bottom, .leading])
         }
     }
 }

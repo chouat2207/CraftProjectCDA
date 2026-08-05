@@ -13,7 +13,8 @@ struct DiscoveryNewsScrollView: View {
         VStack{
             HStack {
                 Text("Actualités")
-                    .padding()
+                    .padding(.leading)
+                    .font(.title2)
                 Spacer()
             }
             ScrollView(.horizontal) {
@@ -23,7 +24,7 @@ struct DiscoveryNewsScrollView: View {
                     }
                 }
             }
-            .padding()
+            .padding([.bottom, .leading])
         }
     }
 }
