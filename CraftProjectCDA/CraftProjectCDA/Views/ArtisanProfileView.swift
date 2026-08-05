@@ -1,24 +1,22 @@
 //
-//  ProfileView.swift
+//  ArtisanProfileView.swift
+//  CraftProjectCDA
 //
-//
-//  Created by Apprenant 85 on 31/07/2026.
+//  Created by Apprenant 85 on 05/08/2026.
 //
 
 import SwiftUI
 
-struct ProfileView: View {
+struct ArtisanProfileView: View {
     
     @State private var isShowEdit: Bool = false
-    @State var selectedTab = "Abonnements"
+    @State var selectedTab = "Créations"
     
     var body: some View {
-        
-        
         VStack{
             ZStack{
                 
-                Image("GarasuPhotoDeCouverture")
+                Image("TierraOcrePhotoDeCouverture")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 500, height: 270)
@@ -27,7 +25,7 @@ struct ProfileView: View {
                 
                 HStack(alignment: .bottom){
                     
-                    Image("GarasuPhotoDeProfil")
+                    Image("TierraOcre")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 130, height: 130)
@@ -39,7 +37,7 @@ struct ProfileView: View {
                     VStack{
                         HStack(spacing: 130){
                             
-                            Text("@GARASU")
+                            Text("@TIERRAOCRE")
                                 .fontWeight(.semibold)
                             
                             Image(systemName: "gearshape.fill")
@@ -90,78 +88,45 @@ struct ProfileView: View {
             HStack(){
                 
                 Picker("", selection: $selectedTab){
-                    Text("Abonnements")
+                    Text("Créations")
                     
-                        .tag("following")
+                        .tag("artworks")
+                    
+                    Text("À propos")
+                    
+                        .tag("aboutme")
                     
                     Text("Avis")
                     
                         .tag("reviews")
+                    
+                    Text("Journal")
+                    
+                        .tag("logbook")
                 }
                 .pickerStyle(.segmented)
-                .scaleEffect(1.4)
+                .scaleEffect(1.2)
                 .colorMultiply(.mint.opacity(0.7))
-                .padding(.horizontal,70)
+                .padding(.horizontal,40)
                 
-                if selectedTab == "following"{
+                if selectedTab == "artworks"{
                     //                    ForEach (users) { user in
                     //UserFollowing
-                }else if selectedTab == "reviews"{
+                }else if selectedTab == "aboutme"{
                     //ForEach Users -> reviewsID
+                }else if selectedTab == "reviews"{
+                    
+                }else if selectedTab == "logbook"{
+                    
                 }
                 
             }
         }
         Spacer()
         
-        
-        
-        
-    }
-    
-}
-
-// ABONNEMENTS
-struct UserFollowing: View {
-    let user: User
-    
-    var body: some View {
-        
-        ZStack{
-            Rectangle()
-                .cornerRadius(10)
-                .foregroundStyle(.white)
-            VStack {
-                Image(user.imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 180, height: 140)
-                    .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
-                Spacer()
-                HStack {
-                    Text("\(user.firstName)"+"\(user.lastName)")
-                        .font(.caption)
-                    Spacer()
-                }
-                
-                .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
-                Spacer()
-            }
-        }
-        .padding()
-        .frame(width: 180, height: 190)
-        .shadow(radius: 2)
-        
     }
 }
 
-// AVIS
-struct UserReviews: View {
-    let user: User
-    
-    var body: some View{
-        
-    }
-}
 #Preview {
-    ProfileView()}
+    ArtisanProfileView()
+}

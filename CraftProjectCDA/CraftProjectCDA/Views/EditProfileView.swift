@@ -9,6 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct EditProfileView: View {
+    @State var viewModel: EditProfileViewModel
     @State private var userPhotoItem: PhotosPickerItem?
     @State private var selectedPhoto: Image?
     @State var pseudoInput = ""
@@ -78,11 +79,12 @@ struct EditProfileView: View {
             
             HStack(){
                 Text("@")
-                    .font(.title2)
+                    .font(.title)
                     .fontWeight(.semibold)
+                    .padding(.trailing,3)
                 TextField(" PSEUDO", text: $pseudoInput)
                     .padding(3)
-                    .frame(width: 180)
+                    .frame(width: 330)
                     .overlay(RoundedRectangle(cornerRadius: 7)
                         .stroke(.secondary.opacity(0.8), lineWidth: 1))
                     .textInputAutocapitalization(.characters)
@@ -124,7 +126,7 @@ struct EditProfileView: View {
             .padding(.horizontal,15)
             
             Button{
-                
+//                viewModel.saveEditChanges(users[0].id)
             }label: {
                 ZStack{
                     RoundedRectangle(cornerRadius: 32)
@@ -148,5 +150,5 @@ struct EditProfileView: View {
 }
 
 #Preview {
-    EditProfileView()
+    EditProfileView(viewModel: EditProfileViewModel())
 }
