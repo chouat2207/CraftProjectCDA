@@ -8,23 +8,24 @@
 import SwiftUI
 
 struct DiscoveryView: View {
-    @State var discoveryVM: DiscoveryViewModel = DiscoveryViewModel(artworkData: artworks)
+    @State var discoveryVM: DiscoveryViewModel = DiscoveryViewModel()
     var body: some View {
         NavigationStack {
             VStack {
                 ScrollView {
-                    DiscoveryHScrollView()
-                    DiscoveryHScrollView()
-                    DiscoveryHScrollView()
-                    DiscoveryHScrollView()
+                    DiscoveryNewsScrollView()
+                    ForEach(discoveryVM.discoverySections){
+                        section in
+                        DiscoveryHScrollView(sectionTitle: section.title, items: section.items)
+                    }
                 }
             }
             .navigationTitle("À découvrir")
         }
-        
     }
 }
 
 #Preview {
     DiscoveryView()
+        .environment(DiscoveryViewModel())
 }
