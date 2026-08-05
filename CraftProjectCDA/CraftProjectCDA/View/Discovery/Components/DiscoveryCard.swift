@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DiscoveryCard: View {
-    @Binding var itemName: String
-    @Binding var itemImageName: String
+    var itemName: String
+    var itemImageName: String
     var body: some View {
         ZStack {
             Rectangle()
@@ -19,6 +19,7 @@ struct DiscoveryCard: View {
             VStack {
                 Image(itemImageName)
                     .resizable()
+                    .scaledToFill()
                     .frame(width: 180, height: 140)
                     .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
                 Spacer()
@@ -39,5 +40,5 @@ struct DiscoveryCard: View {
 }
 
 #Preview {
-    DiscoveryCard(itemName: .constant("Ninja"), itemImageName: .constant("HaeghenAmandeLouisVuitton"))
+    DiscoveryCard(itemName: "String", itemImageName: "String")
 }

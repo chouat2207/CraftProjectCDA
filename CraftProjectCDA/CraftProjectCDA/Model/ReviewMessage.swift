@@ -13,6 +13,5 @@ struct ReviewMessage: Identifiable, Message {
     var postDate: String
     var senderID: UUID
     var receiverID: UUID
-    
     var rating: Double
 }
