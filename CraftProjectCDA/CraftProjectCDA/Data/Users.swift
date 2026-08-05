@@ -25,7 +25,7 @@ var users: [User] = [
         firstName: "Marie",
         lastName: "Dubois",
         pseudonym: "@MarieDubois",
-        imageName: "",
+        imageName: "DuboisMarie",
         joinedDate: "27/07/2026",
         address: "193 Chemin des Vignes",
         city: "Bessens",
