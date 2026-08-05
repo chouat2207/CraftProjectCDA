@@ -23,6 +23,24 @@ struct EditProfileView: View {
                 .frame(width: 500, height: 270)
                 .clipShape(Rectangle())
             
+            selectedPhoto?
+                .resizable()
+                .scaledToFill()
+                .frame(width: 500, height: 270)
+                .clipShape(Rectangle())
+            
+            PhotosPicker(selection: $userPhotoItem, matching: .images){
+                
+                Image(systemName: "plus.circle.fill")
+                    .glassEffect(.clear)
+                    .font(.largeTitle)
+                    .foregroundStyle(.mint)
+                    
+            }
+            .task(id: userPhotoItem){
+                selectedPhoto = try? await userPhotoItem?
+                    .loadTransferable(type: Image.self)
+            }
             
             ZStack{
                 Image("GarasuPhotoDeProfil")
@@ -47,7 +65,7 @@ struct EditProfileView: View {
                     Image(systemName: "plus.circle.fill")
                         .glassEffect(.clear)
                         .font(.largeTitle)
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(.mint)
                         .padding(.leading,106)
                         .padding(.top,85)
                     
@@ -63,8 +81,9 @@ struct EditProfileView: View {
                     .font(.title2)
                     .fontWeight(.semibold)
                 TextField(" PSEUDO", text: $pseudoInput)
-                    .frame(width: 150)
-                    .overlay(RoundedRectangle(cornerRadius: 5)
+                    .padding(3)
+                    .frame(width: 180)
+                    .overlay(RoundedRectangle(cornerRadius: 7)
                         .stroke(.secondary.opacity(0.8), lineWidth: 1))
                     .textInputAutocapitalization(.characters)
                 
@@ -79,8 +98,11 @@ struct EditProfileView: View {
                     .fontWeight(.semibold)
                     .kerning(1)
                     .padding(.top,15)
-                TextField(" Décrivez-vous", text: $bioInput)
-                    .overlay(RoundedRectangle(cornerRadius: 5)
+                TextField(" Quelques mots sur vous ...", text: $bioInput)
+                    .padding(.bottom,50)
+                    .padding(3)
+                    .multilineTextAlignment(.leading)
+                    .overlay(RoundedRectangle(cornerRadius: 7)
                         .stroke(.secondary.opacity(0.8), lineWidth: 1))
                     
             }
@@ -92,10 +114,11 @@ struct EditProfileView: View {
                     .fontWeight(.semibold)
                     .kerning(1)
                     .padding(.top,20)
-                TextField(" http://", text: $siteInput)
+                TextField(" https://", text: $siteInput)
                     .keyboardType(.URL)
                     .textContentType(.URL)
-                    .overlay(RoundedRectangle(cornerRadius: 5)
+                    .padding(3)
+                    .overlay(RoundedRectangle(cornerRadius: 7)
                         .stroke(.secondary.opacity(0.8), lineWidth: 1))
             }
             .padding(.horizontal,15)
@@ -106,7 +129,7 @@ struct EditProfileView: View {
                 ZStack{
                     RoundedRectangle(cornerRadius: 32)
                         .frame(width: 180,height: 50)
-                        .foregroundStyle(.blue.secondary)
+                        .foregroundStyle(.mint.secondary)
                     Text("Sauvegarder")
                         .font(.title2)
                         .fontWeight(.regular)
