@@ -11,6 +11,10 @@ struct PickerListCarteView: View {
     let displayedUser  : User
     let artwork : [Artwork]
     let displayedArtisans: ArtisanProfile
+
+//    let displayedUser : User = users[1]
+//    let displayedArtisans: [ArtisanProfile]
+  //  @State private var searchText: SearchBarCarte = ""
     @State private var searchText = ""
     @State private var selection: PickerCarte.Content = .liste
 
@@ -79,6 +83,7 @@ struct PickerListCarteView: View {
                                     
                                 }
                             Image(displayedArtisans.imageName)
+
                                 .font(.system(size: 20))
                                 .foregroundStyle(.gray)
                                 .frame(width: 40, height: 44)
