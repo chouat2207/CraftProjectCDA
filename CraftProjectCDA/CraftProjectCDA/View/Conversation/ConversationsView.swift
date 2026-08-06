@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ConversationView: View {
-    @State var conversationVM: ConversationViewModel = ConversationViewModel()
+struct ConversationsView: View {
+    @State var conversationVM: ConversationsViewModel = ConversationsViewModel()
     var body: some View {
         NavigationStack {
             ForEach(Array(conversationVM.filteredUserMessages.keys), id: \.self) {
@@ -21,5 +21,5 @@ struct ConversationView: View {
 }
 
 #Preview {
-    ConversationView()
+    ConversationsView()
 }

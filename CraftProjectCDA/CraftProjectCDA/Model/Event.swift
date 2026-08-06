@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 
 struct Event: Identifiable, DisplayableItem {
-    var id: UUID = UUID()
+    var id: UUID
     var name: String
     var imageName: String
     

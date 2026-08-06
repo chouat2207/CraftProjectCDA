@@ -7,12 +7,33 @@
 
 import SwiftUI
 
-struct SwiftUIView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct MessageCardView: View {
+        var body: some View {
+            HStack(alignment: .top) {
+                Image(systemName: "person.circle")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50)
+                    .foregroundStyle(.gray)
+                HStack (alignment: .top) {
+                    VStack(alignment: .leading) {
+                        Text("UserName")
+                        Text("Ninja")
+                    }
+                    Text("01/01/2026 14:32")
+                        .font(.caption)
+                }
+                .padding()
+                .frame(width: 300)
+                .background(
+                    Rectangle()
+                        .cornerRadius(15)
+                        .foregroundStyle(.gray)
+                )
+            }
+        }
     }
-}
+    #Preview {
+        MessageCardView()
+    }
 
-#Preview {
-    SwiftUIView()
-}

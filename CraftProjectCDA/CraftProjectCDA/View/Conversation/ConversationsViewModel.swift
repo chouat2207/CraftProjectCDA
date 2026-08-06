@@ -13,7 +13,7 @@ import Foundation
 // sinon quand user lance app ou se log, on passe son id qu'on stocke dans le shared vm
 
 // ensuite toute l'app sait qui est le mainuser
-class ConversationViewModel {
+class ConversationsViewModel {
     let _users: [User] = users
     let mainUserID: UUID = .haruto
     // Could use an optional here
