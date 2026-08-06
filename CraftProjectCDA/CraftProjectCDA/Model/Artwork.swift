@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Artwork: Identifiable {
+struct Artwork: Identifiable, DisplayableItem {
     var id: UUID = UUID()
     var name: String
     var imageName: String

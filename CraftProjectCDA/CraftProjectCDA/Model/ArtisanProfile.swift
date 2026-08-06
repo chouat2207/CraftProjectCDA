@@ -8,7 +8,8 @@
 import Foundation
 import MapKit
 
-struct ArtisanProfile {
+struct ArtisanProfile: Identifiable {
+    var id: UUID
     var isActive: Bool
     var shopAddress: String
     var shopLocation: CLLocationCoordinate2D
