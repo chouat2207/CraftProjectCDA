@@ -7,9 +7,8 @@
 
 import Foundation
 
-struct Conversation: Identifiable {
+struct ConversationViewData: Identifiable {
     var id: UUID = UUID()
-    var userID: UUID
-    var peerID: UUID
-    var lastMessagePosted: UserToUserMessage?
+    var peerName: String
+    var lastMessagePosted: String
 }

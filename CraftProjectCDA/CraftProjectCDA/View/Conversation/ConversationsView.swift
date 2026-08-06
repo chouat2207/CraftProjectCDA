@@ -11,9 +11,9 @@ struct ConversationsView: View {
     @State var conversationVM: ConversationsViewModel = ConversationsViewModel()
     var body: some View {
         NavigationStack {
-            ForEach(Array(conversationVM.filteredUserMessages.keys), id: \.self) {
-                peer in
-                ConversationCardView()
+            ForEach(conversationVM.conversationViewData) {
+                conversation in
+                ConversationCardView(name: conversation.peerName, lastMessage: conversation.lastMessagePosted)
             }
             .navigationTitle("Messages")
         }

@@ -11,9 +11,9 @@ struct MessageView: View {
     var body: some View {
         NavigationStack {
             List {
-                ConversationCardView()
-                ConversationCardView()
-                ConversationCardView()
+//                ConversationCardView()
+//                ConversationCardView()
+//                ConversationCardView()
             }
             .navigationTitle("Name")
         }
