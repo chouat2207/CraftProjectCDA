@@ -12,7 +12,7 @@ struct ProfileView: View {
     @State private var isShowEdit: Bool = false
     @State private var isShowSettings: Bool = false
     
-    @State var selectedTab = "Abonnements"
+    @State var selectedTab = "following"
     
     var body: some View {
         
