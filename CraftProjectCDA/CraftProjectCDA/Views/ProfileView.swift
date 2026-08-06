@@ -20,7 +20,7 @@ struct ProfileView: View {
         VStack{
             ZStack{
                 
-                Image("")
+                Image("GarasuPhotoDeCouverture")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 500, height: 270)
@@ -29,7 +29,7 @@ struct ProfileView: View {
                 
                 HStack(alignment: .bottom){
                     
-                    Image("")
+                    Image("GarasuPhotoDeProfil")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 130, height: 130)

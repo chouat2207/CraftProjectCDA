@@ -19,34 +19,47 @@ struct EditProfileView: View {
     @State var siteInput = ""
     
     var body: some View {
-        VStack{
-            Image("")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 500, height: 270)
-                .clipShape(Rectangle())
-            
-            selectedPhoto?
-                .resizable()
-                .scaledToFill()
-                .frame(width: 500, height: 270)
-                .clipShape(Rectangle())
-            
-            PhotosPicker(selection: $userPhotoItem, matching: .images){
+        VStack(){
+            HStack(){
+                Image("GarasuPhotoDeCouverture")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 200, height: 100)
+                    .clipShape(Rectangle())
+                    .padding(6)
+                    .border(.gray.secondary, width: 2)
+                    .padding()
                 
-                Image(systemName: "plus.circle.fill")
-                    .glassEffect(.clear)
-                    .font(.largeTitle)
-                    .foregroundStyle(.mint)
-                    
-            }
-            .task(id: userPhotoItem){
-                selectedPhoto = try? await userPhotoItem?
-                    .loadTransferable(type: Image.self)
-            }
+                selectedPhoto?
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 500, height: 270)
+                    .clipShape(Rectangle())
+                
+                PhotosPicker(selection: $userPhotoItem, matching: .images){
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 15)
+                            .frame(width: 100,height: 100)
+                            .foregroundStyle(.gray.quinary)
+                            .overlay(RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.4),lineWidth: 2))
+                        
+                            
+                        Image(systemName: "plus.circle.fill")
+                            .glassEffect(.clear)
+                            .font(.largeTitle)
+                            .foregroundStyle(.mint)
+                        
+                    }
+                }
+                .task(id: userPhotoItem){
+                    selectedPhoto = try? await userPhotoItem?
+                        .loadTransferable(type: Image.self)
+                }
             
+                Spacer()
+            }
             ZStack{
-                Image("")
+                Image("GarasuPhotoDeProfil")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 130, height: 130)
@@ -147,7 +160,7 @@ struct EditProfileView: View {
             
            
         }
-        .ignoresSafeArea()
+        
     }
 }
 
