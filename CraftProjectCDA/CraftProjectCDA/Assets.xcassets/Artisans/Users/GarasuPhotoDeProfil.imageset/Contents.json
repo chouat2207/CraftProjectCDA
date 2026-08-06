@@ -1,11 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "Matíz 1.jpg",
+      "filename" : "Matíz 1.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Matíz.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },

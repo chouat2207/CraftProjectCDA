@@ -63,45 +63,45 @@ var artworks: [Artwork] = [
         artistID: .eloise
     ),
     
-    Artwork(
-        id: .artworkJeong,
-        name: "Jeong 정",
-        imageName: "DuboisMarieJeong",
-        imageArtisan: "DuboisMarie",
-        artCategory: "Céramique",
-        description: """
-        Jeong (정), inspirée de la Chine des Song et de la Corée Joseon,
-        explore des formes épurées et des objets pensés pour être utilisés,
-        incarnés et transmis.
-
-        À travers mes recherches d'émaux, je privilégie des tonalités
-        naturelles et nuancées.
-        """,
-        details: """
-        DÉTAILS :
-
-        Taille : 6 x 8 cm
-        Contenance : 200 ml
-        Couleur : Brun cuba
-        Matière : Porcelaine
-
-        Prix : 568 €
-        """,
-        artistID: .marie
-    ),
-
-    Artwork(
-        id: .artworkJosieAlbertMichel,
-        name: "Josie, Albert & Michel",
-        imageName: "BoucheratJulieJosieAlbertMichel",
-        imageArtisan: "BoucheratJulie",
-        artCategory: "Céramique",
-        description: "",
-        details: "",
-        artistID: .julie
-    ),
- 
-    
+//    Artwork(
+//        id: .artworkJeong,
+//        name: "Jeong 정",
+//        imageName: "DuboisMarieJeong",
+//        imageArtisan: "DuboisMarie",
+//        artCategory: "Céramique",
+//        description: """
+//        Jeong (정), inspirée de la Chine des Song et de la Corée Joseon,
+//        explore des formes épurées et des objets pensés pour être utilisés,
+//        incarnés et transmis.
+//
+//        À travers mes recherches d'émaux, je privilégie des tonalités
+//        naturelles et nuancées.
+//        """,
+//        details: """
+//        DÉTAILS :
+//
+//        Taille : 6 x 8 cm
+//        Contenance : 200 ml
+//        Couleur : Brun cuba
+//        Matière : Porcelaine
+//
+//        Prix : 568 €
+//        """,
+//        artistID: .marie
+//    ),
+//
+//    Artwork(
+//        id: .artworkJosieAlbertMichel,
+//        name: "Josie, Albert & Michel",
+//        imageName: "BoucheratJulieJosieAlbertMichel",
+//        imageArtisan: "BoucheratJulie",
+//        artCategory: "Céramique",
+//        description: "",
+//        details: "",
+//        artistID: .julie
+//    ),
+// 
+//    
     Artwork(
         id: .artworkAppliqueAbanico,
         name: "Applique Abanico",
