@@ -8,8 +8,9 @@
 import Foundation
 import MapKit
 
-struct ArtisanProfile : Identifiable{
-    var id =  UUID()
+
+struct ArtisanProfile: Identifiable {
+    var id: UUID
     var isActive: Bool
     var imageName: String
     var shopAddress: String

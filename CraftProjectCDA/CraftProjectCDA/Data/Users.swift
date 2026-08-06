@@ -86,22 +86,23 @@ var users: [User] = [
         followingID: [.anneSophie, .haruto],
         reviewsID: []
     ),
-    
-//    User(
-//        id: .lisa,
-//        firstName: "Lisa",
-//        lastName: "Allegra",
-//        pseudonym: "@LisaAllegra",
-//        imageName: "",
-//        joinedDate: "23/07/2026",
-//        artisanProfileID: .lisa,
-//        address: "C. de Quevedo, 12, 08012",
-//        city: "Barcelone",
-//        description: "Amoureuse des formes minimalistes et des matières naturelles",
-//        favoriteArtworksID: [],
-//        followingID: [.marie, .amande],
-//        reviewsID: []
-//    ),
+
+    User(
+        id: .lisa,
+        firstName: "Lisa",
+        lastName: "Allegra",
+        pseudonym: "@LisaAllegra",
+        imageName: "",
+        joinedDate: "23/07/2026",
+        artisanProfileID: .lisa,
+        address: "C. de Quevedo, 12, 08012",
+        city: "Barcelone",
+        description: "Amoureuse des formes minimalistes et des matières naturelles",
+        favoriteArtworksID: [],
+        followingID: [.marie, .amande],
+        reviewsID: []
+    ),
+
     
     User(
         id: .haruto,

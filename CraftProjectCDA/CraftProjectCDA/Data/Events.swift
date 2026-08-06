@@ -1,11 +1,9 @@
 //
-//  Untitled.swift
+//  Events.swift
 //  CraftProjectCDA
 //
 //  Created by Apprenant 77 on 30/07/2026.
 //
-//
-
 
 import Foundation
 import MapKit
@@ -17,8 +15,6 @@ extension UUID {
     static let eventAnduze = UUID()
     static let eventArtPassionBois = UUID()
 }
-
-// .marie
 
 let events: [Event] = [
     Event(
