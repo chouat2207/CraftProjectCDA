@@ -8,27 +8,28 @@
 import SwiftUI
 
 struct CardList: View {
-    let displayedUsers: [User] = users
-
+    
+    let displayedArtworks: [Artwork]
     private let columns = [
-        GridItem(.flexible(), spacing: 10),
-        GridItem(.flexible(), spacing: 10)
+        GridItem(.flexible(), spacing: 14),
+        GridItem(.flexible(), spacing: 14)
     ]
     var body: some View {
             ScrollView {
                 LazyVGrid(
                     columns: columns,
-                    spacing: 20
+                    spacing: 18
                 ) {
-                    ForEach(displayedUsers) { user in
-                        ListCard(user: user)
+                    ForEach(displayedArtworks) { artwork in
+                        ListCard(artwork: artwork)
                     }
                 }
-                .padding()
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
             }
     }
 }
 
 #Preview {
-    CardList()
+    CardList(displayedArtworks: artworks)
 }

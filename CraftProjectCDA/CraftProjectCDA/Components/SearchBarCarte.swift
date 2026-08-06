@@ -5,35 +5,6 @@
 //  Created by Apprenant 77 on 31/07/2026.
 //
 
-
-
-//import SwiftUI
-//
-//struct SearchBarCarte: View {
-//    @State private var searchText = ""
-//    
-//       private let countries = [
-//           "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria"
-//       ]
-//       
-//       private var searchResults : [String] {
-//           searchText.isEmpty ? countries : countries.filter { $0.contains(searchText) }
-//       }
-//
-//       var body: some View {
-//           NavigationStack {
-//               VStack {
-//                   List(searchResults, id: \.self) { country in
-//                       Text(country)
-//                   }
-//               }
-//               .searchable(text: $searchText)
-//           }
-//       }
-//}
-//#Preview {
-//    SearchBarCarte()
-//}
 import SwiftUI
 
 struct SearchBarCarte: View {

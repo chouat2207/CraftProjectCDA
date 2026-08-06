@@ -5,40 +5,7 @@
 //  Created by Apprenant 77 on 31/07/2026.
 //
 //
-//import SwiftUI
-//enum MonOption: String, CaseIterable {
-//    case vue1 = "Carte"
-//    case vue2 = "List"
-//}
-//struct PickerCarte: View {
-//    @State private var choixActuel: MonOption = .vue1
-//    var user = users
-//    var body: some View {
-//                ZStack {
-//                    switch choixActuel {
-//                    case .vue1:
-//                        CarteView()
-//                    case .vue2:
-//                        ListViewPickerCarte(displayedUsers: user)
-//                    }
-//                    
-//                    //Spacer()
-//                    Picker("Sélectionnez une vue", selection: $choixActuel) {
-//                        ForEach(MonOption.allCases, id: \.self) { option in
-//                            Text(option.rawValue).tag(option)
-//                        }
-//                    }
-//                    .pickerStyle(.segmented)
-//                    .padding(0)
-//                }
-//        
-//                .ignoresSafeArea()
-//            }
-//        }
-//
-//#Preview {
-//    PickerCarte()
-//}
+
 import SwiftUI
 
 struct PickerCarte: View {

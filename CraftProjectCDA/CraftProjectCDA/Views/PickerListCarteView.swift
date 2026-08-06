@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct PickerListCarteView: View {
-    let displayedUser : User = users[1]
-    let displayedArtisans: [ArtisanProfile]
-  //  @State private var searchText: SearchBarCarte = ""
+    let displayedUser  : User
+    let artwork : [Artwork]
+    let displayedArtisans: ArtisanProfile
     @State private var searchText = ""
     @State private var selection: PickerCarte.Content = .liste
 
@@ -52,7 +52,9 @@ struct PickerListCarteView: View {
                 }
                 .padding(.horizontal, 3)
                 PickerCarte(selection: $selection)
-                CardList()
+               
+                
+            CardList(displayedArtworks: artwork)
             case .carte:
                 ZStack(alignment: .top){
                     CarteView()
@@ -76,7 +78,7 @@ struct PickerListCarteView: View {
                                         .stroke(.black, lineWidth: 1)
                                     
                                 }
-                            Image(displayedUser.imageName)
+                            Image(displayedArtisans.imageName)
                                 .font(.system(size: 20))
                                 .foregroundStyle(.gray)
                                 .frame(width: 40, height: 44)
@@ -101,8 +103,7 @@ struct PickerListCarteView: View {
 
 
 #Preview {
-    PickerListCarteView(
-     //   displayedUsers: users,
-        displayedArtisans: artisanProfiles
+    PickerListCarteView(displayedUser: users[0], artwork: artworks, displayedArtisans: artisanProfiles[0]
+        
     )
 }

@@ -19,27 +19,32 @@ struct CarteView: View {
            )
        )
     var body: some View {
-            Map(position: $position) {
-                ForEach(artisanProfiles) { artisan in
-                    Annotation(
-                        artisan.artCategory,
-                        coordinate: artisan.shopLocation
-                    ) {
-                        ZStack {
+        Map(position: $position) {
+            ForEach(artisanProfiles) { artisan in
+                Annotation(
+                    artisan.artCategory,
+                    coordinate: artisan.shopLocation,
+                    anchor: .bottom
+                ) {
+                    Image(artisan.imageName)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 44, height: 44)
+                        .clipShape(Circle())
+                        .overlay {
                             Circle()
-                                .fill(.orange)
-                                .frame(width: 36, height: 36)
-                            Image(systemName: "figure.walk")
-                                .foregroundStyle(.white)
-                                .font(.system(size: 17))
+                                .stroke(.white, lineWidth: 3)
                         }
-                    }
+                        .shadow(
+                            color: .black.opacity(0.25),
+                            radius: 3,
+                            x: 0,
+                            y: 2
+                        )
                 }
-                
             }
-            .ignoresSafeArea()
- 
-        
+        }
+        .ignoresSafeArea()
     }
 }
 
