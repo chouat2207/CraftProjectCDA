@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ArtworkDetailView: View {
     @State var viewModel : ArtworkDetailViewModel
-    var artwork : Artwork = Artwork(name: "", imageName: "", artCategory: "", description: "", details: "", artistID: .marie)
+ 
     
     var body: some View {
         VStack{
@@ -22,7 +22,7 @@ struct ArtworkDetailView: View {
                     .frame(maxWidth: .infinity)
                 
                 HStack(){
-                    Image(users[0].imageName)
+                    Image(viewModel.artisan.imageName)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 100)
@@ -36,7 +36,7 @@ struct ArtworkDetailView: View {
                             .font(.title)
                             .padding(.top)
                         
-                        Text("Par \(users[0].firstName) \(users[0].lastName) ")
+                        Text("Par \(viewModel.artisan.firstName) \(viewModel.artisan.lastName) ")
                     }
                     Spacer()
                     Button(action: {
@@ -82,7 +82,7 @@ struct ArtworkDetailView: View {
             }
             
             .padding(.horizontal)
-            .navigationDestination(isPresented: $viewModel.navigateToMessage) { Text("Conversation avec l'artisan \(viewModel.artwork.name)")
+            .navigationDestination(isPresented: $viewModel.navigateToMessage) { Text("Conversation avec l'artisan \(viewModel.artisan.firstName)")
             }
         }
     }
