@@ -10,6 +10,8 @@ import SwiftUI
 struct ProfileView: View {
     
     @State private var isShowEdit: Bool = false
+    @State private var isShowSettings: Bool = false
+    
     @State var selectedTab = "Abonnements"
     
     var body: some View {
@@ -18,7 +20,7 @@ struct ProfileView: View {
         VStack{
             ZStack{
                 
-                Image("GarasuPhotoDeCouverture")
+                Image("")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 500, height: 270)
@@ -27,7 +29,7 @@ struct ProfileView: View {
                 
                 HStack(alignment: .bottom){
                     
-                    Image("GarasuPhotoDeProfil")
+                    Image("")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 130, height: 130)
@@ -41,11 +43,16 @@ struct ProfileView: View {
                             
                             Text("@GARASU")
                                 .fontWeight(.semibold)
+                    // SETTINGS BUTTON
+                            Button{
+                               isShowSettings = true
+                            }label: {
+                                Image(systemName: "gearshape.fill")
+                                    .foregroundStyle(.gray)
+                                    .font(.system(size: 24))
+                                    .padding(.trailing,8)
+                            }
                             
-                            Image(systemName: "gearshape.fill")
-                                .foregroundStyle(.gray)
-                                .font(.system(size: 24))
-                                .padding(.trailing,8)
                         }
                         
                         //EDIT PROFILE BUTTON

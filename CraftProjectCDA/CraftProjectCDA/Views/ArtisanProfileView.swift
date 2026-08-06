@@ -35,7 +35,7 @@ struct ArtisanProfileView: View {
                         )
                     
                     VStack{
-                        HStack(spacing: 130){
+                        HStack(spacing: 103){
                             
                             Text("@TIERRAOCRE")
                                 .fontWeight(.semibold)
@@ -111,9 +111,9 @@ struct ArtisanProfileView: View {
                 
                 if selectedTab == "artworks"{
                     //                    ForEach (users) { user in
-                    //UserFollowing
+                    //
                 }else if selectedTab == "aboutme"{
-                    //ForEach Users -> reviewsID
+                    //ForEach Users -> aboutme
                 }else if selectedTab == "reviews"{
                     
                 }else if selectedTab == "logbook"{

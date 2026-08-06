@@ -7,14 +7,14 @@
 
 import Foundation
 import SwiftUI
+
+
+
 @Observable
 
 class EditProfileViewModel{
     
     var saveEditChanges: [User] = []
-//    @State var pseudoInput = ""
-//    @State var bioInput = ""
-//    @State var siteInput = ""
     
     
     func savingEditing (user: User){

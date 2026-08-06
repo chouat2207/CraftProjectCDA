@@ -33,7 +33,7 @@ var artworks: [Artwork] = [
             description: """
             Jeong (정), inspirée de  la  Chine  des  Song  et  de  la  Corée Joseon, explore  des  formes  épurées et  des  objets  pensés pour  être  utilisés, incarnés  et  transmis.
         
-        À travers mes recherches d'émaux, je privilégie des tonalités naturelles  et   nuancées   comme  des  blancs  cassés, verts sourds, bruns profonds,  laissant apparaître les variations de cuisson et les singularités propres à chaque pièce. 
+            À travers mes recherches d'émaux, je privilégie des tonalités naturelles  et   nuancées   comme  des  blancs  cassés, verts sourds, bruns profonds,  laissant apparaître les variations de cuisson et les singularités propres à chaque pièce. 
         """,
             details: "",
             artistID: users[1].id),

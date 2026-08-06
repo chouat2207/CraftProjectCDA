@@ -11,9 +11,7 @@ import SwiftUI
 
 class ProfileViewModel{
     
-    
-   
-    
+  
     func showSettings(){
         
     }

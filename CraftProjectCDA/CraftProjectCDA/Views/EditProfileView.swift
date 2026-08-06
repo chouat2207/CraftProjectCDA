@@ -10,15 +10,17 @@ import PhotosUI
 
 struct EditProfileView: View {
     @State var viewModel: EditProfileViewModel
+    
     @State private var userPhotoItem: PhotosPickerItem?
     @State private var selectedPhoto: Image?
+    
     @State var pseudoInput = ""
     @State var bioInput = ""
     @State var siteInput = ""
     
     var body: some View {
         VStack{
-            Image("GarasuPhotoDeCouverture")
+            Image("")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 500, height: 270)
@@ -44,7 +46,7 @@ struct EditProfileView: View {
             }
             
             ZStack{
-                Image("GarasuPhotoDeProfil")
+                Image("")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 130, height: 130)
