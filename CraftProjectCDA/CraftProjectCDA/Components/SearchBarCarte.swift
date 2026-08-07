@@ -10,7 +10,6 @@ import SwiftUI
 struct SearchBarCarte: View {
 
     @Binding var searchText: String 
-
     var body: some View {
         HStack(spacing: 10) {
 

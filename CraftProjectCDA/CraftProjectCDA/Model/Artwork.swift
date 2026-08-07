@@ -12,7 +12,8 @@ struct Artwork: Identifiable, DisplayableItem {
     var name: String
     var imageName: String
     var imageArtisan : String
-    var artCategory: String
+    let artCategory: String
+    let artisanCategory: ArtisanCategory
     var description: String
     var details: String
     var artistID: UUID
