@@ -33,6 +33,8 @@ extension UUID {
     static let artworkPuebloPot = UUID()
     static let artworkNavajoVase = UUID()
 }
+
+
 // artworks[index]
 var artworks: [Artwork] = [
     Artwork(
@@ -48,6 +50,36 @@ var artworks: [Artwork] = [
         
         La prise de conscience de ce temps qui passe, la sédimentation, un processus au cours duquel les particules de toute matière cessent progressivement de bouger et s’agglomèrent en couches. Ces couches qui se créent, année après année, pour former une mémoire universelle, celle de la Terre et de notre empreinte. Autant d’épaisseurs, comme les pages d’un livre qui nous racontent l’histoire, notre histoire.
         """,
+
+            details: "",
+            artistID: users[1].id),
+    Artwork(name: "Deco 156",
+            imageName: "JemezPuebloDeco156",
+            artCategory: "Poterie",
+            description: "",
+            details: "",
+            artistID: users[1].id),
+    Artwork(name: "Jeong 정",
+            imageName: "DuboisMarieJeong",
+            artCategory: "Céramique",
+            description: """
+            Jeong (정), inspirée de  la  Chine  des  Song  et  de  la  Corée Joseon, explore  des  formes  épurées et  des  objets  pensés pour  être  utilisés, incarnés  et  transmis.
+        
+            À travers mes recherches d'émaux, je privilégie des tonalités naturelles  et   nuancées   comme  des  blancs  cassés, verts sourds, bruns profonds,  laissant apparaître les variations de cuisson et les singularités propres à chaque pièce. 
+        """,
+            details: "",
+            artistID: users[1].id),
+    Artwork(name: "Josie, Albert & Michel",
+            imageName: "BoucheratJulieJosieAlbertMichel",
+            artCategory: "Céramique",
+            description: "",
+            details: "",
+            artistID: users[1].id),
+    Artwork(name: "Applique Abanico",
+            imageName: "AllegraLisaAppliqueAbanico",
+            artCategory: "Argile",
+            description: """
+""",
         details: "",
         artistID: .amande
     ),
@@ -61,6 +93,40 @@ var artworks: [Artwork] = [
         description: "",
         details: "",
         artistID: .eloise
+    ),
+    
+    Artwork(
+        id: .artworkJeong,
+        name: "Jeong 정",
+        imageName: "DuboisMarieJeong",
+        artCategory: "Céramique",
+        description:
+        """
+        Jeong (정), inspirée de la Chine des Song et de la Corée Joseon, explore des formes épurées et des objets pensés pour être utilisés, incarnés et transmis.
+        
+        À travers mes recherches d'émaux, je privilégie des tonalités naturelles et nuancées comme des blancs cassés, verts sourds, bruns profonds, laissant apparaître les variations de cuisson et les singularités propres à chaque pièce.
+        """,
+        details: """
+        DÉTAILS : 
+        
+        Taille : 6 x 8 cm 
+        Contenance : 200 ml
+        Couleur : Brun cuba
+        Matière : Porcelaine
+        
+        Prix : 568 €
+        """,
+        artistID: .marie
+    ),
+    
+    Artwork(
+        id: .artworkJosieAlbertMichel,
+        name: "Josie, Albert & Michel",
+        imageName: "BoucheratJulieJosieAlbertMichel",
+        artCategory: "Céramique",
+        description: "",
+        details: "",
+        artistID: .julie
     ),
     
 //    Artwork(
@@ -109,10 +175,35 @@ var artworks: [Artwork] = [
         imageArtisan: "AllegraLisa",
         artCategory: "Argile",
         description: """
+
         L'applique Abanico a une silhouette douce, inspirée d’une arche sculpturale, elle capte la lumière avec subtilité pour révéler toute la richesse de sa matière.
         
         La finition texturée, légèrement granuleuse, joue avec les ombres et les reflets pour créer une atmosphère chaleureuse et apaisante. Lorsqu’elle est allumée, la lumière glisse délicatement le long de ses courbes, dessinant sur le mur un halo raffiné et architectural. Disponible en version intérieur, ou extérieur.
         """,
+
+            details: "",
+            artistID: users[1].id),
+    Artwork(name: "White Offering",
+            imageName: "MouyssinatNadegeWhiteOffering",
+            artCategory: "Porcelaine",
+            description: """
+            Façonnées patiemment à la main, ces courbes douces, allongées et organiques prennent vie. La surface est affinée par de multiples ponçages successifs, qui lui confèrent sa douceur satinée et minérale.
+            
+            Hommage à la blancheur légendaire de la porcelaine de Limoges, cette création explore la puissance de cette teinte dans toute sa majesté et sa profonde luminosité.
+            """,
+            details: "",
+            artistID: users[1].id),
+    Artwork(name: "Carnigrass",
+            imageName: "GarasuAboutMeCarnigrass",
+            artCategory: "Verrerie",
+            description: "",
+            details: "",
+            artistID: users[1].id),
+    Artwork(name: "Whale Tail",
+            imageName: "SeaLeaWhaleTail",
+            artCategory: "",
+            description: """
+  """,
         details: "",
         artistID: .lisa
     ),
@@ -164,11 +255,45 @@ var artworks: [Artwork] = [
         imageName: "SeaLeaWhaleTail", 
         imageArtisan: "SeaLea",
         artCategory: "Verrerie",
+        description:
+            """
+
         description: """
             De magnifiques sculptures représentant des queues de baleine et de requin occupent le devant de la scène, incarnant une forme emblématique qui captive l’imagination. Inspirées par la magie de l’observation des baleines, chaque sculpture est réalisée à la main pour évoquer les souvenirs et les moments précieux passés aux côtés de ces créatures majestueuses dans leur habitat naturel.
             
             Nos sculptures en vitrail sont méticuleusement réalisées dans cet esprit, à partir de verre irisé qui offre un jeu fascinant de couleurs et de reflets imitant la lueur éthérée et les teintes de l’océan. Chaque pièce est un véritable atout pour votre intérieur, apportant une touche de merveille aquatique à n’importe quel espace.
             """,
+
+            details: "",
+            artistID: users[1].id),
+   
+
+//    Artwork(name: "Oeuf de Fabergé",
+//            imageName: "GarasuInspirationOeufDeFaberge",
+//            artCategory: "Joaillerie",
+//            description: "",
+//            details: "",
+//            artistID: users[1].id),
+//    Artwork(name: "Corallia",
+//            imageName: "GarasuInspirationCorallia",
+//            artCategory: "Verrerie",
+//            description: "",
+//            details: "",
+//            artistID: users[1].id),
+//    Artwork(name: "Anomalys",
+//            imageName: "GarasuInspirationAnomalys",
+//            artCategory: "Verrerie",
+//            description: "",
+//            details: "",
+//            artistID: users[1].id),
+//    Artwork(name: "Codex Seraphinianus",
+//            imageName: "GarasuInspirationCodexSeraphinianus",
+//            artCategory: "Dessin",
+//            description: "",
+//            details: "",
+//            artistID: users[1].id),
+
+   
         details: "",
         artistID: .haruto
     ),

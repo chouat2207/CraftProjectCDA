@@ -14,10 +14,12 @@ import SwiftUI
 
 class EditProfileViewModel{
     
-    var saveEditChanges: [User] = []
+    var editChanges: [User] = []
     
     
-    func savingEditing (user: User){
-        saveEditChanges.append(user)
+    func saveEditChanges (user: User) -> ProfileView{
+        editChanges.append(user)
+        return ProfileView(profileViewModel: ProfileViewModel(user: user), editProfileViewModel: EditProfileViewModel())
     }
+    
 }
