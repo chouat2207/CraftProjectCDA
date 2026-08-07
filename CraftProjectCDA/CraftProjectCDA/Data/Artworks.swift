@@ -257,15 +257,10 @@ var artworks: [Artwork] = [
         artCategory: "Verrerie",
         description:
             """
-
-        description: """
             De magnifiques sculptures représentant des queues de baleine et de requin occupent le devant de la scène, incarnant une forme emblématique qui captive l’imagination. Inspirées par la magie de l’observation des baleines, chaque sculpture est réalisée à la main pour évoquer les souvenirs et les moments précieux passés aux côtés de ces créatures majestueuses dans leur habitat naturel.
             
             Nos sculptures en vitrail sont méticuleusement réalisées dans cet esprit, à partir de verre irisé qui offre un jeu fascinant de couleurs et de reflets imitant la lueur éthérée et les teintes de l’océan. Chaque pièce est un véritable atout pour votre intérieur, apportant une touche de merveille aquatique à n’importe quel espace.
             """,
-
-            details: "",
-            artistID: users[1].id),
    
 
 //    Artwork(name: "Oeuf de Fabergé",
