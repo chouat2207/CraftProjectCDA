@@ -10,7 +10,9 @@ import SwiftUI
 struct ArtisanProfileView: View {
     
     @State private var isShowEdit: Bool = false
-    @State var selectedTab = "Créations"
+    @State var selectedTab = "artworks"
+    
+    var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: 10, maximum: 185)),count: 2)
     
     var body: some View {
         VStack{
@@ -21,7 +23,7 @@ struct ArtisanProfileView: View {
                     .scaledToFill()
                     .frame(width: 500, height: 270)
                     .clipShape(Rectangle())
-                    .padding(.bottom,190)
+                    .padding(.top,-185)
                 
                 HStack(alignment: .bottom){
                     
@@ -67,18 +69,18 @@ struct ArtisanProfileView: View {
                 }
                 .padding(.top,100)
                 
-                VStack(alignment: .leading){
-                    Text("Utilisateur")
-                        .foregroundStyle(.gray)
-                        .fontWeight(.semibold)
-                    
-                    
-                    Text("Bio")
-                        .italic()
-                        .font(.footnote)
-                }
-                .padding(.top,290)
-                .padding(.trailing,290)
+//                VStack(alignment: .leading){
+//                    Text("Utilisateur")
+//                        .foregroundStyle(.gray)
+//                        .fontWeight(.semibold)
+//                    
+//                    
+//                    Text("Bio")
+//                        .italic()
+//                        .font(.footnote)
+//                }
+//                .padding(.top,290)
+//                .padding(.trailing,290)
                 
             }
             .ignoresSafeArea()
@@ -107,26 +109,63 @@ struct ArtisanProfileView: View {
                 .pickerStyle(.segmented)
                 .scaleEffect(1.2)
                 .colorMultiply(.mint.opacity(0.7))
-                .padding(.horizontal,40)
-                
-                if selectedTab == "artworks"{
-                    //                    ForEach (users) { user in
-                    //
-                }else if selectedTab == "aboutme"{
-                    //ForEach Users -> aboutme
-                }else if selectedTab == "reviews"{
-                    
-                }else if selectedTab == "logbook"{
+                .padding(.horizontal,45)
+            }
+            
+            ScrollView{
+                LazyVGrid(columns: columns){
+                    if selectedTab == "artworks"{
+                        ForEach (artworks) { artwork in
+                            ArtworkUserView(artwork: artwork)
+                        }
+                    }else if selectedTab == "aboutme"{
+                        
+                    }else if selectedTab == "reviews"{
+                        
+                    }else if selectedTab == "logbook"{
+                        
+                    }
                     
                 }
-                
             }
         }
-        Spacer()
+        
         
     }
 }
 
 #Preview {
     ArtisanProfileView()
+}
+
+struct ArtworkUserView: View{
+    let artwork: Artwork
+    
+    var body: some View {
+        
+        ZStack{
+            Rectangle()
+                .cornerRadius(10)
+                .foregroundStyle(.white)
+            VStack {
+                Image(artwork.imageName)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 180, height: 140)
+                    .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
+                Spacer()
+                HStack {
+                    Text("\(artwork.name)")
+                        .font(.caption)
+                    Spacer()
+                }
+                
+                .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
+                Spacer()
+            }
+        }
+        .padding()
+        .frame(width: 180, height: 190)
+        .shadow(radius: 2)
+    }
 }
