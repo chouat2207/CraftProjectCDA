@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ConversationCardView: View {
+    var name: String
+    var lastMessage: String
     var body: some View {
             HStack {
                 Image("PlaceholderPortrait")
@@ -16,8 +18,8 @@ struct ConversationCardView: View {
                     .clipShape(Circle())
                     .frame(width: 34)
                 VStack(alignment: .leading) {
-                    Text("Nom")
-                    Text("Last message")
+                    Text(name)
+                    Text(lastMessage)
                         .font(.caption)
                 }
                 Spacer()
@@ -34,5 +36,5 @@ struct ConversationCardView: View {
 }
 
 #Preview {
-    ConversationCardView()
+    ConversationCardView(name: "Didier", lastMessage: "Salut, bogoss")
 }
