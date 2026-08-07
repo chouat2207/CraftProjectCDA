@@ -18,7 +18,7 @@ struct ButtonsCategory: View {
     ]
 
     var body: some View {
-        ScrollView {
+      
             LazyVGrid(columns: columns, spacing: 18) {
                 ForEach(displayedArtworks, id: \.self) { category in
                     ButtonCategory(category: category.rawValue)
@@ -26,7 +26,7 @@ struct ButtonsCategory: View {
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 12)
-        }
+        
     }
 }
 

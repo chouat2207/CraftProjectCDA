@@ -34,6 +34,7 @@ struct SearchBarCarte: View {
                 .buttonStyle(.plain)
             }
         }
+        
         .padding(.horizontal, 14)
         .frame(height: 45)
         .background(

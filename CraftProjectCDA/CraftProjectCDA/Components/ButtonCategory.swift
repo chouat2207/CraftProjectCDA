@@ -10,16 +10,20 @@ import SwiftUI
 
 struct ButtonCategory: View {
     let category: String
+    @State private var estAppuye = false
 
     var body: some View {
         Button {
+            estAppuye.toggle()
             print("Catégorie sélectionnée : \(category)")
         } label: {
             Text(category)
                 .foregroundStyle(.black)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 12)
-                .background(.white)
+                .background(estAppuye ?
+                            Color(red: 103/255, green: 226/255, blue: 150/255)
+                            : Color.white)
                 .overlay {
                     RoundedRectangle(cornerRadius: 12)
                         .stroke(.gray, lineWidth: 1)

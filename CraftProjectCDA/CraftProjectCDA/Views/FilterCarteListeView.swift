@@ -38,8 +38,7 @@ struct FilterCarteListeView: View {
                 
             }
             
-            .padding(.leading, 0)
-            ButtonContenu()
+            ButtonsContenu()
             HStack(){
                 Text("Catégories")
                     .font(.system(size: 20,weight: .bold))
@@ -53,11 +52,26 @@ struct FilterCarteListeView: View {
                 
             }
             
-            .padding(.leading, 0)
-           
             ButtonsCategory(displayedArtworks: displayedArtworks)
+                .padding(.bottom, 0)
+            HStack(){
+                Text("Distance de ma localisation")
+                    .font(.system(size: 20,weight: .bold))
+                Spacer()
+                Button{
+                    print("")
+                }label: {
+                    Text("Effacer")
+                        .foregroundColor(.gray)
+                }
+                
+            }
+           
+            ButtonsDistance()
+            
         }
         .padding()
+      
     }
 }
 
