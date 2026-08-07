@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class ConversationsViewModel {
+final class ConversationsViewModel {
     let usersData: [User] = users
     let messagesData: [UserToUserMessage] = userToUserMessages
     let mainUserID: UUID = .haruto
@@ -86,7 +86,7 @@ class ConversationsViewModel {
     }
     
     
-    func getAllMessages(between mainUserID: UUID, and peerID: UUID)
+    func getAllMessages(from peerID: UUID)
         -> [DirectMessage]
     {
         messages
@@ -105,4 +105,6 @@ class ConversationsViewModel {
                 }
             )
     }
+    
+    
 }

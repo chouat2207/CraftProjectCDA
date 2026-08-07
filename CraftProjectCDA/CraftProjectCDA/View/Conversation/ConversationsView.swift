@@ -16,8 +16,7 @@ struct ConversationsView: View {
                 NavigationLink{
                     DirectMessageView(directMessages:
                                         conversationVM.getAllMessages(
-                                            between: conversationVM.mainUserID,
-                                            and: conversation.peerID!
+                                            from: conversation.peerID!
                                         ),
                                       peerName: conversationVM.getPeerName(
                                         peerID: conversation.peerID!

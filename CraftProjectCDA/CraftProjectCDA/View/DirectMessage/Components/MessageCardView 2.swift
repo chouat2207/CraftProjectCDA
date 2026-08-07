@@ -7,15 +7,11 @@
 
 import SwiftUI
 
-struct MessageCardView: View {
+struct MessageCardView2: View {
     var content: String
         var body: some View {
             HStack(alignment: .top) {
-                Image(systemName: "person.circle")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50)
-                    .foregroundStyle(.gray)
+
                 VStack (alignment:.leading){
                     HStack(alignment: .top) {
                         Spacer()
@@ -31,10 +27,15 @@ struct MessageCardView: View {
                         .cornerRadius(15)
                         .foregroundStyle(.gray)
                 )
+                Image(systemName: "person.circle")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50)
+                    .foregroundStyle(.gray)
             }
         }
     }
     #Preview {
-        MessageCardView(content: "Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test")
+        MessageCardView2(content: "Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test")
     }
 

@@ -13,8 +13,9 @@ struct DirectMessageView: View {
     var body: some View {
         NavigationStack {
             ForEach(directMessages) { message in
-                Text(message.content)
+                MessageCardView(content: message.content)
             }
+            .defaultScrollAnchor(.bottom)
             .navigationTitle(peerName)
         }
     }
