@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import PhotosUI
 @Observable
 
 class ArtworkDetailViewModel {
    
-    var artwork : Artwork 
+    // appeler protocol displayable Item
+    //  var items: [any DisplayableItem & Identifiable]
+    var artwork : Artwork
     var navigateToMessage : Bool = false
     
 //    var isFavorite : Bool = false
