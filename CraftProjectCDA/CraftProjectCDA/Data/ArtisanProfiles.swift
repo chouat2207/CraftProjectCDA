@@ -5,6 +5,13 @@
 //  Created by Apprenant 89 on 30/07/2026.
 //
 
+
+//  ArtisanProfiles.swift
+//  CraftProjectCDA
+//
+//  Created by Apprenant 89 on 30/07/2026.
+//
+
 import Foundation
 import MapKit
 
@@ -12,6 +19,7 @@ var artisanProfiles = [
     ArtisanProfile(
         id: .lisa,
         isActive: true,
+        imageName: "AllegraLisa",
         shopAddress: "C. de Quevedo, 12, 08012, Barcelone, Espagne",
         shopLocation: CLLocationCoordinate2D(latitude: 41.4035, longitude: 2.1603),
         reviewsID: [.review1, .review7],
@@ -27,7 +35,8 @@ var artisanProfiles = [
 
     ArtisanProfile(
         id: .julie,
-        isActive: true,
+        isActive: true, 
+        imageName: "BoucheratJulie",
         shopAddress: "17 rue Lagréou, 64100 Bayonne",
         shopLocation: CLLocationCoordinate2D(latitude: 43.4929, longitude: -1.4748),
         reviewsID: [.review2, .review6],
@@ -44,6 +53,7 @@ var artisanProfiles = [
     ArtisanProfile(
         id: .marie,
         isActive: true,
+        imageName: "DuboisMarie",
         shopAddress: "Bessens, 82170 Tarn-et-Garonne, France",
         shopLocation: CLLocationCoordinate2D(latitude: 43.8798, longitude: 1.2475),
         reviewsID: [.review4],
@@ -60,6 +70,7 @@ var artisanProfiles = [
     ArtisanProfile(
         id: .amande,
         isActive: true,
+        imageName: "HaeghenAmande",
         shopAddress: "Rua Damasceno Monteiro 75A, 1170-110 Lisboa, Portugal",
         shopLocation: CLLocationCoordinate2D(latitude: 38.7237, longitude: -9.1283),
         reviewsID: [.review1],
@@ -73,25 +84,10 @@ var artisanProfiles = [
         followedByID: [.marie, .lisa]
     ),
 
-//    ArtisanProfile(
-//        id: .nadege,
-//        isActive: true,
-//        shopAddress: "15 rue Madame de Sévigné, 87100 Limoges, France",
-//        shopLocation: CLLocationCoordinate2D(latitude: 45.8404, longitude: 1.2578),
-//        reviewsID: [.review2],
-//        totalRating: 4.9,
-//        artCategory: "Porcelaine",
-//        website: URL(string: "https://nadegemouyssinat.com")!,
-//        phoneNumber: "",
-//        logbookID: [],
-//        artworksID: [.artworkWhiteOffering],
-//        about: "Nadège Mouyssinat conçoit du mobilier sculptural et des porcelaines façonnées d'exception. Ses créations associent matériaux nobles, lignes minimalistes et savoir-faire traditionnel pour créer des pièces intemporelles.",
-//        followedByID: [.haruto, .anneSophie]
-//    ),
-
     ArtisanProfile(
         id: .haruto,
         isActive: true,
+        imageName: "HaeghenAmande",
         shopAddress: "3 avenue République Dame, 13002 Marseille",
         shopLocation: CLLocationCoordinate2D(latitude: 43.2965, longitude: 5.3698),
         reviewsID: [.review8],
@@ -108,6 +104,7 @@ var artisanProfiles = [
     ArtisanProfile(
         id: .anneSophie,
         isActive: true,
+        imageName: "",
         shopAddress: "Le Clos du Moulin 4, 1 route de Fontcouvert, 38570 Goncelin, France",
         shopLocation: CLLocationCoordinate2D(latitude: 45.3439, longitude: 5.9723),
         reviewsID: [.review9],
@@ -123,7 +120,8 @@ var artisanProfiles = [
 
     ArtisanProfile(
         id: .eloise,
-        isActive: true,
+        isActive: true, 
+        imageName: "SeaLea",
         shopAddress: "38 rue Saint-Jacques, 13006 Marseille",
         shopLocation: CLLocationCoordinate2D(latitude: 43.2926, longitude: 5.3771),
         reviewsID: [.review3],
@@ -135,7 +133,7 @@ var artisanProfiles = [
         artworksID: [.artworkDeco156, .artworkPuebloSaucer, .artworkPuebloVase, .artworkPuebloPot, .artworkNavajoVase],
         about: "Sous le pseudonyme TIERRAOCRE, Éloïse imagine et façonne des pièces uniques inspirées des terres méditerranéennes. Passionnée de poterie depuis l'enfance, elle privilégie les matières brutes, les émaux naturels et le partage des savoir-faire artisanaux lors d'ateliers ouverts au public.",
         followedByID: [.marie, .haruto]
-    )]
+    )
 
 //var artisanProfiles = [
 //    lisaArtisanProfile,
@@ -145,5 +143,6 @@ var artisanProfiles = [
 //    nadegeArtisanProfile,
 //    leaArtisanProfile,
 //    anneSophieArtisanProfile,
-//    eloiseArtisanProfile
-//]
+//    eloiseArtisanProfile]
+]
+

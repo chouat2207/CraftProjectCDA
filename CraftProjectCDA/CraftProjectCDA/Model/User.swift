@@ -8,6 +8,7 @@
 import Foundation
 import MapKit
 
+
 struct User: Identifiable, DisplayableItem {
     var id: UUID
     var firstName: String

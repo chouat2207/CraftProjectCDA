@@ -5,6 +5,13 @@
 //  Created by Apprenant 89 on 30/07/2026.
 //
 
+//
+//  Users.swift
+//  CraftProjectCDA
+//
+//  Created by Apprenant 89 on 30/07/2026.
+//
+
 import Foundation
 
 extension UUID {
@@ -41,7 +48,7 @@ var users: [User] = [
         firstName: "Amande",
         lastName: "Haeghen",
         pseudonym: "@AmandeHaeghen",
-        imageName: "",
+        imageName: "HaeghenAmande",
         joinedDate: "28/07/2026",
         address: "Rua Damasceno Monteiro 75A,",
         city: "Lisbonne",
@@ -71,7 +78,7 @@ var users: [User] = [
         firstName: "Julie",
         lastName: "Boucherat",
         pseudonym: "@JulieBoucherat",
-        imageName: "",
+        imageName: "BoucheratJulie",
         joinedDate: "22/07/2026",
         address: "17 rue Lagréou",
         city: "Bayonne",
@@ -86,7 +93,7 @@ var users: [User] = [
         firstName: "Lisa",
         lastName: "Allegra",
         pseudonym: "@LisaAllegra",
-        imageName: "",
+        imageName: "AllegraLisa",
         joinedDate: "23/07/2026",
         artisanProfileID: .lisa,
         address: "C. de Quevedo, 12, 08012",
@@ -102,7 +109,7 @@ var users: [User] = [
         firstName: "Haruto",
         lastName: "Aoki",
         pseudonym: "@GARASU",
-        imageName: "",
+        imageName: "GarasuPhotoDeProfil",
         joinedDate: "18/07/2026",
         address: "3 avenue République Dame",
         city: "Marseille",
