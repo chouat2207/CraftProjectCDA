@@ -11,9 +11,10 @@ struct PickerListCarteView: View {
     let displayedUser  : User
     let artwork : [Artwork]
     let displayedArtisans: ArtisanProfile
+    var  displayedCategory : [ArtisanCategory]
     @State private var searchText = ""
     @State private var selection: PickerCarte.Content = .liste
-
+    @State private var showingSheet = false
  
 
     var body: some View {
@@ -22,23 +23,27 @@ struct PickerListCarteView: View {
             case .liste:
                 HStack(){
                     SearchBarCarte(searchText: $searchText)
-                        .frame(width: 290)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 1)
-                        }
+                     
+                    Button{
+                        FilterCarteListeView(displayedArtworks: displayedCategory)
+                        showingSheet = true
+//                   
+//                        print("")
+                    }
+                    label :{
+                        Image(systemName: "slider.vertical.3")
+                            .font(.system(size: 20))
+                            .foregroundStyle(.gray)
+                            .frame(width: 38, height: 44)
+                            .background(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 1)
+                                
+                            }
+                   }
                     
-                    Image(systemName: "slider.vertical.3")
-                        .font(.system(size: 20))
-                        .foregroundStyle(.gray)
-                        .frame(width: 38, height: 44)
-                        .background(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.black, lineWidth: 1)
-                            
-                        }
                     Image(displayedUser.imageName)
                         .font(.system(size: 20))
                         .foregroundStyle(.gray)
@@ -104,7 +109,7 @@ struct PickerListCarteView: View {
 
 
 #Preview {
-    PickerListCarteView(displayedUser: users[0], artwork: artworks, displayedArtisans: artisanProfiles[0]
+    PickerListCarteView(displayedUser: users[0], artwork: artworks, displayedArtisans: artisanProfiles[0], displayedCategory: ArtisanCategory.allCases
         
     )
 }
