@@ -27,6 +27,7 @@ extension UUID {
 }
 
 var users: [User] = [
+    // 0
     User(
         id: .marie,
         firstName: "Marie",
@@ -41,13 +42,13 @@ var users: [User] = [
         followingID: [.amande, .eloise],
         reviewsID: []
     ),
-    
+    // 1
     User(
         id: .amande,
         firstName: "Amande",
         lastName: "Haeghen",
         pseudonym: "@AmandeHaeghen",
-        imageName: "",
+        imageName: "HaeghenAmande",
         joinedDate: "28/07/2026",
         address: "Rua Damasceno Monteiro 75A,",
         city: "Lisbonne",
@@ -56,7 +57,7 @@ var users: [User] = [
         followingID: [.marie, .lisa],
         reviewsID: []
     ),
-
+    // 2
     User(
         id: .anneSophie,
         firstName: "Anne-Sophie",
@@ -71,13 +72,13 @@ var users: [User] = [
         followingID: [.julie, .sofia],
         reviewsID: []
     ),
-    
+    // 3
     User(
         id: .julie,
         firstName: "Julie",
         lastName: "Boucherat",
         pseudonym: "@JulieBoucherat",
-        imageName: "",
+        imageName: "BoucheratJulie",
         joinedDate: "22/07/2026",
         address: "17 rue Lagréou",
         city: "Bayonne",
@@ -86,13 +87,13 @@ var users: [User] = [
         followingID: [.anneSophie, .haruto],
         reviewsID: []
     ),
-
+    // 4
     User(
         id: .lisa,
         firstName: "Lisa",
         lastName: "Allegra",
         pseudonym: "@LisaAllegra",
-        imageName: "",
+        imageName: "AllegraLisa",
         joinedDate: "23/07/2026",
         artisanProfileID: .lisa,
         address: "C. de Quevedo, 12, 08012",
@@ -102,14 +103,13 @@ var users: [User] = [
         followingID: [.marie, .amande],
         reviewsID: []
     ),
-
-    
+    // 5
     User(
         id: .haruto,
         firstName: "Haruto",
         lastName: "Aoki",
         pseudonym: "@GARASU",
-        imageName: "",
+        imageName: "GarasuPhotoDeProfil",
         joinedDate: "18/07/2026",
         address: "3 avenue République Dame",
         city: "Marseille",
@@ -118,7 +118,7 @@ var users: [User] = [
         followingID: [.eloise, .lucas],
         reviewsID: []
     ),
-    
+    // 6
     User(
         id: .eloise,
         firstName: "Éloise",

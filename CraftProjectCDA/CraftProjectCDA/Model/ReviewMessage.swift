@@ -8,7 +8,7 @@
 import Foundation
 
 struct ReviewMessage: Identifiable, Message {
-    var id: UUID = UUID()
+    var id: UUID
     var content: String
     var postDate: String
     var senderID: UUID

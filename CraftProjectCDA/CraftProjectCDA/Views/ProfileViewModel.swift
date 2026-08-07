@@ -10,32 +10,26 @@ import SwiftUI
 @Observable
 
 class ProfileViewModel{
+    var user: User
+    var isShowEdit: Bool = false
+    var isShowSettings: Bool = false
     
-  
-    func showSettings(){
-        
+    init(user: User) {
+        self.user = user
     }
+    
+    func showEdit() -> EditProfileView{
+        if isShowEdit{
+            
+        }
+        return EditProfileView(editProfileViewModel: EditProfileViewModel(), user: users[5])
+      
+    }
+    
+    func showSettings(){
+        isShowSettings = true
+    }
+    
 }
 
-
-//@Observable
-//
-//class SectionViewModel{
-//
-//    @State var selectedTab = "Abonnements"
-//    @State var users: User
-//    var following = users.followingID
-//    var reviews = users.reviewsID
-//
-//
-//    func showSection(){
-//        if selectedTab == "following" {
-//
-//            // ForEach users -> followingID
-//
-//        }else if selectedTab == "reviews" {
-//            // ForEach users -> reviewsID
-//        }
-//    }
-//}
 
