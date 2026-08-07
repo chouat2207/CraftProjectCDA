@@ -11,6 +11,7 @@ struct Artwork: Identifiable, DisplayableItem {
     var id: UUID = UUID()
     var name: String
     var imageName: String
+    var imageArtisan : String
     var artCategory: String
     var description: String
     var details: String
