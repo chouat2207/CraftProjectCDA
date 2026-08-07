@@ -9,5 +9,5 @@ import Foundation
 struct DirectMessage: Identifiable {
     var id: UUID = UUID()
     var senderID: UUID
-    var messageContent: String
+    var content: String
 }

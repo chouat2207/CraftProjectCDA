@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct MessageView: View {
+struct DirectMessageView: View {
+    var directMessages: [DirectMessage]
+    var peerName: String
     var body: some View {
         NavigationStack {
-            List {
-//                ConversationCardView()
-//                ConversationCardView()
-//                ConversationCardView()
+            ForEach(directMessages) { message in
+                Text(message.content)
             }
-            .navigationTitle("Name")
+            .navigationTitle(peerName)
         }
     }
 }
 
 #Preview {
-    MessageView()
+   // DirectMessageView()
 }

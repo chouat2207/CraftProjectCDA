@@ -13,7 +13,20 @@ struct ConversationsView: View {
         NavigationStack {
             ForEach(conversationVM.conversationViewData) {
                 conversation in
-                ConversationCardView(name: conversation.peerName, lastMessage: conversation.lastMessagePosted)
+                NavigationLink{
+                    DirectMessageView(directMessages:
+                                        conversationVM.getAllMessages(
+                                            between: conversationVM.mainUserID,
+                                            and: conversation.peerID!
+                                        ),
+                                      peerName: conversationVM.getPeerName(
+                                        peerID: conversation.peerID!
+                                      )
+                    )
+                }
+                label:{
+                    ConversationCardView(name: conversation.peerName, lastMessage: conversation.lastMessagePosted)
+                }
             }
             .navigationTitle("Messages")
         }

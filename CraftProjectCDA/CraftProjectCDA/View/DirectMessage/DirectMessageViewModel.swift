@@ -9,8 +9,8 @@ import Foundation
 @Observable
 class DirectMessageViewModel {
     
-    var messages: [DirectMessage] {
-        
-    }
-    
+//    var messages: [DirectMessage] {
+//        
+//    }
+//    
 }

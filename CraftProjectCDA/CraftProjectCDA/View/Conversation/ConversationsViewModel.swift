@@ -12,36 +12,46 @@ class ConversationsViewModel {
     let usersData: [User] = users
     let messagesData: [UserToUserMessage] = userToUserMessages
     let mainUserID: UUID = .haruto
-    
+
     var mainUser: User? {
         usersData.first(where: { $0.id == mainUserID })
     }
-    
+
     // Ca c'est bon
     var messages: [UserToUserMessage] {
         messagesData
             .filter { $0.senderID == mainUserID || $0.receiverID == mainUserID }
             .sorted { $0.postDate < $1.postDate }
     }
-    
+
     //Ici me faut un Set de peerID
     var peerIDs: Set<UUID> {
-        Set(messages.map({$0.senderID == mainUserID ? $0.receiverID : $0.senderID}))        
+        Set(
+            messages.map({
+                $0.senderID == mainUserID ? $0.receiverID : $0.senderID
+            })
+        )
     }
-    
+
     var messagesViewData: [DirectMessage] {
-        messages.map({DirectMessage(senderID: $0.senderID, messageContent: $0.content)})
+        messages.map({
+            DirectMessage(senderID: $0.senderID, content: $0.content)
+        })
     }
-    
+
     var conversations: [Conversation] {
         var result: [Conversation] = []
         let reversedMessages = messages.reversed()
-        
+
         for message in messages {
-            let peerID = (message.senderID == mainUserID) ? message.receiverID : message.senderID
-            
+            let peerID =
+                (message.senderID == mainUserID)
+                ? message.receiverID : message.senderID
+
             if !result.contains(where: { $0.peerID == peerID }) {
-                let lastMessage = reversedMessages.first { $0.senderID == peerID || $0.receiverID == peerID }
+                let lastMessage = reversedMessages.first {
+                    $0.senderID == peerID || $0.receiverID == peerID
+                }
                 result.append(
                     Conversation(
                         userID: mainUserID,
@@ -51,21 +61,48 @@ class ConversationsViewModel {
                 )
             }
         }
-        
+
         return result
     }
     
+    func getPeerName(peerID: UUID) -> String {
+            usersData.first(where: { $0.id == peerID })?.name ?? "unknown"
+    }
+
     var conversationViewData: [ConversationViewData] {
-        conversations.map { conversation in
-            let peerName = usersData.first(where: { $0.id == conversation.peerID })?.name ?? "unknown"
-            return ConversationViewData(
-                peerName: peerName,
-                lastMessagePosted: conversation.lastMessagePosted?.content ?? ""
+        conversations.map {
+            ConversationViewData(
+                peerID: $0.peerID,
+                peerName: getPeerName(peerID: $0.peerID),
+                lastMessagePosted: $0.lastMessagePosted?.content ?? ""
             )
         }
     }
-    
+
     func getLastMessage(from peerID: UUID) -> UserToUserMessage? {
-        messages.last(where: { $0.senderID == peerID || $0.receiverID == peerID })
+        messages.last(where: {
+            $0.senderID == peerID || $0.receiverID == peerID
+        })
+    }
+    
+    
+    func getAllMessages(between mainUserID: UUID, and peerID: UUID)
+        -> [DirectMessage]
+    {
+        messages
+            .filter(
+                {
+                    ($0.senderID == mainUserID || $0.receiverID == mainUserID)
+                        && ($0.senderID == peerID || $0.receiverID == peerID)
+                }
+            )
+            .map(
+                {
+                    DirectMessage(
+                        senderID: $0.senderID,
+                        content: $0.content
+                    )
+                }
+            )
     }
 }
