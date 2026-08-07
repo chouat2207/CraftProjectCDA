@@ -6,8 +6,9 @@
 //
 
 import Foundation
-@Observable
+import PhotosUI
 
+@Observable
 final class EditArtworkViewModel {
     
 }
