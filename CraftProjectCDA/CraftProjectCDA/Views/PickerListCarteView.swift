@@ -14,7 +14,7 @@ struct PickerListCarteView: View {
     var  displayedCategory : [ArtisanCategory]
     @State private var searchText = ""
     @State private var selection: PickerCarte.Content = .liste
-
+    @State private var showingSheet = false
  
 
     var body: some View {
@@ -24,12 +24,13 @@ struct PickerListCarteView: View {
                 HStack(){
                     SearchBarCarte(searchText: $searchText)
                      
-//                    Button{
-//                        FilterCarteListeView(displayedArtworks: displayedCategory)
+                    Button{
+                        FilterCarteListeView(displayedArtworks: displayedCategory)
+                        showingSheet = true
 //                   
 //                        print("")
-//                    }
-                  //  label :{
+                    }
+                    label :{
                         Image(systemName: "slider.vertical.3")
                             .font(.system(size: 20))
                             .foregroundStyle(.gray)
@@ -40,7 +41,7 @@ struct PickerListCarteView: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 1)
                                 
-                         //   }
+                            }
                    }
                     
                     Image(displayedUser.imageName)

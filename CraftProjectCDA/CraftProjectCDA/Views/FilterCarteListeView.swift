@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FilterCarteListeView: View {
+    @Environment(\.dismiss) var dismiss
     let displayedArtworks: [ArtisanCategory]
     var body: some View {
         HStack{
