@@ -10,4 +10,5 @@ struct DirectMessage: Identifiable {
     var id: UUID = UUID()
     var senderID: UUID
     var content: String
+    var isFromMainUser: Bool
 }
