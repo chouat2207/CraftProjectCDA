@@ -25,21 +25,21 @@ struct EditProfileView: View {
         
             VStack(alignment: .leading) {
                 
-                Text("Éditer votre profil")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                    .fontDesign(.serif)
-                    .kerning(1)
-                    .padding(.horizontal,50)
-                Spacer()
-                
-                
+//                Text("Éditer votre profil")
+//                    .font(.largeTitle)
+//                    .fontWeight(.semibold)
+//                    .fontDesign(.serif)
+//                    .kerning(1)
+//                    .padding(.horizontal,50)
+      
+                Text("")
                 Divider()
                     .frame(minHeight:5)
                     .overlay(Color.mint.opacity(0.7))
-                    .padding(10)
+                
         ScrollView{
             VStack(alignment: .leading){
+                
                     Text("VOTRE AVATAR")
                         .font(.callout)
                         .fontWeight(.semibold)
@@ -47,7 +47,7 @@ struct EditProfileView: View {
                         .padding(.leading,10)
                     
                     ZStack{
-                        Image(user.imageName)
+                        Image(ProfileViewModel().mainUser.imageName)
                             .resizable()
                             .scaledToFill()
                             .frame(width: 130, height: 130)
@@ -205,8 +205,8 @@ struct EditProfileView: View {
                     .padding(10)
                     .padding(.vertical,5)
             
-                NavigationLink{
-                    //
+                Button{
+                    //editProfileViewModel.saveEditChanges(user: user)
                 }label: {
                     ZStack(alignment: .center){
                         RoundedRectangle(cornerRadius: 32)
@@ -227,7 +227,11 @@ struct EditProfileView: View {
                 
             }
         }
+            .navigationTitle("Éditer votre profil")
+            .navigationBarTitleDisplayMode(.inline)
+        
     }
+    
 }
 
 #Preview {

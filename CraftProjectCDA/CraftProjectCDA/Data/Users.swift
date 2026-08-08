@@ -115,7 +115,7 @@ var users: [User] = [
         city: "Marseille",
         description: "Passionné de verrerie",
         favoriteArtworksID: [],
-        followingID: [.eloise, .lucas],
+        followingID: [.eloise, .lucas, .amande],
         reviewsID: []
     ),
     // 6
@@ -124,7 +124,7 @@ var users: [User] = [
         firstName: "Éloise",
         lastName: "Ocre",
         pseudonym: "@TIERRAOCRE",
-        imageName: "",
+        imageName: "TierraOcre",
         joinedDate: "21/07/2026",
         address: "38 rue Saint-Jacques",
         city: "Marseille",
