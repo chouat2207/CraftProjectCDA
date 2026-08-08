@@ -33,12 +33,6 @@ final class ConversationsViewModel {
         )
     }
 
-    var messagesViewData: [DirectMessage] {
-        messages.map({
-            DirectMessage(senderID: $0.senderID, content: $0.content)
-        })
-    }
-
     var conversations: [Conversation] {
         var result: [Conversation] = []
         let reversedMessages = messages.reversed()
@@ -100,7 +94,8 @@ final class ConversationsViewModel {
                 {
                     DirectMessage(
                         senderID: $0.senderID,
-                        content: $0.content
+                        content: $0.content,
+                        isFromMainUser: $0.senderID == mainUserID ? true : false
                     )
                 }
             )

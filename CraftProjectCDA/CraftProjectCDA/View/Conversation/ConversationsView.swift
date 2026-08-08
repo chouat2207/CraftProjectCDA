@@ -1,31 +1,36 @@
 //
-//  ConversationView.swift
+//  ConversationsView.swift
 //  CraftProjectCDA
-//
-//  Created by Apprenant 77 on 04/08/2026.
 //
 
 import SwiftUI
 
 struct ConversationsView: View {
     @State var conversationVM: ConversationsViewModel = ConversationsViewModel()
+    
     var body: some View {
         NavigationStack {
-            ForEach(conversationVM.conversationViewData) {
-                conversation in
-                NavigationLink{
-                    DirectMessageView(directMessages:
-                                        conversationVM.getAllMessages(
-                                            from: conversation.peerID!
-                                        ),
-                                      peerName: conversationVM.getPeerName(
-                                        peerID: conversation.peerID!
-                                      )
-                    )
+            ScrollView {
+                LazyVStack(spacing: 12) {
+                    ForEach(conversationVM.conversationViewData) { conversation in
+                        if let peerID = conversation.peerID {
+                            NavigationLink {
+                                DirectMessageView(
+                                    directMessages: conversationVM.getAllMessages(from: peerID),
+                                    peerName: conversationVM.getPeerName(peerID: peerID)
+                                )
+                            } label: {
+                                ConversationCardView(
+                                    name: conversation.peerName,
+                                    lastMessage: conversation.lastMessagePosted
+                                )
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
                 }
-                label:{
-                    ConversationCardView(name: conversation.peerName, lastMessage: conversation.lastMessagePosted)
-                }
+                .padding(.horizontal)
+                .padding(.top, 8)
             }
             .navigationTitle("Messages")
         }
