@@ -12,13 +12,16 @@ import SwiftUI
 class ProfileViewModel{
     let userData: [User] = users
     let artisansData: [ArtisanProfile] = artisanProfiles
+    let artworkData: [Artwork] = artworks
+    
+    let mainArtisanID: UUID = .eloise
     let mainUserID: UUID = .haruto
-    
-    // chercher id artisan, filtrer Artisanprofiles,
-    
-    // Could use an optional here
+  
     var mainUser: User {
         users.first(where: {$0.id == mainUserID})!
+    }
+    var mainArtisan: ArtisanProfile {
+        artisanProfiles.first(where: {$0.id == mainArtisanID})!
     }
     var isShowEdit: Bool = false
     var isShowSettings: Bool = false
@@ -28,8 +31,7 @@ class ProfileViewModel{
         if isShowEdit{
             
         }
-        return EditProfileView(editProfileViewModel: EditProfileViewModel(), user: users[5])
-//        EditProfileView(editProfileViewModel: EditProfileViewModel())
+        return EditProfileView(editProfileViewModel: EditProfileViewModel(), user: mainUser)
     }
     
     func showSettings(){
@@ -37,10 +39,7 @@ class ProfileViewModel{
     }
     
     var filterByFollower: [User] {
-        
-        // on a un tableau de foloowers dans mainuser
-       // userData.map({user in user.id == mainUser.followingID})
-        // on veut pour chaque id du tableau, retourner un user correspondant a l'id
+ 
         var temp: [User] = []
         for user in userData {
             if mainUser.followingID.contains(where: {$0 == user.id}) {
@@ -50,6 +49,27 @@ class ProfileViewModel{
         return temp
     }
     
+//    var filterByReviews: [User] {
+//        var ownReview: [User] = []
+//        for user in userData {
+//            if mainUser.reviewsID.contains(where: {$0 == user.id}) {
+//                ownReview.append(user)
+//            }
+//        }
+//        return ownReview
+//    }
+    
+    var filterByArtworks: [ArtisanProfile]{
+        var ownArtwork: [ArtisanProfile] = []
+        for artisanProfile in artisansData {
+            if mainArtisan.artworksID.contains(where: {$0 == artisanProfile.id}) {
+                ownArtwork.append(artisanProfile)
+            }
+           
+           // on veut un tableau d'artworks dans artisanprofile , pour chaque id, on retourne l'artwork correspondant à l'id de l'artisan
+        }
+        return ownArtwork
+    }
 }
 
 

@@ -55,12 +55,14 @@ var artworks: [Artwork] = [
             artistID: users[1].id),
     Artwork(name: "Deco 156",
             imageName: "JemezPuebloDeco156",
+            imageArtisan: "",
             artCategory: "Poterie",
             description: "",
             details: "",
             artistID: users[1].id),
     Artwork(name: "Jeong 정",
             imageName: "DuboisMarieJeong",
+            imageArtisan: "",
             artCategory: "Céramique",
             description: """
             Jeong (정), inspirée de  la  Chine  des  Song  et  de  la  Corée Joseon, explore  des  formes  épurées et  des  objets  pensés pour  être  utilisés, incarnés  et  transmis.
@@ -71,12 +73,14 @@ var artworks: [Artwork] = [
             artistID: users[1].id),
     Artwork(name: "Josie, Albert & Michel",
             imageName: "BoucheratJulieJosieAlbertMichel",
+            imageArtisan: "",
             artCategory: "Céramique",
             description: "",
             details: "",
             artistID: users[1].id),
     Artwork(name: "Applique Abanico",
             imageName: "AllegraLisaAppliqueAbanico",
+            imageArtisan: "",
             artCategory: "Argile",
             description: """
 """,
@@ -99,6 +103,7 @@ var artworks: [Artwork] = [
         id: .artworkJeong,
         name: "Jeong 정",
         imageName: "DuboisMarieJeong",
+        imageArtisan: "",
         artCategory: "Céramique",
         description:
         """
@@ -123,6 +128,7 @@ var artworks: [Artwork] = [
         id: .artworkJosieAlbertMichel,
         name: "Josie, Albert & Michel",
         imageName: "BoucheratJulieJosieAlbertMichel",
+        imageArtisan: "",
         artCategory: "Céramique",
         description: "",
         details: "",
@@ -185,6 +191,7 @@ var artworks: [Artwork] = [
             artistID: users[1].id),
     Artwork(name: "White Offering",
             imageName: "MouyssinatNadegeWhiteOffering",
+            imageArtisan: "",
             artCategory: "Porcelaine",
             description: """
             Façonnées patiemment à la main, ces courbes douces, allongées et organiques prennent vie. La surface est affinée par de multiples ponçages successifs, qui lui confèrent sa douceur satinée et minérale.
@@ -195,12 +202,14 @@ var artworks: [Artwork] = [
             artistID: users[1].id),
     Artwork(name: "Carnigrass",
             imageName: "GarasuAboutMeCarnigrass",
+            imageArtisan: "",
             artCategory: "Verrerie",
             description: "",
             details: "",
             artistID: users[1].id),
     Artwork(name: "Whale Tail",
             imageName: "SeaLeaWhaleTail",
+            imageArtisan: "",
             artCategory: "",
             description: """
   """,
@@ -257,8 +266,6 @@ var artworks: [Artwork] = [
         artCategory: "Verrerie",
         description:
             """
-
-        description: """
             De magnifiques sculptures représentant des queues de baleine et de requin occupent le devant de la scène, incarnant une forme emblématique qui captive l’imagination. Inspirées par la magie de l’observation des baleines, chaque sculpture est réalisée à la main pour évoquer les souvenirs et les moments précieux passés aux côtés de ces créatures majestueuses dans leur habitat naturel.
             
             Nos sculptures en vitrail sont méticuleusement réalisées dans cet esprit, à partir de verre irisé qui offre un jeu fascinant de couleurs et de reflets imitant la lueur éthérée et les teintes de l’océan. Chaque pièce est un véritable atout pour votre intérieur, apportant une touche de merveille aquatique à n’importe quel espace.
@@ -293,10 +300,6 @@ var artworks: [Artwork] = [
 //            details: "",
 //            artistID: users[1].id),
 
-   
-        details: "",
-        artistID: .haruto
-    ),
     
     Artwork(
         id: .artworkOeufDeFaberge,
