@@ -54,7 +54,7 @@ struct ButtonsDistance: View {
                     .foregroundStyle(.black)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
-                    .background(estAppuye36 ?
+                    .background(estAppuye10 ?
                                 Color(red: 103/255, green: 226/255, blue: 150/255)
                                 : Color.white)                    .overlay {
                         RoundedRectangle(cornerRadius: 12)

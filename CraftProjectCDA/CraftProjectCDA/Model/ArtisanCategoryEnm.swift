@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import Foundation
 
-enum ArtisanCategory: String, CaseIterable, Identifiable {
+enum ArtisanCategoryEnm: String, CaseIterable, Identifiable {
     case bijoutier = "Bijoutier"
     case brodeur = "Brodeur"
     case ceramiste = "Céramiste"
