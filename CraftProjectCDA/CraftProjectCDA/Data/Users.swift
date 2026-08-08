@@ -27,6 +27,7 @@ extension UUID {
 }
 
 var users: [User] = [
+    // 0
     User(
         id: .marie,
         firstName: "Marie",
@@ -41,7 +42,7 @@ var users: [User] = [
         followingID: [.amande, .eloise],
         reviewsID: []
     ),
-    
+    // 1
     User(
         id: .amande,
         firstName: "Amande",
@@ -56,7 +57,7 @@ var users: [User] = [
         followingID: [.marie, .lisa],
         reviewsID: []
     ),
-
+    // 2
     User(
         id: .anneSophie,
         firstName: "Anne-Sophie",
@@ -71,7 +72,7 @@ var users: [User] = [
         followingID: [.julie, .sofia],
         reviewsID: []
     ),
-    
+    // 3
     User(
         id: .julie,
         firstName: "Julie",
@@ -86,7 +87,7 @@ var users: [User] = [
         followingID: [.anneSophie, .haruto],
         reviewsID: []
     ),
-
+    // 4
     User(
         id: .lisa,
         firstName: "Lisa",
@@ -102,8 +103,7 @@ var users: [User] = [
         followingID: [.marie, .amande],
         reviewsID: []
     ),
-
-    
+    // 5
     User(
         id: .haruto,
         firstName: "Haruto",
@@ -118,7 +118,7 @@ var users: [User] = [
         followingID: [.eloise, .lucas, .amande],
         reviewsID: []
     ),
-    
+    // 6
     User(
         id: .eloise,
         firstName: "Éloise",
