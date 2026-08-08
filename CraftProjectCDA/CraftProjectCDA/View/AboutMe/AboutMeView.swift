@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AboutMeView: View {
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
-    var artwork: Artwork
+    
     var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: 10, maximum: 185)),count: 2)
     
     var body: some View {
@@ -70,24 +70,22 @@ formage et du fusing.
             Divider()
                 .frame(minHeight:5)
                 .overlay(Color.mint.opacity(0.7))
-                .padding(.bottom,5)
+                .padding(.bottom,10)
             
             Text("Mes Inspirations")
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.leading,-185)
                 
-            LazyVGrid(columns: columns){
-               
-                ForEach(artworks){ artwork in
-                AboutMeInspirationDetailView(artwork: artwork)}
-                
+            VStack{
+                AboutMeInspirationDetailView()
             }
+           
         }
     }
 }
 
 #Preview {
-    AboutMeView(artwork: artworks[3])
+    AboutMeView()
     
 }

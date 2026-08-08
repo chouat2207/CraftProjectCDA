@@ -8,36 +8,147 @@
 import SwiftUI
 
 struct AboutMeInspirationDetailView: View {
-    var artwork : Artwork 
+    
     var body: some View {
-        ZStack {
-            Rectangle()
+        
+        HStack{
+            ZStack {
+                Rectangle()
+                    .cornerRadius(10)
+                    .foregroundStyle(.white)
                 
-                .cornerRadius(10)
-                .foregroundStyle(.white)
-            VStack {
-                Image(artwork.imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 180, height: 140)
-                    .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
-                Spacer()
-                HStack {
-                    Text(artwork.name)
-                        .font(.caption)
+                VStack {
+                    Image("GarasuInspirationOeufDeFaberge")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 180, height: 200)
+                        .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
                     Spacer()
+                    HStack {
+                        Text("Oeuf de Fabergé")
+                            .font(.caption)
+                        Spacer()
+                    }
+                    
+                    .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
+                    
+                    HStack{
+                        Text("Par Pierre-Karl Fabergé")
+                            .font(.caption2)
+                            .fontWeight(.light)
+                            .italic()
+                        Spacer()
+                    }
+                    .padding(.init(top: 0, leading: 10, bottom: 5, trailing: 0))
                 }
+            }
+            .padding()
+            .frame(width: 180, height: 210)
+            .shadow(radius: 2)
+            
+            ZStack {
+                Rectangle()
+                    .cornerRadius(10)
+                    .foregroundStyle(.white)
                 
-                .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
-                Spacer()
+                VStack {
+                    Image("GarasuInspirationCodexSeraphinianus")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 180, height: 200)
+                        .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
+                    Spacer()
+                    HStack {
+                        Text("Codex Seraphianianus")
+                            .font(.caption)
+                        Spacer()
+                    }
+                    .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
+                    HStack{
+                        Text("Par Luigi Serafini")
+                            .font(.caption2)
+                            .fontWeight(.light)
+                            .italic()
+                        Spacer()
+                    }
+                    .padding(.init(top: 0, leading: 10, bottom: 5, trailing: 0))
+                }
+            }
+            .padding()
+            .frame(width: 180, height: 210)
+            .shadow(radius: 2)
+        }
+        .padding(.vertical, 50)
+        
+        HStack{
+            ZStack {
+                Rectangle()
+                    .cornerRadius(10)
+                    .foregroundStyle(.white)
+                
+                VStack {
+                    Image("GarasuInspirationAnomalys")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 180, height: 200)
+                        .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
+                    Spacer()
+                    HStack {
+                        Text("Anomalys")
+                            .font(.caption)
+                        Spacer()
+                    }
+                    .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
+                    HStack{
+                        Text("Par Jennifer Umphress")
+                            .font(.caption2)
+                            .fontWeight(.light)
+                            .italic()
+                        Spacer()
+                    }
+                    .padding(.init(top: 0, leading: 10, bottom: 5, trailing: 0))
+                }
+            }
+            .padding()
+            .frame(width: 180, height: 210)
+            .shadow(radius: 2)
+            HStack{
+                ZStack {
+                    Rectangle()
+                        .cornerRadius(10)
+                        .foregroundStyle(.white)
+                    
+                    VStack {
+                        Image("GarasuInspirationCorallia")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 180, height: 200)
+                            .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
+                        Spacer()
+                        HStack {
+                            Text("Yellow Edith")
+                                .font(.caption)
+                            Spacer()
+                        }
+                        .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
+                        HStack{
+                            Text("Par Katie Stout")
+                                .font(.caption2)
+                                .fontWeight(.light)
+                                .italic()
+                            Spacer()
+                        }
+                        .padding(.init(top: 0, leading: 10, bottom: 5, trailing: 0))
+                    }
+                }
+                .padding()
+                .frame(width: 180, height: 210)
+                .shadow(radius: 2)
             }
         }
-        .padding()
-        .frame(width: 180, height: 190)
-        .shadow(radius: 2)
     }
 }
 
 #Preview {
-    AboutMeInspirationDetailView(artwork: artworks[9])
+    AboutMeInspirationDetailView()
 }
