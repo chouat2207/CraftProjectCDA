@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ArtisanProfileView: View {
     
+    @State var profileViewModel: ProfileViewModel = ProfileViewModel()
     @State private var isShowEdit: Bool = false
     @State var selectedTab = "artworks"
+    
     
     var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: 10, maximum: 185)),count: 2)
     
@@ -115,8 +117,8 @@ struct ArtisanProfileView: View {
             ScrollView{
                 LazyVGrid(columns: columns){
                     if selectedTab == "artworks"{
-                        ForEach (artworks) { artwork in
-                            ArtworkUserView(artwork: artwork)
+                        ForEach (profileViewModel.filterByArtworks) { artisanProfile in
+                            ListCard(artwork: artworks[0]) 
                         }
                     }else if selectedTab == "aboutme"{
                         
@@ -134,12 +136,13 @@ struct ArtisanProfileView: View {
     }
 }
 
-#Preview {
-    ArtisanProfileView()
-}
 
-struct ArtworkUserView: View{
-    let artwork: Artwork
+
+struct ArtworkUserView: View {
+    
+ 
+    let artisan: ArtisanProfile
+    let artworkArtisan: Artwork
     
     var body: some View {
         
@@ -148,14 +151,14 @@ struct ArtworkUserView: View{
                 .cornerRadius(10)
                 .foregroundStyle(.white)
             VStack {
-                Image(artwork.imageName)
+                Image(artworkArtisan.imageName)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 180, height: 140)
                     .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
                 Spacer()
                 HStack {
-                    Text("\(artwork.name)")
+                    Text("\(artworkArtisan.name)")
                         .font(.caption)
                     Spacer()
                 }
@@ -171,3 +174,6 @@ struct ArtworkUserView: View{
 }
 
 
+#Preview {
+    ArtisanProfileView(profileViewModel: ProfileViewModel())
+}
