@@ -25,12 +25,6 @@ struct EditProfileView: View {
         NavigationView{
             VStack(alignment: .leading) {
                 
-                //                Text("Éditer votre profil")
-                //                    .font(.largeTitle)
-                //                    .fontWeight(.semibold)
-                //                    .fontDesign(.serif)
-                //                    .kerning(1)
-                //                    .padding(.horizontal,50)
                 
                 Text("")
                 Divider()
@@ -206,7 +200,7 @@ struct EditProfileView: View {
                         .padding(.vertical,5)
                     
                     Button{
-                        editProfileViewModel.saveEditChanges(user: user)
+                    editProfileViewModel.saveEditChanges(user: user)
                     }label: {
                         ZStack(alignment: .center){
                             RoundedRectangle(cornerRadius: 32)
@@ -232,24 +226,24 @@ struct EditProfileView: View {
             .navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
-                    ToolbarItem(placement: .principal) {
-                        Text("Éditer votre profil")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .kerning(1)
-                            
-                    }
+                ToolbarItem(placement: .principal) {
+                    Text("Éditer votre profil")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .kerning(1)
+                    
                 }
+            }
         }
-       
-            
-                        
-           
-           
-//            .navigationTitle(Text("Éditer votre profil").font(.largeTitle))
-//            .navigationBarTitleDisplayMode(.inline)
-            
-           
+        
+        
+        
+        
+        
+        //            .navigationTitle(Text("Éditer votre profil").font(.largeTitle))
+        //            .navigationBarTitleDisplayMode(.inline)
+        
+        
         
     }
     
