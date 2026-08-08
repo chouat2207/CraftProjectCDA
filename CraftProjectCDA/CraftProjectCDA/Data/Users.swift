@@ -5,6 +5,13 @@
 //  Created by Apprenant 89 on 30/07/2026.
 //
 
+//
+//  Users.swift
+//  CraftProjectCDA
+//
+//  Created by Apprenant 89 on 30/07/2026.
+//
+
 import Foundation
 
 extension UUID {
@@ -79,7 +86,7 @@ var users: [User] = [
         followingID: [.anneSophie, .haruto],
         reviewsID: []
     ),
-    
+
     User(
         id: .lisa,
         firstName: "Lisa",
@@ -95,6 +102,7 @@ var users: [User] = [
         followingID: [.marie, .amande],
         reviewsID: []
     ),
+
     
     User(
         id: .haruto,
