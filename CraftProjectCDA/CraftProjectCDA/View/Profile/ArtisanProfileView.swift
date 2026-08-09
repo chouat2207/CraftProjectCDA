@@ -162,8 +162,8 @@ struct ArtisanProfileView: View {
             ScrollView{
                 LazyVGrid(columns: columns){
                     if selectedTab == "artworks"{
-                        ForEach (profileViewModel.filterByArtworks) { artisanProfile in
-                            ListCard(artwork: artworks[0])
+                        ForEach (profileViewModel.filterByArtworks) { artwork in
+                            ArtworkUserView(artworkArtisan: artwork)
                         }
                     }else if selectedTab == "aboutme"{
                         VStack(alignment: .center){
@@ -188,7 +188,7 @@ struct ArtisanProfileView: View {
 struct ArtworkUserView: View {
     
     
-    let artisan: ArtisanProfile
+//    let artisan: ArtisanProfile
     let artworkArtisan: Artwork
     
     var body: some View {

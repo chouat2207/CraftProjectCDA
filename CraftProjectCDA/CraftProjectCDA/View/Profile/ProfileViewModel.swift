@@ -53,16 +53,26 @@ class ProfileViewModel{
     }
     
     
-    var filterByArtworks: [ArtisanProfile]{
-        var ownArtwork: [ArtisanProfile] = []
-        for artisanProfile in artisansData {
-            if mainArtisan.artworksID.contains(where: {$0 == artisanProfile.id}) {
-                ownArtwork.append(artisanProfile)
+//    var filterByArtworks: [ArtisanProfile]{
+//        var ownArtwork: [ArtisanProfile] = []
+//        for artisanProfile in artisansData {
+//            if mainArtisan.artworksID.contains(where: {$0 == artisanProfile.id}) {
+//                ownArtwork.append(artisanProfile)
+//            }
+//        
+//        }
+//        return ownArtwork
+        
+        
+        
+        var filterByArtworks: [Artwork]{
+            var ownArtwork: [Artwork] = []
+            for artwork in artworkData {
+                if mainArtisan.artworksID.contains(where: {$0 == artwork.artistID}) {
+                    ownArtwork.append(artwork)
+                }
             }
-            
-            // on veut un tableau d'artworks dans artisanprofile , pour chaque id, on retourne l'artwork correspondant à l'id de l'artisan
-        }
-        return ownArtwork
+            return ownArtwork
     }
 }
 
