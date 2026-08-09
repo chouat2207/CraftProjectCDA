@@ -9,9 +9,7 @@ import SwiftUI
 
 struct LogbookView: View {
     var body: some View {
-      
-        
-          
+  
             VStack{
                 
                 LogbookCardView()

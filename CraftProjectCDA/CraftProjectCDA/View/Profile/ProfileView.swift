@@ -87,11 +87,11 @@ struct ProfileView: View {
                         .fontWeight(.semibold)
                     
                     
-                    Text("Bio")
+                    Text(profileViewModel.mainUser.description)
                         .italic()
                         .font(.footnote)
                 }
-                .padding(.trailing,280)
+                .padding(.trailing,240)
                 //
                 // SECTION FOLLOW / REVIEWS
                 
