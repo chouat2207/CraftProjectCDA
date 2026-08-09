@@ -87,7 +87,7 @@ var artisanProfiles = [
     ArtisanProfile(
         id: .haruto,
         isActive: true,
-        imageName: "HaeghenAmande",
+        imageName: "GarasuPhotoDeProfil",
         shopAddress: "3 avenue République Dame, 13002 Marseille",
         shopLocation: CLLocationCoordinate2D(latitude: 43.2965, longitude: 5.3698),
         reviewsID: [.review8],
