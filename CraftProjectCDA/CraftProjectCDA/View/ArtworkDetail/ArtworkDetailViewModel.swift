@@ -11,14 +11,9 @@ import PhotosUI
 
 class ArtworkDetailViewModel {
    
-    // appeler protocol displayable Item
-    //  var items: [any DisplayableItem & Identifiable]
     var artwork : Artwork
     var navigateToMessage : Bool = false
-    
-//    var isFavorite : Bool = false
-    
-//    let _users : [User] = users
+
     let mainUserID : UUID = .haruto
     
     var mainUser : User {
@@ -41,10 +36,8 @@ class ArtworkDetailViewModel {
         guard let index = users.firstIndex(where: {$0.id == mainUserID}) else { return }
         if let artworkIndex = users[index].favoriteArtworksID.firstIndex(of:artwork.id) {
             users[index].favoriteArtworksID.remove(at: artworkIndex)
-//        isFavorite = false
         } else {
             users[index].favoriteArtworksID.append(artwork.id)
-//            isFavorite = true
         }
        artwork = artwork
     }

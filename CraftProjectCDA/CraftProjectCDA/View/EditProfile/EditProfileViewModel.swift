@@ -19,7 +19,8 @@ class EditProfileViewModel{
     
     func saveEditChanges (user: User) -> ProfileView{
         editChanges.append(user)
-        return ProfileView(profileViewModel: ProfileViewModel(user: user), editProfileViewModel: EditProfileViewModel())
+        return ProfileView(profileViewModel: ProfileViewModel(), editProfileViewModel: EditProfileViewModel())
     }
+    
     
 }

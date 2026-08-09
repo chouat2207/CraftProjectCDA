@@ -9,11 +9,9 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @State var profileViewModel: ProfileViewModel
+    @State var profileViewModel: ProfileViewModel = ProfileViewModel()
     @State var editProfileViewModel: EditProfileViewModel
     @State var selectedTab = "following"
-    
-    var user : User = User(id: .haruto, firstName: "", lastName: "", pseudonym: "", imageName: "", joinedDate: "", address: "", city: "", description: "", favoriteArtworksID: [], followingID: [], reviewsID: [])
     
     var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: 10, maximum: 185)),count: 2)
     
@@ -28,11 +26,11 @@ struct ProfileView: View {
                         .scaledToFill()
                         .frame(width: 500, height: 270)
                         .clipShape(Rectangle())
-                        .padding(.top,-190)
+                        .padding()
                     
                     HStack(alignment: .bottom){
                         
-                        Image("GarasuPhotoDeProfil")
+                        Image(profileViewModel.mainUser.imageName)
                             .resizable()
                             .scaledToFill()
                             .frame(width: 130, height: 130)
@@ -44,7 +42,7 @@ struct ProfileView: View {
                         VStack{
                             HStack(spacing: 130){
                                 
-                                Text(profileViewModel.user.pseudonym)
+                                Text(profileViewModel.mainUser.pseudonym)
                                     .fontWeight(.semibold)
                                 
                                 // SETTINGS BUTTON
@@ -72,29 +70,29 @@ struct ProfileView: View {
                                         .foregroundStyle(.blue)
                                         .padding(.trailing,190)
                                 }
-                                
+                                                                
                             }
                         }
                         .padding(.bottom,15)
                         
                     }
                     .padding(.top,100)
-                    
+                
                 }
                 .ignoresSafeArea()
                 
-                //            VStack(alignment: .leading){
-                //                Text("Utilisateur")
-                //                    .foregroundStyle(.gray)
-                //                    .fontWeight(.semibold)
+                VStack(alignment: .leading){
+                    Text("Utilisateur")
+                        .foregroundStyle(.gray)
+                        .fontWeight(.semibold)
+                    
+                    
+                    Text(profileViewModel.mainUser.description)
+                        .italic()
+                        .font(.footnote)
+                }
+                .padding(.trailing,240)
                 //
-                //
-                //                Text("Bio")
-                //                    .italic()
-                //                    .font(.footnote)
-                //            }
-                //            .padding(.top,-290)
-                //            .padding(.trailing,290)
                 // SECTION FOLLOW / REVIEWS
                 
                 HStack(){
@@ -113,19 +111,17 @@ struct ProfileView: View {
                     .colorMultiply(.mint.opacity(0.7))
                     
                 }
-                .padding(.horizontal,93)
+                .padding(.horizontal,110)
                 
                 ScrollView{
                     LazyVGrid(columns: columns){
                         if selectedTab == "following"{
-                            //                    ForEach (users) { user in
-                            //UserFollowing
-                            ForEach (users) { user in
+                            ForEach (profileViewModel.filterByFollower) { user in
                                 UserFollowing(user: user)
                             }
                         }else if selectedTab == "reviews"{
                             //ForEach Users -> reviewsID
-                            ForEach (users) { user in
+                            ForEach (profileViewModel.userData) { user in
                                 UserReviews(user: user)
                             }
                         }
@@ -160,7 +156,7 @@ struct UserFollowing: View {
                     .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
                 Spacer()
                 HStack {
-                    Text("\(user.firstName)"+"\(user.lastName)")
+                    Text("\(user.firstName) "+"\(user.lastName)")
                         .font(.caption)
                     Spacer()
                 }
@@ -185,5 +181,5 @@ struct UserReviews: View {
     }
 }
 #Preview { NavigationStack{
-    ProfileView(profileViewModel: ProfileViewModel(user: users[5]), editProfileViewModel: EditProfileViewModel())}
+    ProfileView(profileViewModel: ProfileViewModel(), editProfileViewModel: EditProfileViewModel())}
 }
