@@ -12,7 +12,8 @@ final class ConversationsViewModel {
     let usersData: [User] = users
     let messagesData: [UserToUserMessage] = userToUserMessages
     let mainUserID: UUID = .haruto
-
+    let messageService: MessageService = MessageService()
+    
     var mainUser: User? {
         usersData.first(where: { $0.id == mainUserID })
     }
@@ -31,12 +32,6 @@ final class ConversationsViewModel {
                 $0.senderID == mainUserID ? $0.receiverID : $0.senderID
             })
         )
-    }
-
-    var messagesViewData: [DirectMessage] {
-        messages.map({
-            DirectMessage(senderID: $0.senderID, content: $0.content)
-        })
     }
 
     var conversations: [Conversation] {
@@ -100,7 +95,8 @@ final class ConversationsViewModel {
                 {
                     DirectMessage(
                         senderID: $0.senderID,
-                        content: $0.content
+                        content: $0.content,
+                        isFromMainUser: $0.senderID == mainUserID ? true : false
                     )
                 }
             )

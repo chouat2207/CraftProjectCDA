@@ -12,9 +12,8 @@ struct ListCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-
             ZStack(alignment: .bottomLeading) {
-
+                
                 // Image de l’œuvre
                 Image(artwork.imageName)
                     .resizable()
