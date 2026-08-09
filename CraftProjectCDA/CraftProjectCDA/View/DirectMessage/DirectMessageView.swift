@@ -8,25 +8,32 @@
 import SwiftUI
 
 struct DirectMessageView: View {
-    var directMessages: [DirectMessage]
+    @State private var messageViewModel: DirectMessageViewModel
     var peerName: String
     var profileImageName: String = "person.crop.circle.fill"
     @State var message: String = ""
+
+    init(messageViewModel: DirectMessageViewModel, peerName: String, profileImageName: String = "person.crop.circle.fill") {
+        _messageViewModel = State(initialValue: messageViewModel)
+        self.peerName = peerName
+        self.profileImageName = profileImageName
+    }
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
                 Divider()
                 ScrollView {
-                    LazyVStack(spacing: 12) {
-                        ForEach(directMessages) { message in
+                    VStack(spacing: 12) {
+                        ForEach(messageViewModel.directMessages) { message in
                             MessageCardView(content: message.content, isFromMainUser: message.isFromMainUser)
                         }
                     }
                     .padding()
                 }
                 .defaultScrollAnchor(.bottom)
-                
-                //TextFieldView(message: $message, onSend: <#T##(String) -> Void#>)
+
+                TextFieldView(message: $message, onSend: messageViewModel.postMessage)
             }
             .background(Color.white)
             .toolbar {
@@ -50,8 +57,7 @@ struct DirectMessageView: View {
 
 #Preview {
     DirectMessageView(
-        directMessages: [],
-        peerName: "Didier",
-        message: ""
+        messageViewModel: DirectMessageViewModel(peerID: .marie, messageService: MessageService()),
+        peerName: "Didier"
     )
 }
