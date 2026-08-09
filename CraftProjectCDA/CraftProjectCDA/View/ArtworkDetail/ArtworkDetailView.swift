@@ -18,6 +18,7 @@ struct ArtworkDetailView: View {
                 Image(viewModel.artwork.imageName)
                     .resizable()
                     .scaledToFit()
+                    .frame(height: 280)
                     .frame(maxWidth: .infinity)
                 
                 HStack(){
