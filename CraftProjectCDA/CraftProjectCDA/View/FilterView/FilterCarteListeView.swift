@@ -4,91 +4,14 @@
 //
 //  Created by Apprenant 77 on 07/08/2026.
 //
-
-//import SwiftUI
-//
-//struct FilterCarteListeView: View {
-//    @Environment(\.dismiss) var dismiss
-//    let displayedArtworks: [ArtisanCategoryEnm]
-//    @Binding var selectedContent: TypeContenuEnm?
-//    @Binding var selectedCategory: ArtisanCategoryEnm?
-//    var body: some View {
-//        HStack{
-//            Text("Filtrer par ")
-//                .font(.system(size: 25,weight: .bold))
-//            Spacer()
-//            Button{
-//                print("")
-//            }label: {
-//                Text("Reset")
-//                    .foregroundColor(.gray)
-//            }
-//            
-//        }
-//        
-//        .padding()
-//        VStack(alignment: .leading, spacing: 10){
-//            HStack(){
-//                Text("Type de contenu ")
-//                    .font(.system(size: 20,weight: .bold))
-//                Spacer()
-//                Button{
-//                    print("")
-//                }label: {
-//                    Text("Effacer")
-//                        .foregroundColor(.gray)
-//                }
-//                
-//            }
-//            
-//            ButtonsContenu(selection: $selectedContent)
-//            HStack(){
-//                Text("Catégories")
-//                    .font(.system(size: 20,weight: .bold))
-//                Spacer()
-//                Button{
-//                    print("")
-//                }label: {
-//                    Text("Effacer")
-//                        .foregroundColor(.gray)
-//                }
-//                
-//            }
-//            
-//            ButtonsCategory(displayedArtworks: displayedArtworks, selection: $selectedCategory)
-//                .padding(.bottom, 0)
-//            HStack(){
-//                Text("Distance de ma localisation")
-//                    .font(.system(size: 20,weight: .bold))
-//                Spacer()
-//                Button{
-//                    print("")
-//                }label: {
-//                    Text("Effacer")
-//                        .foregroundColor(.gray)
-//                }
-//                
-//            }
-//           
-//            ButtonsDistance()
-//            
-//        }
-//        .padding()
-//      
-//    }
-//}
-//
-//#Preview {
-//    FilterCarteListeView(displayedArtworks: ArtisanCategoryEnm.allCases)
-//}
 import SwiftUI
 
 struct FilterCarteListeView: View {
 
     let displayedArtworks: [ArtisanCategoryEnm]
-
     @Binding var selectedContent: TypeContenuEnm?
     @Binding var selectedCategory: ArtisanCategoryEnm?
+    @Binding var selectedDistance : DistanceEnm?
 
     var body: some View {
 
@@ -116,6 +39,7 @@ struct FilterCarteListeView: View {
                         // Reset de tous les filtres
                         selectedContent = nil
                         selectedCategory = nil
+                        selectedDistance = nil
 
                     } label: {
 
@@ -195,10 +119,9 @@ struct FilterCarteListeView: View {
                         )
 
                     Spacer()
-
                     Button {
 
-                        print("Effacer distance")
+                        selectedDistance = nil
 
                     } label: {
 
@@ -208,7 +131,7 @@ struct FilterCarteListeView: View {
                 }
 
 
-                ButtonsDistance()
+                ButtonsDistance(selected: $selectedDistance)
 
             }
             .padding()
@@ -216,12 +139,14 @@ struct FilterCarteListeView: View {
     }
 }
 #Preview {
-    @Previewable @State var selectedContent: TypeContenuEnm? = nil
-    @Previewable @State var selectedCategory: ArtisanCategoryEnm? = nil
-
+    //on ajoute Previewable pour tester les boutons de filter.
+//    @Previewable @State var selectedContent: TypeContenuEnm? = nil
     FilterCarteListeView(
         displayedArtworks: ArtisanCategoryEnm.allCases,
-        selectedContent: $selectedContent,
-        selectedCategory: $selectedCategory
+
+        selectedContent: .constant(nil),
+        selectedCategory: .constant(nil),
+        selectedDistance: .constant(nil)
+        
     )
 }

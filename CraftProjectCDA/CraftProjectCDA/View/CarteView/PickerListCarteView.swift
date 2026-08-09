@@ -3,121 +3,7 @@
 //  CraftProjectCDA
 //
 //  Created by Apprenant 77 on 31/07/2026.
-//
 
-//import SwiftUI
-//
-//struct PickerListCarteView: View {
-//    let displayedUser  : User
-//    let artwork : [Artwork]
-//    let displayedArtisans: ArtisanProfile
-//    var  displayedCategory : [ArtisanCategoryEnm]
-//    @State private var searchText = ""
-//    @State private var selection: PickerCarte.Content = .liste
-//    @State private var showingSheet = false     // Ouvre la fenêtre de filtres
-// Type choisi :
-//@State private var selectedContent: TypeContenuEnm? = .creation
-
-// Catégorie choisie :
-//@State private var selectedCategory: ArtisanCategoryEnm?
-// 
-//
-//    var body: some View {
-//        VStack{
-//            switch selection {
-//            case .liste:
-//                HStack(){
-//                    SearchBarCarte(searchText: $searchText)
-//                     
-//                    Button{
-//                        FilterCarteListeView(displayedArtworks: displayedCategory)
-//                        showingSheet = true
-////                   
-////                        print("")
-//                    }
-//                    label :{
-//                        Image(systemName: "slider.vertical.3")
-//                            .font(.system(size: 20))
-//                            .foregroundStyle(.gray)
-//                            .frame(width: 38, height: 44)
-//                            .background(.white)
-//                            .clipShape(RoundedRectangle(cornerRadius: 10))
-//                            .overlay {
-//                                RoundedRectangle(cornerRadius: 10)
-//                                    .stroke(.black, lineWidth: 1)
-//                                
-//                            }
-//                   }
-//                    
-//                    Image(displayedUser.imageName)
-//                        .font(.system(size: 20))
-//                        .foregroundStyle(.gray)
-//                        .frame(width: 40, height: 44)
-//                        .background(.white)
-//                        .clipShape(Circle())
-//                        .overlay {
-//                            Circle()
-//                                .stroke(.black, lineWidth: 1)
-//                        }
-//                }
-//                .padding(.horizontal, 3)
-//                PickerCarte(selection: $selection)
-//               
-//                
-//            CardList(displayedArtworks: artwork)
-//            case .carte:
-//                ZStack(alignment: .top){
-//                    CarteView()
-//                    VStack{
-//                        HStack(){
-//                            SearchBarCarte(searchText: $searchText)
-//                                .frame(width: 290)
-//                                .overlay {
-//                                    RoundedRectangle(cornerRadius: 10)
-//                                        .stroke(.black, lineWidth: 1)
-//                                }
-//                            
-//                            Image(systemName: "slider.vertical.3")
-//                                .font(.system(size: 20))
-//                                .foregroundStyle(.gray)
-//                                .frame(width: 38, height: 44)
-//                                .background(.white)
-//                                .clipShape(RoundedRectangle(cornerRadius: 10))
-//                                .overlay {
-//                                    RoundedRectangle(cornerRadius: 10)
-//                                        .stroke(.black, lineWidth: 1)
-//                                    
-//                                }
-//                            Image(displayedArtisans.imageName)
-//
-//                                .font(.system(size: 20))
-//                                .foregroundStyle(.gray)
-//                                .frame(width: 40, height: 44)
-//                                .background(.white)
-//                                .clipShape(Circle())
-//                                .overlay {
-//                                    Circle()
-//                                        .stroke(.black, lineWidth: 1)
-//                                }
-//                        }
-//                        .padding(.horizontal, 3)                
-//                        PickerCarte(selection: $selection)
-//                    }
-//                }
-//            }
-//            
-//        }
-//    }
-//
-//
-//    }
-//
-//
-//#Preview {
-//    PickerListCarteView(displayedUser: users[0], artwork: artworks, displayedArtisans: artisanProfiles[0], displayedCategory: ArtisanCategoryEnm.allCases
-//        
-//    )
-//}
 import SwiftUI
 
 struct PickerListCarteView: View {
@@ -139,6 +25,8 @@ struct PickerListCarteView: View {
     @State private var selectedContent: TypeContenuEnm? = .creation
 
     @State private var selectedCategory: ArtisanCategoryEnm?
+    
+    @State private var selectedDistance : DistanceEnm?
     
     
     private var hasActiveFilter: Bool {
@@ -185,8 +73,6 @@ struct PickerListCarteView: View {
             }
         }
     }
-
-
     var body: some View {
 
         VStack {
@@ -200,7 +86,6 @@ struct PickerListCarteView: View {
                     SearchBarCarte(
                         searchText: $searchText
                     )
-
                     // Bouton filtre
                     Button {
                         showingSheet = true
@@ -253,9 +138,7 @@ struct PickerListCarteView: View {
                 PickerCarte(
                     selection: $selection
                 )
-
                 // Contenu de la liste
-
                 switch selectedContent {
                 case .creation, .none:  // Créations
 
@@ -264,36 +147,35 @@ struct PickerListCarteView: View {
                     )
                 // Artisans
                 case .artisan:
-
-                    ScrollView {
-
-                        VStack {
-
-                            ForEach(filteredArtisans) { artisan in
-                                let matchedUser = users.first(where: { $0.id == artisan.id })
-                                HStack {
-                                    Image(artisan.imageName)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(
-                                            width: 60,
-                                            height: 60
-                                        )
-                                        .clipShape(Circle())
-                                  
-                                    Text(matchedUser.map { "\($0.firstName) \($0.lastName)" } ?? "Artisan")
-                                                    .font(.headline)
-//                                    Text(artisan.artCategory)
-
-                                    Spacer()
-                                }
-                                .padding()
-                            }
-                        }
-                    }
-
+                
+                                ArtisanListView(filteredArtisans: displayedArtisans)
+                       
+                    
+                        //$0 représente chaque élément du tableau users, un par un
+                                //comme : users.first(where: { user in
+                                //                               // user.id == artisan.id
+                                //                                let matchedUser =
+                                //                                users.first(where: { $0.id == artisan.id })
+                                //                                HStack {
+                                //                                    Image(artisan.imageName)
+                                //                                        .resizable()
+                                //                                        .scaledToFill()
+                                //                                        .frame(
+                                //                                            width: 60,
+                                //                                            height: 60
+                                //                                        )
+                                //                                        .clipShape(Circle())
+                                //                                  //map ici : Si matchedUser contient un User, utilise-le pour créer le texte
+                                //                                    Text(matchedUser.map { "\($0.firstName) \($0.lastName)" } ?? "Artisan")
+                                //                                                    .font(.headline)
+                                ////                                   
+                                //                                    Spacer()
+                                //                                }
+                                //                                .padding()
+                                //                            }
+                                //                        }
+                        
                 // Evènements
-
                 case .evenement:
 
                     Text("Evènements")
@@ -400,10 +282,9 @@ struct PickerListCarteView: View {
 
             FilterCarteListeView(
                 displayedArtworks: displayedCategory,
-
                 selectedContent: $selectedContent,
-
-                selectedCategory: $selectedCategory
+                selectedCategory: $selectedCategory,
+                selectedDistance: $selectedDistance
             )
             .presentationDetents([
                 .medium,

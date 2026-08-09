@@ -123,11 +123,7 @@ struct ButtonsContenu: View {
     }
 }
 #Preview {
-//    @Previewable @State var selection: TypeContenuEnm? = .creation
-//
-//    ButtonsContenu(
-//        selection: $selection
-//    )
-//    .padding()
-    ButtonsContenu(selection: .constant(.none))
+    //pour tester l'effet des boutons ici au lieu de view principale.
+    @Previewable @State var selection : TypeContenuEnm? = nil
+    ButtonsContenu(selection : $selection)
 }
