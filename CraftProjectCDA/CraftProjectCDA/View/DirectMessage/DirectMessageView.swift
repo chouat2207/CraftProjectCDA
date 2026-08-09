@@ -11,7 +11,7 @@ struct DirectMessageView: View {
     var directMessages: [DirectMessage]
     var peerName: String
     var profileImageName: String = "person.crop.circle.fill"
-    @State var message: String
+    @State var message: String = ""
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
@@ -26,7 +26,7 @@ struct DirectMessageView: View {
                 }
                 .defaultScrollAnchor(.bottom)
                 
-                TextFieldView(message: $message)
+                //TextFieldView(message: $message, onSend: <#T##(String) -> Void#>)
             }
             .background(Color.white)
             .toolbar {

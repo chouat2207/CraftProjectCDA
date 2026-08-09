@@ -6,6 +6,7 @@
 import SwiftUI
 
 struct ConversationsView: View {
+    @Environment(MessageService.self) var messageService: MessageService
     @State var conversationVM: ConversationsViewModel = ConversationsViewModel()
     
     var body: some View {

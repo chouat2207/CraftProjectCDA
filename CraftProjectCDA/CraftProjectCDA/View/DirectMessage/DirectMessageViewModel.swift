@@ -8,9 +8,9 @@ import Foundation
 
 @Observable
 class DirectMessageViewModel {
+    var messagesData: [UserToUserMessage] = userToUserMessages
     
-//    var messages: [DirectMessage] {
-//        
-//    }
-//    
+    func postMessage(message: String) {
+        messagesData.append(UserToUserMessage(id: UUID(), content: message, postDate: Date(), senderID: .marie, receiverID: .amande))
+    }
 }

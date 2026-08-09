@@ -12,7 +12,8 @@ final class ConversationsViewModel {
     let usersData: [User] = users
     let messagesData: [UserToUserMessage] = userToUserMessages
     let mainUserID: UUID = .haruto
-
+    let messageService: MessageService = MessageService()
+    
     var mainUser: User? {
         usersData.first(where: { $0.id == mainUserID })
     }

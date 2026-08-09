@@ -7,7 +7,7 @@ import SwiftUI
 
 struct TextFieldView: View {
     @Binding var message: String
-    
+    var onSend: (String) -> Void
     var body: some View {
         HStack(spacing: 12) {
             TextField("Message...", text: $message, axis: .vertical)
@@ -18,7 +18,11 @@ struct TextFieldView: View {
                 .autocorrectionDisabled(true)
             
             Button {
-                message = ""
+                if message != "" {
+                    onSend(message)
+                    message = ""
+                }
+                
             } label: {
                 Image(systemName: "paperplane.fill")
                     .font(.system(size: 18, weight: .bold))
@@ -35,5 +39,5 @@ struct TextFieldView: View {
 }
 
 #Preview {
-    TextFieldView(message: .constant(""))
+    //TextFieldView(message: .constant(""))
 }
