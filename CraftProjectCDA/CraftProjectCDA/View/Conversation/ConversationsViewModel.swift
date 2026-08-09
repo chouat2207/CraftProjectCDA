@@ -1,8 +1,8 @@
 //
-//  ConversationViewModel.swift
+//  ConversationsViewModel.swift
 //  CraftProjectCDA
 //
-//  Created by Apprenant 77 on 04/08/2026.
+//  Created by Apprenant 77 on 05/08/2026.
 //
 
 import Foundation
@@ -10,22 +10,24 @@ import Foundation
 @Observable
 final class ConversationsViewModel {
     let usersData: [User] = users
-    let messagesData: [UserToUserMessage] = userToUserMessages
-    let mainUserID: UUID = .haruto
-    let messageService: MessageService = MessageService()
-    
+    private let messageService: MessageService
+
+    init(messageService: MessageService) {
+        self.messageService = messageService
+    }
+
+    var mainUserID: UUID { messageService.mainUserID }
+
     var mainUser: User? {
         usersData.first(where: { $0.id == mainUserID })
     }
 
-    // Ca c'est bon
     var messages: [UserToUserMessage] {
-        messagesData
+        messageService.messageData
             .filter { $0.senderID == mainUserID || $0.receiverID == mainUserID }
             .sorted { $0.postDate < $1.postDate }
     }
 
-    //Ici me faut un Set de peerID
     var peerIDs: Set<UUID> {
         Set(
             messages.map({
@@ -74,33 +76,4 @@ final class ConversationsViewModel {
         }
     }
 
-    func getLastMessage(from peerID: UUID) -> UserToUserMessage? {
-        messages.last(where: {
-            $0.senderID == peerID || $0.receiverID == peerID
-        })
-    }
-    
-    
-    func getAllMessages(from peerID: UUID)
-        -> [DirectMessage]
-    {
-        messages
-            .filter(
-                {
-                    ($0.senderID == mainUserID || $0.receiverID == mainUserID)
-                        && ($0.senderID == peerID || $0.receiverID == peerID)
-                }
-            )
-            .map(
-                {
-                    DirectMessage(
-                        senderID: $0.senderID,
-                        content: $0.content,
-                        isFromMainUser: $0.senderID == mainUserID ? true : false
-                    )
-                }
-            )
-    }
-    
-    
 }

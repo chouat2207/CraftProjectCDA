@@ -9,6 +9,7 @@ import Foundation
 
 @Observable
 class MessageService {
+    let mainUserID: UUID = .haruto
     var messageData: [UserToUserMessage] = userToUserMessages
     
     func postMessage (from senderID: UUID, to receiverID : UUID, content : String) {
@@ -19,6 +20,6 @@ class MessageService {
     senderID : senderID,
     receiverID: receiverID
     )
-    userToUserMessages.append(newMessage)
+    messageData.append(newMessage)
     }
 }
