@@ -10,7 +10,7 @@ import SwiftUI
 struct AboutMeView: View {
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
     
-    var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: 10, maximum: 185)),count: 2)
+    var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: 10, maximum: .infinity)),count: 2)
     
     var body: some View {
         
