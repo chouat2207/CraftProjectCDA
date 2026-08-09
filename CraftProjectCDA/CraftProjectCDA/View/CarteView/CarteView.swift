@@ -9,11 +9,12 @@ import SwiftUI
 import MapKit
 
 struct CarteView: View {
-
     let displayedArtisans: [ArtisanProfile]
     let hasActiveFilter: Bool
 
     @State private var position: MapCameraPosition = .userLocation(
+       // true  → suit position + direction du téléphone
+      //  false → suit surtout la position, sans tourner avec le téléphone
         followsHeading: false,
         fallback: .automatic
     )
@@ -45,9 +46,7 @@ struct CarteView: View {
         }
     }
 
-
     private func updateMapPosition() {
-
         if hasActiveFilter {
             position = .automatic
         } else {

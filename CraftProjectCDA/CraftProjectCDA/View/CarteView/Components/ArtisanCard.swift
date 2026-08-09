@@ -28,6 +28,7 @@ struct ArtisanCard: View {
                     .clipped()
                 
                 Text(
+                    //map ici : Si matchedUser contient un User, utilise-le pour créer le texte
                     matchedUser.map {
                         "\($0.firstName) \($0.lastName)"
                     } ?? "Artisan"

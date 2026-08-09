@@ -149,35 +149,8 @@ struct PickerListCarteView: View {
                 case .artisan:
                 
                                 ArtisanListView(filteredArtisans: displayedArtisans)
-                       
-                    
-                        //$0 représente chaque élément du tableau users, un par un
-                                //comme : users.first(where: { user in
-                                //                               // user.id == artisan.id
-                                //                                let matchedUser =
-                                //                                users.first(where: { $0.id == artisan.id })
-                                //                                HStack {
-                                //                                    Image(artisan.imageName)
-                                //                                        .resizable()
-                                //                                        .scaledToFill()
-                                //                                        .frame(
-                                //                                            width: 60,
-                                //                                            height: 60
-                                //                                        )
-                                //                                        .clipShape(Circle())
-                                //                                  //map ici : Si matchedUser contient un User, utilise-le pour créer le texte
-                                //                                    Text(matchedUser.map { "\($0.firstName) \($0.lastName)" } ?? "Artisan")
-                                //                                                    .font(.headline)
-                                ////                                   
-                                //                                    Spacer()
-                                //                                }
-                                //                                .padding()
-                                //                            }
-                                //                        }
-                        
                 // Evènements
                 case .evenement:
-
                     Text("Evènements")
                         .font(.title2)
                 }
@@ -187,29 +160,15 @@ struct PickerListCarteView: View {
                 ZStack(alignment: .top) {
                     // la carte reçoit les artisans filtrés
                     CarteView(
-                        displayedArtisans: filteredArtisans,
+                        displayedArtisans:
+                        filteredArtisans,
                         hasActiveFilter: hasActiveFilter
                     )
-
                     VStack {
-
                         HStack {
-
                             SearchBarCarte(
                                 searchText: $searchText
                             )
-                            .frame(width: 290)
-                            .overlay {
-
-                                RoundedRectangle(
-                                    cornerRadius: 10
-                                )
-                                .stroke(
-                                    .black,
-                                    lineWidth: 1
-                                )
-                            }
-
 
                             // Bouton filtre
                             Button {
@@ -217,7 +176,6 @@ struct PickerListCarteView: View {
                                 showingSheet = true
 
                             } label: {
-
                                 Image(
                                     systemName: "slider.vertical.3"
                                 )
@@ -299,12 +257,9 @@ struct PickerListCarteView: View {
 #Preview {
 
     PickerListCarteView(
-
         displayedUser: users[0],
-
         artwork: artworks,
         displayedArtisans: artisanProfiles,
-
         displayedCategory: ArtisanCategoryEnm.allCases
     )
 }
