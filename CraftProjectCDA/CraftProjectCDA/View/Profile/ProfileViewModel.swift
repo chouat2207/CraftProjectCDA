@@ -37,8 +37,11 @@ class ProfileViewModel{
         return EditProfileView(editProfileViewModel: EditProfileViewModel(), user: mainUser)
     }
     
-    func showSettings(){
-        isShowSettings = true
+    func showSettings() -> SettingsAccountView{
+        if isShowSettings{
+            
+        }
+        return SettingsAccountView()
     }
     
     var filterByFollower: [User] {
