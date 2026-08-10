@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ArtworkDetailView: View {
     @State var viewModel : ArtworkDetailViewModel
- 
+//    @Environment(SharedViewModel.self) var sharedVM
     
     var body: some View {
         VStack{
@@ -90,6 +90,6 @@ struct ArtworkDetailView: View {
 }
 
 #Preview {
-    NavigationStack{ArtworkDetailView(viewModel: ArtworkDetailViewModel(artwork: artworks[2]))
-    }
+    ArtworkDetailView(viewModel: ArtworkDetailViewModel(artwork: artworks[2]))
+
 }
