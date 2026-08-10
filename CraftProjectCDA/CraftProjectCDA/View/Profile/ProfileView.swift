@@ -46,7 +46,7 @@ struct ProfileView: View {
                                     .fontWeight(.semibold)
                                 
                                 // SETTINGS BUTTON
-                                Button{
+                                NavigationLink{
                                     profileViewModel.showSettings()
                                 }label: {
                                     Image(systemName: "gearshape.fill")

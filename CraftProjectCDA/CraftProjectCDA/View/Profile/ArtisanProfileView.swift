@@ -104,6 +104,7 @@ struct ArtisanProfileView: View {
                                 .kerning(1)
                                 .foregroundStyle(.black.opacity(0.8))
                         }
+                      }
                     }
                     .padding(.bottom,40)
                     .padding(.trailing,10)
@@ -130,7 +131,7 @@ struct ArtisanProfileView: View {
                     }
                     .padding(.bottom,40)
                     .padding(.leading,10)
-                }
+                
             }
             // SECTION FOLLOW / REVIEWS
             
