@@ -14,13 +14,13 @@ class MessageService {
     var userData: [User] = users
     
     func postMessage (from senderID: UUID, to receiverID : UUID, content : String) {
-    let newMessage = UserToUserMessage (
-    id : UUID(),
-    content : content,
-    postDate : Date(),
-    senderID : senderID,
-    receiverID: receiverID
-    )
-    messageData.append(newMessage)
+        let newMessage = UserToUserMessage (
+            id : UUID(),
+            content : content,
+            postDate : Date(),
+            senderID : senderID,
+            receiverID: receiverID
+        )
+        messageData.append(newMessage)
     }
 }

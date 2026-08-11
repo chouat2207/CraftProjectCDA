@@ -35,27 +35,11 @@ struct DirectMessageView: View {
                     }
                 }
                 .defaultScrollAnchor(.bottom)
-                
                 TextFieldView(
                     message: $message,
                     onSend: { directMessageVM?.postMessage(content: $0)})
             }
-            .background(Color.white)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    HStack(spacing: 10) {
-                        AvatarView(
-                            imageName: profileImageName,
-                            frameWidth: 32,
-                            frameHeight: 32
-                        )
-                        Text(peerName)
-                            .font(.headline)
-                            .foregroundColor(.primary)
-                    }
-                }
-            }
-            .navigationBarTitleDisplayMode(.inline)
+            .customToolbar(imageName: profileImageName, userName: peerName)
         }
         .onAppear() {
             if directMessageVM == nil {

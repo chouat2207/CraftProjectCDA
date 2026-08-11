@@ -26,8 +26,6 @@ struct MessageCardView: View {
             }
             
             VStack(alignment: .leading, spacing: 4) {
-
-                
                 Text(content)
                     .font(.body)
                 HStack {

@@ -8,7 +8,7 @@ import Foundation
 
 @Observable
 final class DirectMessageViewModel {
-    let peerID: UUID
+    private let peerID: UUID
     private let messageService: MessageService
 
     init(peerID: UUID, messageService: MessageService) {
