@@ -78,7 +78,7 @@ struct LogbookCardView: View {
                     }
                 }
                 .padding()
-                .frame(width: 190, height: 280)
+                .frame(maxWidth: .infinity, maxHeight: 280)
                 
                 // 2ND LOGBOOK'S POST
                 
@@ -142,7 +142,7 @@ prendre dans  ses mains[...]
                     }
                 }
                 .padding()
-                .frame(width: 190, height: 280)
+                .frame(maxWidth: .infinity, maxHeight: 280)
                 
                 //3RD LOGBOOK'S POST
                 
@@ -206,7 +206,7 @@ de   matériaux   qui[...]
                     }
                 }
                 .padding()
-                .frame(width: 190, height: 280)
+                .frame(maxWidth: .infinity, maxHeight: 280)
             
         }
     }

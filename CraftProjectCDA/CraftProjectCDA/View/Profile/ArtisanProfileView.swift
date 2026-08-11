@@ -12,10 +12,7 @@ struct ArtisanProfileView: View {
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
     @State private var isShowEdit: Bool = false
     @State var selectedTab = "artworks"
-    
-    
-    var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: 10, maximum: 185)),count: 2)
-    
+ 
     var body: some View {
         VStack{
             ZStack{
@@ -32,6 +29,7 @@ struct ArtisanProfileView: View {
                         .overlay(Circle()
                             .stroke(.white, lineWidth: 7)
                         )
+                        .padding(.leading,12)
                     
                     VStack{
                         HStack(spacing: 135){
@@ -61,7 +59,7 @@ struct ArtisanProfileView: View {
                             
                         }
                     }
-                    .padding(.bottom,10)
+
                     
                 }
                 .padding(.top,100)
@@ -161,22 +159,22 @@ struct ArtisanProfileView: View {
             }
             
             ScrollView{
-                LazyVGrid(columns: columns){
+               // LazyVGrid(columns: columns){
                     if selectedTab == "artworks"{
-                        ForEach (profileViewModel.filterByArtworks) { artwork in
+                        ForEach (profileViewModel.filterByArtworks(artistID: .haruto)) { artwork in
                             ArtworkUserView(artworkArtisan: artwork)
                         }
                     }else if selectedTab == "aboutme"{
-                        VStack(alignment: .center){
+                        
                             AboutMeView()
-                        }
+                        
                     }else if selectedTab == "reviews"{
                         
                     }else if selectedTab == "logbook"{
-                        LogbookView()
+                        LogbookCardView()
                     }
                     
-                }
+               // }
             }
         }
         
@@ -187,39 +185,42 @@ struct ArtisanProfileView: View {
 
 
 struct ArtworkUserView: View {
-    
-    
-//    let artisan: ArtisanProfile
-    let artworkArtisan: Artwork
+
+let artworkArtisan: Artwork
+   
     
     var body: some View {
         
-        ZStack{
-            Rectangle()
-                .cornerRadius(10)
-                .foregroundStyle(.white)
-            VStack {
-                Image(artworkArtisan.imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 180, height: 140)
-                    .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
-                Spacer()
-                HStack {
-                    Text("\(artworkArtisan.name)")
-                        .font(.caption)
+       
+            ZStack{
+                Rectangle()
+                    .cornerRadius(10)
+                    .foregroundStyle(.white)
+                VStack {
+                    Image(artworkArtisan.imageName)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 180, height: 140)
+                        .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Text("\(artworkArtisan.name)")
+                            .font(.caption)
+                        Spacer()
+                    }
+                    
+                    .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
                     Spacer()
                 }
-                
-                .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
-                Spacer()
             }
+            .frame(width: 180, height: 190)
+            .shadow(radius: 2)
         }
-        .padding()
-        .frame(width: 180, height: 190)
-        .shadow(radius: 2)
     }
-}
+        
+
 
 
 #Preview {
