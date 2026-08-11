@@ -56,26 +56,8 @@ class ProfileViewModel{
     }
     
     
-//    var filterByArtworks: [ArtisanProfile]{
-//        var ownArtwork: [ArtisanProfile] = []
-//        for artisanProfile in artisansData {
-//            if mainArtisan.artworksID.contains(where: {$0 == artisanProfile.id}) {
-//                ownArtwork.append(artisanProfile)
-//            }
-//        
-//        }
-//        return ownArtwork
-        
-        
-        
-        var filterByArtworks: [Artwork]{
-            var ownArtwork: [Artwork] = []
-            for artwork in artworkData {
-                if mainArtisan.artworksID.contains(where: {$0 == artwork.artistID}) {
-                    ownArtwork.append(artwork)
-                }
-            }
-            return ownArtwork
+    func filterByArtworks(artistID: UUID) -> [Artwork] {
+        artworkData.filter({$0.artistID == artistID})
     }
 }
 

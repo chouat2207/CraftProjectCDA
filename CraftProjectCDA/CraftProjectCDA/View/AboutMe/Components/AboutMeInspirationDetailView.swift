@@ -21,7 +21,7 @@ struct AboutMeInspirationDetailView: View {
                     Image("GarasuInspirationOeufDeFaberge")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 180, height: 200)
+                        .frame(maxWidth: 180, maxHeight: 200)
                         .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
                     Spacer()
                     HStack {
@@ -43,7 +43,7 @@ struct AboutMeInspirationDetailView: View {
                 }
             }
             .padding()
-            .frame(width: 180, height: 210)
+            //.frame(width: 180, height: 210)
             .shadow(radius: 2)
             
             ZStack {
@@ -55,8 +55,7 @@ struct AboutMeInspirationDetailView: View {
                     Image("GarasuInspirationCodexSeraphinianus")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 180, height: 200)
-                        .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
+                        .frame(maxWidth: 180, maxHeight: 200)                        .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
                     Spacer()
                     HStack {
                         Text("Codex Seraphianianus")
@@ -75,7 +74,7 @@ struct AboutMeInspirationDetailView: View {
                 }
             }
             .padding()
-            .frame(width: 180, height: 210)
+            //.frame(width: 180, height: 210)
             .shadow(radius: 2)
         }
         .padding(.vertical, 50)
@@ -90,7 +89,7 @@ struct AboutMeInspirationDetailView: View {
                     Image("GarasuInspirationAnomalys")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 180, height: 200)
+                        .frame(maxWidth: 180, maxHeight: 200)
                         .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
                     Spacer()
                     HStack {
@@ -98,7 +97,9 @@ struct AboutMeInspirationDetailView: View {
                             .font(.caption)
                         Spacer()
                     }
+                    
                     .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
+                    
                     HStack{
                         Text("Par Jennifer Umphress")
                             .font(.caption2)
@@ -110,42 +111,44 @@ struct AboutMeInspirationDetailView: View {
                 }
             }
             .padding()
-            .frame(width: 180, height: 210)
+            //.frame(width: 180, height: 210)
             .shadow(radius: 2)
-            HStack{
-                ZStack {
-                    Rectangle()
-                        .cornerRadius(10)
-                        .foregroundStyle(.white)
-                    
-                    VStack {
-                        Image("GarasuInspirationCorallia")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 180, height: 200)
-                            .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
+            
+            ZStack {
+                Rectangle()
+                    .cornerRadius(10)
+                    .foregroundStyle(.white)
+                
+                VStack {
+                    Image("GarasuInspirationCorallia")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(maxWidth: 180, maxHeight: 200)          .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
+                    Spacer()
+                    HStack {
+                        Text("YellowEdith")
+                            .font(.caption)
                         Spacer()
-                        HStack {
-                            Text("Yellow Edith")
-                                .font(.caption)
-                            Spacer()
-                        }
-                        .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
-                        HStack{
-                            Text("Par Katie Stout")
-                                .font(.caption2)
-                                .fontWeight(.light)
-                                .italic()
-                            Spacer()
-                        }
-                        .padding(.init(top: 0, leading: 10, bottom: 5, trailing: 0))
                     }
+                    .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
+                    HStack{
+                        Text("Katie Stout")
+                            .font(.caption2)
+                            .fontWeight(.light)
+                            .italic()
+                        Spacer()
+                    }
+                    .padding(.init(top: 0, leading: 10, bottom: 5, trailing: 0))
                 }
-                .padding()
-                .frame(width: 180, height: 210)
-                .shadow(radius: 2)
             }
+            .padding()
+            //.frame(width: 180, height: 210)
+            .shadow(radius: 2)
         }
+        .padding(.vertical, 50)
+
+            
+        
     }
 }
 

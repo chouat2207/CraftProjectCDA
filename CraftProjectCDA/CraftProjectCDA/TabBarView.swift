@@ -21,7 +21,7 @@ struct TabBarView: View {
             }
             
             Tab("Recherche", systemImage: "magnifyingglass") {
-                CarteView()
+                //CarteView()
             }
             
             Tab("Évènements", systemImage: "calendar") {
