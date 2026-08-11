@@ -142,7 +142,7 @@ struct PickerListCarteView: View {
                 switch selectedContent {
                 case .creation, .none:  // Créations
 
-                    CardList(
+                    ListView(
                         displayedArtworks: filteredArtworks
                     )
                 // Artisans

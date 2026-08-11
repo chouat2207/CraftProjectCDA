@@ -1,13 +1,14 @@
 //
-//  CardList.swift
+//  CardList 2.swift
 //  CraftProjectCDA
 //
-//  Created by Apprenant 77 on 03/08/2026.
+//  Created by Apprenant 77 on 11/08/2026.
 //
+
 
 import SwiftUI
 
-struct CardList: View {
+struct ListView: View {
     
     let displayedArtworks: [Artwork]
     private let columns = [
@@ -48,7 +49,6 @@ struct CardList: View {
            }
        }
 }
-
 #Preview {
-    CardList(displayedArtworks: artworks)
+      ListView(displayedArtworks: artworks)
 }
