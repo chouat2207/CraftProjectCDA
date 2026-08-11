@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    
+    @Environment(SharedViewModel.self) var sharedVM
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
     @State var editProfileViewModel: EditProfileViewModel
     @State var selectedTab = "following"
@@ -18,70 +18,67 @@ struct ProfileView: View {
     var body: some View {
         
         NavigationStack{
-            VStack{
-                ZStack{
+            
+            ZStack{
+                
+                Image("GarasuPhotoDeCouverture")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 400, height: 230)
+                    .clipShape(Rectangle())
+            
+                HStack{
                     
-                    Image("GarasuPhotoDeCouverture")
+                    Image(profileViewModel.mainUser.imageName)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 500, height: 270)
-                        .clipShape(Rectangle())
-                        .padding()
+                        .frame(width: 130, height: 130)
+                        .clipShape(Circle())
+                        .overlay(Circle()
+                            .stroke(.white, lineWidth: 7)
+                        )
+                        .offset(x: -59, y: 115)
                     
-                    HStack(alignment: .bottom){
-                        
-                        Image(profileViewModel.mainUser.imageName)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 130, height: 130)
-                            .clipShape(Circle())
-                            .overlay(Circle()
-                                .stroke(.white, lineWidth: 7)
-                            )
-                        
-                        VStack{
-                            HStack(spacing: 130){
-                                
-                                Text(profileViewModel.mainUser.pseudonym)
-                                    .fontWeight(.semibold)
-                                
-                                // SETTINGS BUTTON
-                                NavigationLink{
-                                    profileViewModel.showSettings()
-                                }label: {
-                                    Image(systemName: "gearshape.fill")
-                                        .foregroundStyle(.gray)
-                                        .font(.system(size: 24))
-                                        .padding(.trailing,8)
-                                }
-                                
-                            }
-                            
-                            //EDIT PROFILE BUTTON
-                            HStack(spacing: 7){
-                                NavigationLink{
-                                    profileViewModel.showEdit()
-                                }label: {
-                                    Image(systemName: "square.and.pencil")
-                                        .foregroundStyle(.blue)
-                                        .font(.system(size: 20))
-                                    
-                                    Text("EDIT")
-                                        .foregroundStyle(.blue)
-                                        .padding(.trailing,190)
-                                }
-                                                                
-                            }
-                        }
-                        .padding(.bottom,15)
-                        
+                    
+                    Text(profileViewModel.mainUser.pseudonym)
+                        .fontWeight(.semibold)
+                    
+                    // SETTINGS BUTTON
+                    NavigationLink{
+                        profileViewModel.showSettings()
+                    }label: {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundStyle(.gray)
+                            .font(.system(size: 24))
+                            .padding(.trailing,8)
                     }
-                    .padding(.top,100)
-                
+                    
                 }
-                .ignoresSafeArea()
                 
+                VStack{
+                NavigationLink{
+                    profileViewModel.showEdit()
+                }label: {
+                    Image(systemName: "square.and.pencil")
+                        .foregroundStyle(.blue)
+                        .font(.system(size: 20))
+                    
+                    Text("EDIT")
+                        .foregroundStyle(.blue)
+                        .padding(.trailing,190)
+                    
+                }
+                }
+                
+            }
+            
+            
+            
+            
+            
+            HStack{
                 VStack(alignment: .leading){
+                    
                     Text("Utilisateur")
                         .foregroundStyle(.gray)
                         .fontWeight(.semibold)
@@ -91,46 +88,47 @@ struct ProfileView: View {
                         .italic()
                         .font(.footnote)
                 }
-                .padding(.trailing,240)
-                //
-                // SECTION FOLLOW / REVIEWS
+                .padding(.leading,10)
+                Spacer()
+            }
+            //
+            // SECTION FOLLOW / REVIEWS
+            
+            HStack(){
                 
-                HStack(){
+                Picker("", selection: $selectedTab){
+                    Text("Abonnements")
                     
-                    Picker("", selection: $selectedTab){
-                        Text("Abonnements")
-                        
-                            .tag("following")
-                        
-                        Text("Avis")
-                        
-                            .tag("reviews")
-                    }
-                    .pickerStyle(.segmented)
-                    .scaleEffect(1.2)
-                    .colorMultiply(.mint.opacity(0.7))
+                        .tag("following")
                     
+                    Text("Avis")
+                    
+                        .tag("reviews")
                 }
-                .padding(.horizontal,110)
+                .pickerStyle(.segmented)
+                .scaleEffect(1.2)
+                .colorMultiply(.mint.opacity(0.7))
                 
-                ScrollView{
-                    LazyVGrid(columns: columns){
-                        if selectedTab == "following"{
-                            ForEach (profileViewModel.filterByFollower) { user in
-                                UserFollowing(user: user)
-                            }
-                        }else if selectedTab == "reviews"{
-                            //ForEach Users -> reviewsID
-                            ForEach (profileViewModel.userData) { user in
-                                UserReviews(user: user)
-                            }
-                        }
-                        
-                    }
+            }
+            .padding(.horizontal,115)
+            
+            
+            if selectedTab == "following"{
+                ForEach (profileViewModel.filterByFollower) { user in
+                    UserFollowing(user: user)
                 }
+            }else if selectedTab == "reviews"{
+                //ForEach Users -> reviewsID
+                ReviewsView()
+                
+                
                 
                 
             }
+            
+            
+            
+            
             
         }
     }
@@ -182,4 +180,5 @@ struct UserReviews: View {
 }
 #Preview { NavigationStack{
     ProfileView(profileViewModel: ProfileViewModel(), editProfileViewModel: EditProfileViewModel())}
+.environment(SharedViewModel())
 }

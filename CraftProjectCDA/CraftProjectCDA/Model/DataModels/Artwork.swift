@@ -12,7 +12,7 @@ struct Artwork: Identifiable, DisplayableItem {
     var name: String
     var imageName: String
     var imageArtisan : String
-    let artCategory: String
+    var artCategory: String
     let artisanCategory: ArtisanCategoryEnm
     var description: String
     var details: String
