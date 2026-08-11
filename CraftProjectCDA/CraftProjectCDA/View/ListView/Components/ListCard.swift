@@ -15,12 +15,15 @@ struct ListCard: View {
             ZStack(alignment: .bottomLeading) {
                 
                 // Image de l’œuvre
-                Image(artwork.imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 135)
-                    .clipped()
+                Rectangle()
+                                   .fill(.clear)
+                                   .frame(height: 135)
+                                   .overlay {
+                                       Image(artwork.imageName)
+                                           .resizable()
+                                           .scaledToFill()
+                                   }
+                                   .clipped()
 
                 // Image de l’artisan
                 Image(artwork.imageArtisan)
@@ -60,7 +63,7 @@ struct ListCard: View {
 }
 
 #Preview {
-    ListCard(artwork: artworks[0])
+    ListCard(artwork: artworks[3])
         .frame(width: 170)
         .padding()
 }

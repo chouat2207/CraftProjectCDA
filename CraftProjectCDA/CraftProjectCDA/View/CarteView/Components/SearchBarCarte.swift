@@ -37,6 +37,15 @@ struct SearchBarCarte: View {
         
         .padding(.horizontal, 14)
         .frame(height: 45)
+        .overlay {
+                                       RoundedRectangle(
+                                           cornerRadius: 10
+                                       )
+                                       .stroke(
+                                           .black,
+                                           lineWidth: 1
+                                       )
+                                   }
         .background(
             .ultraThinMaterial,
             in: RoundedRectangle(cornerRadius: 14)

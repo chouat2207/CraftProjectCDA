@@ -13,7 +13,6 @@ struct ArtworkDetailView: View {
     
     var body: some View {
         VStack{
-            
             ZStack(alignment: .bottomLeading){
                 Image(viewModel.artwork.imageName)
                     .resizable()
