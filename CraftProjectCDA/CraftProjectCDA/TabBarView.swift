@@ -18,9 +18,9 @@ struct TabBarView: View {
                     .environment(DiscoveryViewModel())
                 }
             
-            Tab("Recherche", systemImage: "magnifyingglass") {
-                CarteView()
-            }
+//            Tab("Recherche", systemImage: "magnifyingglass") {
+//                PickerListCarteView()
+//            }
             
             Tab("Évènements", systemImage: "calendar") {
             

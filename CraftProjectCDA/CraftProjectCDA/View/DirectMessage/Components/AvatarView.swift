@@ -8,15 +8,38 @@
 import SwiftUI
 
 struct AvatarView: View {
-     var body: some View {
-        Image(systemName: "person.circle.fill")
-            .resizable()
-            .scaledToFit()
+    var imageName: String
+    
+    var body: some View {
+        UIKitImage(imageName: imageName)
+            .aspectRatio(contentMode: .fit)
             .frame(width: 32, height: 32)
-            .foregroundStyle(.gray)
+            .clipShape(Circle())
     }
 }
 
+struct UIKitImage: UIViewRepresentable {
+    let imageName: String
+    func makeUIView(context: Context) -> UIImageView {
+        let uiKitImageView = UIImageView()
+        uiKitImageView.image = UIImage(named: imageName)
+        uiKitImageView.contentMode = .scaleAspectFit
+        uiKitImageView
+            .setContentCompressionResistancePriority(
+                .defaultLow, for: .horizontal
+            )
+        uiKitImageView
+            .setContentCompressionResistancePriority(
+                .defaultLow, for: .vertical
+            )
+        return uiKitImageView
+    }
+    
+    func updateUIView(_ uiView: UIImageView, context: Context) {
+    }
+}
+
+
 #Preview {
-    AvatarView()
+    AvatarView(imageName: "PlaceholderPortrait")
 }
