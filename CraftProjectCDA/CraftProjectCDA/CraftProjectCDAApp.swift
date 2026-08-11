@@ -12,8 +12,8 @@ struct CraftProjectCDAApp: App {
     @State var messageService: MessageService = MessageService()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(messageService)
+            TabBarView()
+           .environment(messageService)
         }
     }
 }
