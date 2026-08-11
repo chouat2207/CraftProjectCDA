@@ -2,7 +2,7 @@
 //  ConversationCardView.swift
 //  CraftProjectCDA
 //
-//  Created by Apprenant 77 on 04/08/2026.
+//  Created by Apprenant 77 on 05/08/2026.
 //
 
 import SwiftUI
@@ -10,31 +10,40 @@ import SwiftUI
 struct ConversationCardView: View {
     var name: String
     var lastMessage: String
+    
     var body: some View {
-            HStack {
-                Image("PlaceholderPortrait")
-                    .resizable()
-                    .scaledToFit()
-                    .clipShape(Circle())
-                    .frame(width: 34)
-                VStack(alignment: .leading) {
-                    Text(name)
-                    Text(lastMessage)
-                        .font(.caption)
-                }
-                Spacer()
-                Image(systemName: "chevron.forward")
+        HStack(spacing: 12) {
+            Image(systemName: "person.circle")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 44, height: 44)
+                .fontWeight(.thin)
+                .foregroundStyle(.black)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(name)
+                    .font(.headline)
+                    .foregroundStyle(.secondary)
+                
+                Text(lastMessage)
+                    .font(.subheadline)
+                    .foregroundStyle(.primary)
+                    .lineLimit(1)
             }
-            .padding()
-            .frame(width: 370)
-            .background(
-                Rectangle()
-                    .cornerRadius(15)
-                    .foregroundStyle(.gray)
-            )
+            
+            Spacer()
+            
+            Image(systemName: "chevron.right")
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundStyle(.gray)
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
+        .background(Color(.systemGray6))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 }
 
 #Preview {
     ConversationCardView(name: "Didier", lastMessage: "Salut, bogoss")
+        .padding()
 }

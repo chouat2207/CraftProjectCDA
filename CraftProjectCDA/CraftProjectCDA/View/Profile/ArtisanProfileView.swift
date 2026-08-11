@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ArtisanProfileView: View {
     
+    @State var profileViewModel: ProfileViewModel = ProfileViewModel()
     @State private var isShowEdit: Bool = false
     @State var selectedTab = "artworks"
+    
     
     var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: 10, maximum: 185)),count: 2)
     
@@ -18,16 +20,11 @@ struct ArtisanProfileView: View {
         VStack{
             ZStack{
                 
-                Image("TierraOcrePhotoDeCouverture")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 500, height: 270)
-                    .clipShape(Rectangle())
-                    .padding(.top,-185)
-                
+                CoverImageUserCard()
+
                 HStack(alignment: .bottom){
                     
-                    Image("TierraOcre")
+                    Image(profileViewModel.mainArtisan.imageName)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 130, height: 130)
@@ -37,9 +34,9 @@ struct ArtisanProfileView: View {
                         )
                     
                     VStack{
-                        HStack(spacing: 103){
+                        HStack(spacing: 135){
                             
-                            Text("@TIERRAOCRE")
+                            Text(profileViewModel.mainUser.pseudonym)
                                 .fontWeight(.semibold)
                             
                             Image(systemName: "gearshape.fill")
@@ -64,27 +61,78 @@ struct ArtisanProfileView: View {
                             
                         }
                     }
-                    .padding(.bottom,15)
+                    .padding(.bottom,10)
                     
                 }
                 .padding(.top,100)
                 
-//                VStack(alignment: .leading){
-//                    Text("Utilisateur")
-//                        .foregroundStyle(.gray)
-//                        .fontWeight(.semibold)
-//                    
-//                    
-//                    Text("Bio")
-//                        .italic()
-//                        .font(.footnote)
-//                }
-//                .padding(.top,290)
-//                .padding(.trailing,290)
+                
                 
             }
             .ignoresSafeArea()
             
+            VStack(alignment: .leading){
+                Text("Utilisateur")
+                    .foregroundStyle(.gray)
+                    .fontWeight(.semibold)
+                
+                
+                Text("Bio")
+                    .italic()
+                    .font(.footnote)
+            }
+            .padding(.leading,-180)
+            .padding(.bottom,10)
+//BUTTON FOLLOW DM
+            HStack{
+                
+                Button{
+                    
+                }label: {
+                    ZStack(alignment: .center){
+                        RoundedRectangle(cornerRadius: 32)
+                            .frame(width: 160,height: 40)
+                            .foregroundStyle(.mint.opacity(0.8))
+                        HStack{
+                            Image(systemName: "person.2.fill")
+                                .font(.headline)
+                                .foregroundStyle(.black.opacity(0.8))
+                            Text("Suivre")
+                                .font(.headline)
+                                .fontDesign(.rounded)
+                                .fontWeight(.medium)
+                                .kerning(1)
+                                .foregroundStyle(.black.opacity(0.8))
+                        }
+                      }
+                    }
+                    .padding(.bottom,40)
+                    .padding(.trailing,10)
+                    
+                    Button{
+                        
+                    }label: {
+                        ZStack(alignment: .center){
+                            RoundedRectangle(cornerRadius: 32)
+                                .frame(width: 160,height: 40)
+                                .foregroundStyle(.mint.opacity(0.8))
+                            HStack{
+                                Image(systemName: "ellipsis.message")
+                                    .font(.headline)
+                                    .foregroundStyle(.black.opacity(0.8))
+                                Text("Message")
+                                    .font(.headline)
+                                    .fontDesign(.rounded)
+                                    .fontWeight(.medium)
+                                    .kerning(1)
+                                    .foregroundStyle(.black.opacity(0.8))
+                            }
+                        }
+                    }
+                    .padding(.bottom,40)
+                    .padding(.leading,10)
+                
+            }
             // SECTION FOLLOW / REVIEWS
             
             HStack(){
@@ -115,15 +163,17 @@ struct ArtisanProfileView: View {
             ScrollView{
                 LazyVGrid(columns: columns){
                     if selectedTab == "artworks"{
-                        ForEach (artworks) { artwork in
-                            ArtworkUserView(artwork: artwork)
+                        ForEach (profileViewModel.filterByArtworks) { artwork in
+                            ArtworkUserView(artworkArtisan: artwork)
                         }
                     }else if selectedTab == "aboutme"{
-                        
+                        VStack(alignment: .center){
+                            AboutMeView()
+                        }
                     }else if selectedTab == "reviews"{
                         
                     }else if selectedTab == "logbook"{
-                        
+                        LogbookView()
                     }
                     
                 }
@@ -134,12 +184,13 @@ struct ArtisanProfileView: View {
     }
 }
 
-#Preview {
-    ArtisanProfileView()
-}
 
-struct ArtworkUserView: View{
-    let artwork: Artwork
+
+struct ArtworkUserView: View {
+    
+    
+//    let artisan: ArtisanProfile
+    let artworkArtisan: Artwork
     
     var body: some View {
         
@@ -148,14 +199,14 @@ struct ArtworkUserView: View{
                 .cornerRadius(10)
                 .foregroundStyle(.white)
             VStack {
-                Image(artwork.imageName)
+                Image(artworkArtisan.imageName)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 180, height: 140)
                     .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
                 Spacer()
                 HStack {
-                    Text("\(artwork.name)")
+                    Text("\(artworkArtisan.name)")
                         .font(.caption)
                     Spacer()
                 }
@@ -171,3 +222,6 @@ struct ArtworkUserView: View{
 }
 
 
+#Preview {
+    ArtisanProfileView(profileViewModel: ProfileViewModel())
+}

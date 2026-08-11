@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  MessageCardView.swift
 //  CraftProjectCDA
 //
 //  Created by Apprenant 77 on 05/08/2026.
@@ -9,32 +9,59 @@ import SwiftUI
 
 struct MessageCardView: View {
     var content: String
-        var body: some View {
-            HStack(alignment: .top) {
-                Image(systemName: "person.circle")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50)
-                    .foregroundStyle(.gray)
-                VStack (alignment:.leading){
-                    HStack(alignment: .top) {
-                        Spacer()
-                        Text("01/01/2026 14:32")
-                            .font(.caption)
-                    }
-                    Text(content)
+    var isFromMainUser: Bool
+    var dateText: String = "01/01/2026 14:32"
+    
+    var body: some View {
+        HStack(alignment: .top) {
+            if !isFromMainUser {
+                AvatarView()
+            } else {
+                Spacer(minLength: 40)
+            }
+            
+            VStack(alignment: .leading, spacing: 4) {
+
+                
+                Text(content)
+                    .font(.body)
+                HStack {
+                    Spacer()
+                    Text(dateText)
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
                 }
-                .padding()
-                .frame(width: 300)
-                .background(
-                    Rectangle()
-                        .cornerRadius(15)
-                        .foregroundStyle(.gray)
-                )
+            }
+            .padding(12)
+            .background(isFromMainUser ? .green.opacity(0.2) : .gray.opacity(0.2))
+            .clipShape(UnevenRoundedRectangle(
+                topLeadingRadius: isFromMainUser ? 16 : 0,
+                bottomLeadingRadius: 16,
+                bottomTrailingRadius: 16,
+                topTrailingRadius:  isFromMainUser ? 0 : 16))
+            
+            if isFromMainUser {
+                AvatarView()
+            } else {
+                Spacer(minLength: 40)
             }
         }
     }
-    #Preview {
-        MessageCardView(content: "Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test Message super long test")
-    }
+    
 
+}
+
+#Preview {
+    VStack(spacing: 16) {
+        MessageCardView(
+            content: "Message reçu de peerUser",
+            isFromMainUser: false
+        )
+        
+        MessageCardView(
+            content: "Message envoyé par mainUser",
+            isFromMainUser: true
+        )
+    }
+    .padding()
+}

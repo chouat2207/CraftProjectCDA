@@ -25,7 +25,6 @@ struct User: Identifiable, DisplayableItem {
     
     // Array of artisans the user is following
     var followingID: [UUID]
-    
     var reviewsID: [UUID]
     
     

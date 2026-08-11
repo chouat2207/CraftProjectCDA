@@ -15,7 +15,6 @@ struct ArtworkDetailView: View {
         VStack{
             
             ZStack(alignment: .bottomLeading){
-                
                 Image(viewModel.artwork.imageName)
                     .resizable()
                     .scaledToFit()

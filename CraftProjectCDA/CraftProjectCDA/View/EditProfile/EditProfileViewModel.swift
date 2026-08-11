@@ -22,4 +22,5 @@ class EditProfileViewModel{
         return ProfileView(profileViewModel: ProfileViewModel(), editProfileViewModel: EditProfileViewModel())
     }
     
+    
 }

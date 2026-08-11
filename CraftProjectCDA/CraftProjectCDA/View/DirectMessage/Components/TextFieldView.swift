@@ -2,47 +2,44 @@
 //  TextFieldView.swift
 //  CraftProjectCDA
 //
-//  Created by Apprenant 77 on 07/08/2026.
+//  Created by Apprenant 77 on 05/08/2026.
 //
 
 import SwiftUI
 
-struct ConversationTextFieldView: View {
-    @State var message = ""
+struct TextFieldView: View {
+    @Binding var message: String
+    var onSend: (String) -> Void
     var body: some View {
-        VStack {
-            HStack {
-                // Placeholder text is invisible in dark mode, need to fix
-                // Added space in the placeholder string to sim padding, prolly not a good way of doing it
-                TextField("Message ...", text: $message)
-                    .padding(5)
-                    .frame(height:35)
-                    .foregroundStyle(.black)
-                    .background(.white)
-                    .autocorrectionDisabled(true)
-                    .cornerRadius(5)
-               Button() {
+        HStack(spacing: 12) {
+            TextField("Message...", text: $message, axis: .vertical)
+                .padding(.horizontal, 14)
+                .padding(.vertical, 10)
+                .background(Color(.systemGray6))
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .autocorrectionDisabled(true)
+            
+            Button {
+                if message != "" {
+                    onSend(message)
+                    message = ""
                 }
-                label: {
-                    Image(systemName: "paperplane.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxHeight: 40)
-                        .foregroundStyle(.green)
-                }
+                
+            } label: {
+                Image(systemName: "paperplane.fill")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(.white)
+                    .padding(10)
+                    .background(.green)
+                    .clipShape(Circle())
             }
         }
-        .padding(5)
-        
-        .background(
-        Rectangle()
-            .foregroundStyle(.gray)
-            .cornerRadius(5)
-        )
+        .padding(.horizontal)
+        .padding(.vertical, 8)
         
     }
 }
 
 #Preview {
-    ConversationTextFieldView()
+    //TextFieldView(message: .constant(""))
 }
