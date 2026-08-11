@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ConversationsView: View {
     @Environment(MessageService.self) var messageService: MessageService
-    @State private var conversationVM: ConversationsViewModel?
+    @State var conversationVM: ConversationsViewModel?
 
     var body: some View {
         NavigationStack {
@@ -19,13 +19,7 @@ struct ConversationsView: View {
                         ForEach(conversationVM.conversationViewData) { conversation in
                             if let peerID = conversation.peerID {
                                 NavigationLink {
-                                    DirectMessageView(
-                                        messageViewModel: DirectMessageViewModel(
-                                            peerID: peerID,
-                                            messageService: messageService
-                                        ),
-                                        peerName: conversationVM.getPeerName(peerID: peerID), profileImageName: conversationVM.getPeerProfilePicture(peerID: peerID)
-                                    )
+                                    DirectMessageView(peerID: peerID, peerName: conversation.peerName, profileImageName: conversation.peerImageName)
                                 } label: {
                                     ConversationCardView(
                                         name: conversation.peerName,

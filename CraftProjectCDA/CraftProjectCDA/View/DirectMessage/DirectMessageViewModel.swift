@@ -31,6 +31,7 @@ final class DirectMessageViewModel {
                     senderID: message.senderID,
                     senderImageName:
                         messageService.userData.first(where: {$0.id == message.senderID})?.imageName ?? "PlaceholderPortrait",
+                    date: message.postDate,
                     content: message.content,
                     isFromMainUser: message.senderID == mainUserID
                 )

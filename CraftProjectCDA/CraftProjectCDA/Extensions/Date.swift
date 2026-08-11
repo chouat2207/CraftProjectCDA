@@ -15,10 +15,7 @@ extension Date {
             return formatter.date(from: string) ?? Date()
         }
         
-        func toString(format: String = "dd/MM/yyyy HH:mm") -> String {
-            let formatter = DateFormatter()
-            formatter.dateFormat = format
-            formatter.locale = Locale(identifier: "fr_FR")
-            return formatter.string(from: self)
-        }
+    func toString(date: Date.FormatStyle.DateStyle = .numeric, time: Date.FormatStyle.TimeStyle = .shortened) -> String {
+        formatted(date: date, time: time)
+    }
 }

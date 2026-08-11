@@ -11,7 +11,7 @@ struct MessageCardView: View {
     var content: String
     var isFromMainUser: Bool
     var imageName: String
-    var dateText: String = "01/01/2026 14:32"
+    var dateText: String
     
     var body: some View {
         HStack(alignment: .top) {
@@ -64,12 +64,16 @@ struct MessageCardView: View {
     VStack(spacing: 16) {
         MessageCardView(
             content: "Message reçu de peerUser",
-            isFromMainUser: false, imageName: "PlaceholderPortrait"
+            isFromMainUser: false,
+            imageName: "PlaceholderPortrait",
+            dateText: Date().toString()
         )
         
         MessageCardView(
             content: "Message envoyé par mainUser",
-            isFromMainUser: true, imageName: "PlaceholderPortrait"
+            isFromMainUser: true,
+            imageName: "PlaceholderPortrait",
+            dateText: Date().toString()
         )
     }
     .padding()

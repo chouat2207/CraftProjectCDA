@@ -10,11 +10,13 @@ import SwiftUI
 struct ProfileView: View {
     
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
+    @State var editProfileViewModel: EditProfileViewModel
     @State var selectedTab = "following"
     
     var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: 10, maximum: 185)),count: 2)
     
     var body: some View {
+        
         NavigationStack{
             VStack{
                 ZStack{
@@ -27,10 +29,7 @@ struct ProfileView: View {
                     
                     HStack(alignment: .bottom){
                         Image(profileViewModel.mainUser.imageName)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 130, height: 130)
-                            .clipShape(Circle())
+                            .imageModifier(frameWidth: 130, frameHeight: 130, clipShape: Circle())
                             .overlay(Circle()
                                 .stroke(.white, lineWidth: 7)
                             )
@@ -134,7 +133,38 @@ struct ProfileView: View {
 }
 
 // ABONNEMENTS
-
+struct UserFollowing: View {
+    let user: User
+    
+    
+    var body: some View {
+        ZStack{
+            Rectangle()
+                .cornerRadius(10)
+                .foregroundStyle(.white)
+            VStack {
+                Image(user.imageName)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 180, height: 140)
+                    .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
+                Spacer()
+                HStack {
+                    Text("\(user.firstName) "+"\(user.lastName)")
+                        .font(.caption)
+                    Spacer()
+                }
+                
+                .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
+                Spacer()
+            }
+        }
+        .padding()
+        .frame(width: 180, height: 190)
+        .shadow(radius: 2)
+        
+    }
+}
 
 // AVIS
 struct UserReviews: View {
@@ -145,5 +175,5 @@ struct UserReviews: View {
     }
 }
 #Preview { NavigationStack{
-    ProfileView(profileViewModel: ProfileViewModel())}
+    ProfileView(profileViewModel: ProfileViewModel(), editProfileViewModel: EditProfileViewModel())}
 }
