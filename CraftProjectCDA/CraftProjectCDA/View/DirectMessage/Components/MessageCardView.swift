@@ -10,12 +10,17 @@ import SwiftUI
 struct MessageCardView: View {
     var content: String
     var isFromMainUser: Bool
+    var imageName: String
     var dateText: String = "01/01/2026 14:32"
     
     var body: some View {
         HStack(alignment: .top) {
             if !isFromMainUser {
-                AvatarView()
+                AvatarView(
+                    imageName: imageName,
+                    frameWidth: 32,
+                    frameHeight: 32
+                )
             } else {
                 Spacer(minLength: 40)
             }
@@ -41,7 +46,11 @@ struct MessageCardView: View {
                 topTrailingRadius:  isFromMainUser ? 0 : 16))
             
             if isFromMainUser {
-                AvatarView()
+                AvatarView(
+                    imageName: imageName,
+                    frameWidth: 32,
+                    frameHeight: 32
+                )
             } else {
                 Spacer(minLength: 40)
             }
@@ -55,12 +64,12 @@ struct MessageCardView: View {
     VStack(spacing: 16) {
         MessageCardView(
             content: "Message reçu de peerUser",
-            isFromMainUser: false
+            isFromMainUser: false, imageName: "PlaceholderPortrait"
         )
         
         MessageCardView(
             content: "Message envoyé par mainUser",
-            isFromMainUser: true
+            isFromMainUser: true, imageName: "PlaceholderPortrait"
         )
     }
     .padding()

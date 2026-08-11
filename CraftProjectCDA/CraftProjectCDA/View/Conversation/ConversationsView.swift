@@ -24,11 +24,12 @@ struct ConversationsView: View {
                                             peerID: peerID,
                                             messageService: messageService
                                         ),
-                                        peerName: conversationVM.getPeerName(peerID: peerID)
+                                        peerName: conversationVM.getPeerName(peerID: peerID), profileImageName: conversationVM.getPeerProfilePicture(peerID: peerID)
                                     )
                                 } label: {
                                     ConversationCardView(
                                         name: conversation.peerName,
+                                        imageName: conversation.peerImageName,
                                         lastMessage: conversation.lastMessagePosted
                                     )
                                 }

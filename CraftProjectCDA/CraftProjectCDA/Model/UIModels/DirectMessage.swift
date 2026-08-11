@@ -7,8 +7,9 @@
 import Foundation
 
 struct DirectMessage: Identifiable {
-    var id: UUID = UUID()
+    var id: UUID
     var senderID: UUID
+    var senderImageName: String
     var content: String
     var isFromMainUser: Bool
 }

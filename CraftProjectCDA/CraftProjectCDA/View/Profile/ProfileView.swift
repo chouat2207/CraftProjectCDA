@@ -10,17 +10,14 @@ import SwiftUI
 struct ProfileView: View {
     
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
-    @State var editProfileViewModel: EditProfileViewModel
     @State var selectedTab = "following"
     
     var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: 10, maximum: 185)),count: 2)
     
     var body: some View {
-        
         NavigationStack{
             VStack{
                 ZStack{
-                    
                     Image("GarasuPhotoDeCouverture")
                         .resizable()
                         .scaledToFill()
@@ -29,7 +26,6 @@ struct ProfileView: View {
                         .padding()
                     
                     HStack(alignment: .bottom){
-                        
                         Image(profileViewModel.mainUser.imageName)
                             .resizable()
                             .scaledToFill()
@@ -70,14 +66,14 @@ struct ProfileView: View {
                                         .foregroundStyle(.blue)
                                         .padding(.trailing,190)
                                 }
-                                                                
+                                
                             }
                         }
                         .padding(.bottom,15)
                         
                     }
                     .padding(.top,100)
-                
+                    
                 }
                 .ignoresSafeArea()
                 
@@ -138,39 +134,7 @@ struct ProfileView: View {
 }
 
 // ABONNEMENTS
-struct UserFollowing: View {
-    let user: User
-    
-    
-    var body: some View {
-        
-        ZStack{
-            Rectangle()
-                .cornerRadius(10)
-                .foregroundStyle(.white)
-            VStack {
-                Image(user.imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 180, height: 140)
-                    .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
-                Spacer()
-                HStack {
-                    Text("\(user.firstName) "+"\(user.lastName)")
-                        .font(.caption)
-                    Spacer()
-                }
-                
-                .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
-                Spacer()
-            }
-        }
-        .padding()
-        .frame(width: 180, height: 190)
-        .shadow(radius: 2)
-        
-    }
-}
+
 
 // AVIS
 struct UserReviews: View {
@@ -181,5 +145,5 @@ struct UserReviews: View {
     }
 }
 #Preview { NavigationStack{
-    ProfileView(profileViewModel: ProfileViewModel(), editProfileViewModel: EditProfileViewModel())}
+    ProfileView(profileViewModel: ProfileViewModel())}
 }

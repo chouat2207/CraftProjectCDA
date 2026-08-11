@@ -9,11 +9,13 @@ import SwiftUI
 
 struct AvatarView: View {
     var imageName: String
+    var frameWidth: CGFloat
+    var frameHeight: CGFloat
     
     var body: some View {
         UIKitImage(imageName: imageName)
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 32, height: 32)
+            .aspectRatio(contentMode: .fill)
+            .frame(width: frameWidth, height: frameHeight)
             .clipShape(Circle())
     }
 }
@@ -41,5 +43,5 @@ struct UIKitImage: UIViewRepresentable {
 
 
 #Preview {
-    AvatarView(imageName: "PlaceholderPortrait")
+    AvatarView(imageName: "AllegraLisa", frameWidth: 32, frameHeight: 32)
 }

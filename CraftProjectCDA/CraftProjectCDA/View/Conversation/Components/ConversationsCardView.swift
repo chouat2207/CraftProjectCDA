@@ -9,16 +9,16 @@ import SwiftUI
 
 struct ConversationCardView: View {
     var name: String
+    var imageName: String
     var lastMessage: String
     
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: "person.circle")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 44, height: 44)
-                .fontWeight(.thin)
-                .foregroundStyle(.black)
+            AvatarView(
+                imageName: imageName,
+                frameWidth: 44,
+                frameHeight: 44
+            )
             VStack(alignment: .leading, spacing: 4) {
                 Text(name)
                     .font(.headline)
@@ -44,6 +44,6 @@ struct ConversationCardView: View {
 }
 
 #Preview {
-    ConversationCardView(name: "Didier", lastMessage: "Salut, bogoss")
+    ConversationCardView(name: "Didier", imageName: "PlaceholderPortrait", lastMessage: "Salut, bogoss")
         .padding()
 }

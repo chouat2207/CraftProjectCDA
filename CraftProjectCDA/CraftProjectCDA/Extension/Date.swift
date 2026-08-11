@@ -9,9 +9,16 @@ import Foundation
 
 extension Date {
     static func from(string: String, format: String = "dd/MM/yyyy HH:mm") -> Date {
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        formatter.locale = Locale(identifier: "fr_FR")
-        return formatter.date(from: string) ?? Date()
-    }
+            let formatter = DateFormatter()
+            formatter.dateFormat = format
+            formatter.locale = Locale(identifier: "fr_FR")
+            return formatter.date(from: string) ?? Date()
+        }
+        
+        func toString(format: String = "dd/MM/yyyy HH:mm") -> String {
+            let formatter = DateFormatter()
+            formatter.dateFormat = format
+            formatter.locale = Locale(identifier: "fr_FR")
+            return formatter.string(from: self)
+        }
 }

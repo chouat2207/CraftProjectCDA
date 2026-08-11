@@ -18,24 +18,12 @@ final class ConversationsViewModel {
 
     var mainUserID: UUID { messageService.mainUserID }
 
-    var mainUser: User? {
-        usersData.first(where: { $0.id == mainUserID })
-    }
-
     var messages: [UserToUserMessage] {
         messageService.messageData
             .filter { $0.senderID == mainUserID || $0.receiverID == mainUserID }
             .sorted { $0.postDate < $1.postDate }
     }
-
-    var peerIDs: Set<UUID> {
-        Set(
-            messages.map({
-                $0.senderID == mainUserID ? $0.receiverID : $0.senderID
-            })
-        )
-    }
-
+    
     var conversations: [Conversation] {
         var result: [Conversation] = []
         let reversedMessages = messages.reversed()
@@ -65,12 +53,21 @@ final class ConversationsViewModel {
     func getPeerName(peerID: UUID) -> String {
             usersData.first(where: { $0.id == peerID })?.name ?? "unknown"
     }
-
+    
+    func getPeerProfilePicture(peerID: UUID) -> String {
+        let temp = usersData.first(where: { $0.id == peerID })!.imageName
+        if temp == "" {
+            return "PlaceholderPortrait"
+        }
+        return temp
+    }
+    
     var conversationViewData: [ConversationViewData] {
         conversations.map {
             ConversationViewData(
                 peerID: $0.peerID,
                 peerName: getPeerName(peerID: $0.peerID),
+                peerImageName: getPeerProfilePicture(peerID: $0.peerID),
                 lastMessagePosted: $0.lastMessagePosted?.content ?? ""
             )
         }
