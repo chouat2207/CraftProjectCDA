@@ -102,8 +102,7 @@ struct EventsView: View {
                     .padding()
                 }
             
-            
-            
+
             
             .sheet(
                 isPresented: $vm.showingSheet
@@ -122,6 +121,12 @@ struct EventsView: View {
                     selectedDistance:
                         $vm.selectedDistance
                 )
+                .presentationDetents([
+                    .medium,
+                    .large
+                ])
+                .presentationDragIndicator(
+                    .visible)
             }
         }
     }

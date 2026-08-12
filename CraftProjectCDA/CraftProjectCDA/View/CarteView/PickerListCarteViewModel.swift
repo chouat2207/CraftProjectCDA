@@ -11,16 +11,9 @@ import Observation
 @Observable
 final class PickerListCarteViewModel {
 
-    // MARK: - Recherche
     var searchText: String = ""
-
-    // MARK: - Liste / Carte
     var selection: PickerCarte.Content = .liste
-
-    // MARK: - Sheet
     var showingSheet: Bool = false
-
-    // MARK: - Filtres
     var selectedContent: TypeContenuEnm? = .creation
 
     var selectedCategory: ArtisanCategoryEnm?
@@ -28,7 +21,23 @@ final class PickerListCarteViewModel {
     var selectedDistance: DistanceEnm?
 
 
-    // MARK: - Vérifier s'il y a un filtre actif
+    // Navigation
+
+    var selectedArtwork: Artwork?
+
+    var navigateToArtworkDetail: Bool = false
+
+
+    func openArtworkDetail(_ artwork: Artwork) {
+
+        selectedArtwork = artwork
+
+        navigateToArtworkDetail = true
+    }
+
+
+    // Vérifier filtre actif
+
     var hasActiveFilter: Bool {
 
         selectedCategory != nil ||
@@ -36,7 +45,8 @@ final class PickerListCarteViewModel {
     }
 
 
-    // MARK: - Filtrer les créations
+    // Filtrer les créations
+
     func filteredArtworks(
         from artworks: [Artwork]
     ) -> [Artwork] {
@@ -49,57 +59,47 @@ final class PickerListCarteViewModel {
                 currentArtwork.artisanCategory == selectedCategory
 
 
-            // Filtre recherche
+            // Recherche
             let searchMatches =
                 searchText.isEmpty ||
                 currentArtwork.name
-                    .localizedCaseInsensitiveContains(
-                        searchText
-                    )
+                    .localizedCaseInsensitiveContains(searchText)
 
 
-            return categoryMatches &&
-                   searchMatches
+            return categoryMatches && searchMatches
         }
     }
 
+    // Filtrer les artisans
 
-    // MARK: - Filtrer les artisans
     func filteredArtisans(
         from artisans: [ArtisanProfile],
         artworks: [Artwork]
     ) -> [ArtisanProfile] {
 
-        // On récupère d'abord les œuvres filtrées
-        let filteredArtworksList =
-            filteredArtworks(
-                from: artworks
-            )
+        // Les créations restantes après filtre
+        let filteredArtworkList =
+            filteredArtworks(from: artworks)
 
 
         // On récupère leurs ID
         let filteredArtworkIDs = Set(
-            filteredArtworksList.map {
-                $0.id
-            }
+            filteredArtworkList.map { $0.id }
         )
 
 
-        // On garde les artisans qui possèdent
-        // au moins une œuvre filtrée
+        // On garde les artisans qui ont au moins une création filtrée
         return artisans.filter { artisan in
 
             artisan.artworksID.contains { artworkID in
 
-                filteredArtworkIDs.contains(
-                    artworkID
-                )
+                filteredArtworkIDs.contains(artworkID)
             }
         }
     }
 
+    //Reset
 
-    // MARK: - Reset
     func resetFilters() {
 
         searchText = ""

@@ -19,11 +19,13 @@ struct TabBarView: View {
                 }
             
             Tab("Recherche", systemImage: "magnifyingglass") {
-               // CarteView()
+                PickerListCarteView()
+                  
             }
             
             Tab("Évènements", systemImage: "calendar") {
-            
+                EventsView()
+         
             }
             
             Tab("Messages", systemImage: "paperplane.fill") {
