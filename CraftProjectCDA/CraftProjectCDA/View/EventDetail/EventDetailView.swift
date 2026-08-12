@@ -57,7 +57,9 @@ struct EventDetailView: View {
                     .cornerRadius(12)
             }
             .padding(.horizontal)
-            .navigationDestination(isPresented: $viewModel.navigateToMessage) { DirectMessageView(messageViewModel: DirectMessageViewModel(peerID: viewModel.author.id, messageService: MessageService()), peerName: viewModel.author.firstName)
+            .navigationDestination(isPresented: $viewModel.navigateToMessage) {
+                // A VOIR AVEC SARAH
+                // DirectMessageView(peerID: <#T##UUID#>, peerName: <#T##String#>, profileImageName: <#T##String#>)
             }
         }
         .onAppear {

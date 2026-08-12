@@ -23,5 +23,5 @@ struct ArtisanMapAnnotation: View {
 }
 
 #Preview {
-    ArtisanMapAnnotation(imageName: "")
+    ArtisanMapAnnotation(imageName: "AllegraLisa")
 }

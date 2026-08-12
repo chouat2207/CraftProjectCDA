@@ -86,8 +86,9 @@ struct ArtworkDetailView: View {
             }
             
             .padding(.horizontal)
-            .navigationDestination(isPresented: $viewModel.navigateToMessage) { DirectMessageView(messageViewModel: DirectMessageViewModel(peerID: viewModel.artisan.id, messageService: MessageService()), peerName: viewModel.artisan.name)
-            }
+            // A VOIR AVEC SARAH
+//            .navigationDestination(isPresented: $viewModel.navigateToMessage) { DirectMessageView(peerID: , peerName: , profileImageName: <#T##String#>)
+//            }
             
         }
         .onAppear {

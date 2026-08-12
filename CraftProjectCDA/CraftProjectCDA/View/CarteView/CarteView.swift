@@ -41,6 +41,7 @@ struct CarteView: View {
                 }
             }
         }
+       
         .onChange(of: displayedArtisans.map { $0.id }) {
             updateMapPosition()
         }
