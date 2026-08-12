@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CoverImageUserCard: View {
+    let user: User
     var body: some View {
         VStack{
             ZStack{
                 
-                Image("GarasuPhotoDeCouverture")
+                Image(user.bannerName)
                     .imageModifier(frameWidth: 410, frameHeight: 230, clipShape: Rectangle())
                     .ignoresSafeArea()
                 
@@ -41,5 +42,5 @@ struct CoverImageUserCard: View {
 }
 
 #Preview {
-    CoverImageUserCard()
+    CoverImageUserCard(user: users[2])
 }
