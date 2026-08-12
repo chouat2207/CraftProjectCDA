@@ -12,7 +12,7 @@ import Observation
 final class PickerListCarteViewModel {
 
     var searchText: String = ""
-    var selection: PickerCarte.Content = .liste
+    var selection: PickerCarte.Content = .carte
     var showingSheet: Bool = false
     var selectedContent: TypeContenuEnm? = .creation
     var selectedCategory: ArtisanCategoryEnm?

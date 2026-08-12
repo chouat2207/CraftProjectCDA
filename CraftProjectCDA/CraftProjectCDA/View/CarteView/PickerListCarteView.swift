@@ -88,14 +88,9 @@ struct PickerListCarteView: View {
                                     vm.showingSheet = true
                                     
                                 } label: {
-                                    Image(
-                                        systemName:
-                                            "slider.vertical.3"
-                                    )
-                                    .font(.system(size: 20))
-                                    .foregroundStyle(.gray)
-                                    .filterButtonStyle()
+                                    VerticalSliderIcon()
                                 }
+                                
                                 
                                 if let mainUser =
                                     svm.mainUser {
@@ -103,7 +98,7 @@ struct PickerListCarteView: View {
                                         .imageModifier(frameWidth: 40, frameHeight: 44, clipShape: Circle())
                                         .overlay { Circle().stroke(.black, lineWidth: 1)}
                                 }
-                            }
+                                                          }
                             .padding(.top, 0)
                             .padding(.horizontal,5)
                             PickerCarte(
@@ -111,6 +106,7 @@ struct PickerListCarteView: View {
                                     $vm.selection
                             )
                         }
+                        .offset(y: -50)
                     }
                     .padding(0)
                 }
