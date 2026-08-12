@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CraftProjectCDAApp: App {
+    @State var messageService: MessageService = MessageService()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabBarView()
+           .environment(messageService)
         }
     }
 }
