@@ -11,19 +11,19 @@ struct DiscoveryView: View {
     @Environment(SharedViewModel.self) var sharedVM
     @State var discoveryVM: DiscoveryViewModel = DiscoveryViewModel()
     var body: some View {
-        NavigationStack {
-        if let user = sharedVM.mainUser {
-            Header(imageName: user.imageName, title: "À Découvrir", user: user)
-        }
-            VStack {
-                ScrollView {
-                    DiscoveryNewsScrollView()
-                    ForEach(discoveryVM.discoverySections){
-                        section in
-                        DiscoveryHScrollView(sectionTitle: section.title, items: section.items)
-                    }
+        VStack {
+            if let user = sharedVM.mainUser {
+                Header(imageName: user.imageName, title: "À Découvrir", user: user)
+            }
+            
+            ScrollView {
+                DiscoveryNewsScrollView()
+                ForEach(discoveryVM.discoverySections){
+                    section in
+                    DiscoveryHScrollView(sectionTitle: section.title, items: section.items)
                 }
             }
+            
         }
     }
 }
