@@ -8,25 +8,17 @@ import SwiftUI
 
 struct EventsView: View {
     @Environment(SharedViewModel.self) private var svm
+
     @State private var viewModel = EventsViewModel()
     
     var body: some View {
         // Permet d'utiliser les Binding :$vm.searchText, $vm.selectedCategory
         @Bindable var vm = viewModel
-            VStack(alignment: .leading,spacing: 20) {
-                HStack {
-                    Text("Évènements").font(.largeTitle).fontWeight(.bold)
-                    Spacer()
-                    if let user = svm.mainUser {
-                        Image(user.imageName)
-                            .resizable()
-                            .imageModifier(frameWidth: 40, frameHeight: 44, clipShape:Circle())
-                            .scaledToFill()
-                            .overlay { Circle()
-                            .stroke(.black,lineWidth: 1)}
-                    }
-                }
-                .padding(.horizontal, 7)
+        
+        NavigationStack {
+            VStack(alignment: .leading, spacing: 20) {
+                Header(imageName: svm.mainUser?.imageName ?? "PlaceholderPortrait", title: "Évènements")
+                
                 HStack {
                     SearchBarCarte(searchText: $vm.searchText)
                     Button {
@@ -67,9 +59,10 @@ struct EventsView: View {
                 }
             }
         }
+        
     }
 #Preview {
-
+    
     EventsView()
         .environment(SharedViewModel())
 }

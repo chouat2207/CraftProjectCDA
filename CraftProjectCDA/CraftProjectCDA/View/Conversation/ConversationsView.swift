@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ConversationsView: View {
     @Environment(MessageService.self) var messageService: MessageService
+    @Environment(SharedViewModel.self) var sharedVM: SharedViewModel
     @State var conversationVM: ConversationsViewModel?
 
     var body: some View {
@@ -36,6 +37,9 @@ struct ConversationsView: View {
                 }
             }
             .navigationTitle("Messages")
+            .userProfileToolbar(
+                imageName: sharedVM.mainUser?.imageName ?? "PlaceholderPortrait"
+            )
         }
         .onAppear {
             if conversationVM == nil {
@@ -48,4 +52,5 @@ struct ConversationsView: View {
 #Preview {
     ConversationsView()
         .environment(MessageService())
+        .environment(SharedViewModel())
 }

@@ -8,37 +8,53 @@
 import SwiftUI
 
 struct DiscoveryCard: View {
-    var itemName: String
-    var itemImageName: String
+    var item: DisplayableItem
     var body: some View {
-        ZStack {
-            Rectangle()
-                
-                .cornerRadius(10)
-                .foregroundStyle(.white)
-            VStack {
-                Image(itemImageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 180, height: 140)
-                    .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
-                Spacer()
-                HStack {
-                    Text(itemName)
-                        .font(.caption)
-                    Spacer()
+        NavigationStack {
+            NavigationLink {
+                // check type de item + if condition
+                switch item {
+                case let item as Event:
+                    EventDetailView(event: item)
+                case let item as Artwork:
+                    ArtworkDetailView(artwork: item)
+                case let item as User:
+                    DiscoveryView()
+                default:
+                    DiscoveryView()
                 }
-                
-                .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
-                Spacer()
+            }
+            label: {
+                ZStack {
+                    Rectangle()
+                    
+                        .cornerRadius(10)
+                        .foregroundStyle(.white)
+                    VStack {
+                        Image(item.imageName)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 180, height: 140)
+                            .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
+                        Spacer()
+                        HStack {
+                            Text(item.name)
+                                .font(.caption)
+                            Spacer()
+                        }
+                        
+                        .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
+                        Spacer()
+                    }
+                }
+                .padding()
+                .frame(width: 180, height: 190)
+                .shadow(radius: 2)
             }
         }
-        .padding()
-        .frame(width: 180, height: 190)
-        .shadow(radius: 2)
     }
 }
 
 #Preview {
-    DiscoveryCard(itemName: "String", itemImageName: "String")
+    DiscoveryCard(item: artworks[0])
 }
