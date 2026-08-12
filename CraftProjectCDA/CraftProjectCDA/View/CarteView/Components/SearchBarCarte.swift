@@ -12,15 +12,9 @@ struct SearchBarCarte: View {
     @Binding var searchText: String 
     var body: some View {
         HStack(spacing: 10) {
-
             Image(systemName: "magnifyingglass")
                 .foregroundStyle(.secondary)
-
-            TextField(
-                "Search...",
-                text: $searchText
-            )
-            .submitLabel(.search)
+            TextField("Search...", text: $searchText) .submitLabel(.search)
             Image(systemName: "microphone.fill")
                 .foregroundStyle(.secondary)
             
@@ -37,21 +31,10 @@ struct SearchBarCarte: View {
         
         .padding(.horizontal, 14)
         .frame(height: 45)
-        .overlay {
-                                       RoundedRectangle(
-                                           cornerRadius: 10
-                                       )
-                                       .stroke(
-                                           .black,
-                                           lineWidth: 1
-                                       )
-                                   }
-        .background(
-            .ultraThinMaterial,
-            in: RoundedRectangle(cornerRadius: 14)
-        )
-        
-        
+        .overlay {RoundedRectangle(cornerRadius: 10)
+                                       .stroke(.black,lineWidth: 1 )}
+        .background(.ultraThinMaterial,
+            in: RoundedRectangle(cornerRadius: 14))
     }
 }
 

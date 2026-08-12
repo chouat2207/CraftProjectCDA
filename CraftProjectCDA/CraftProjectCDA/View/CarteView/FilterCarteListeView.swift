@@ -14,123 +14,69 @@ struct FilterCarteListeView: View {
     @Binding var selectedDistance : DistanceEnm?
 
     var body: some View {
-
         ScrollView {
-
             VStack(
                 alignment: .leading,
                 spacing: 20
             ) {
-
-
                 HStack {
-
                     Text("Filtrer par")
-                        .font(
-                            .system(
-                                size: 25,
-                                weight: .bold
-                            )
-                        )
+                        .TextFilter()
 
                     Spacer()
-
                     Button {
-                        // Reset de tous les filtres
                         selectedContent = nil
                         selectedCategory = nil
                         selectedDistance = nil
 
                     } label: {
-
                         Text("Reset")
                             .foregroundStyle(.gray)
                     }
                 }
-
-
                 HStack {
-
                     Text("Type de contenu")
-                        .font(
-                            .system(
-                                size: 20,
-                                weight: .bold
-                            )
-                        )
-
+                        .TextFilter()
                     Spacer()
-
                     Button {
-
                         selectedContent = nil
-
                     } label: {
-
                         Text("Effacer")
                             .foregroundStyle(.gray)
                     }
                 }
 
-
                 ButtonsContenu(
                     selection: $selectedContent
                 )
-
                 HStack {
-
                     Text("Catégories")
-                        .font(
-                            .system(
-                                size: 20,
-                                weight: .bold
-                            )
-                        )
-
+                        .TextFilter()
                     Spacer()
-
                     Button {
 
                         selectedCategory = nil
 
                     } label: {
-
                         Text("Effacer")
                             .foregroundStyle(.gray)
                     }
                 }
-
-
                 ButtonsCategory(
                     displayedArtworks: displayedArtworks,
                     selection: $selectedCategory
                 )
-
-
-
                 HStack {
-
                     Text("Distance de ma localisation")
-                        .font(
-                            .system(
-                                size: 20,
-                                weight: .bold
-                            )
-                        )
-
+                        .TextFilter()
                     Spacer()
                     Button {
-
                         selectedDistance = nil
-
                     } label: {
-
                         Text("Effacer")
                             .foregroundStyle(.gray)
                     }
                 }
-
-
                 ButtonsDistance(selected: $selectedDistance)
 
             }
@@ -143,7 +89,6 @@ struct FilterCarteListeView: View {
 //    @Previewable @State var selectedContent: TypeContenuEnm? = nil
     FilterCarteListeView(
         displayedArtworks: ArtisanCategoryEnm.allCases,
-
         selectedContent: .constant(nil),
         selectedCategory: .constant(nil),
         selectedDistance: .constant(nil)

@@ -19,7 +19,6 @@ struct PickerCarte: View {
     
     init(selection: Binding<Content>) {
             self._selection = selection
-
             UISegmentedControl.appearance().setTitleTextAttributes(
                 [.foregroundColor: UIColor.green],
                 for: .selected
@@ -30,15 +29,12 @@ struct PickerCarte: View {
                 for: .normal
             )
         }
-  
     
     var body: some View {
         Picker("Mode d'affichage", selection: $selection){
                 ForEach(Content.allCases, id: \.self){ content in
                     Text(content.rawValue)
-                        .tag(content)
-                    
-                }
+                        .tag(content)}
         }
             .pickerStyle(SegmentedPickerStyle())
             .padding()

@@ -15,7 +15,6 @@ struct ListView: View {
     // on la renvoie à PickerListCarteView
     let onArtworkSelected: (Artwork) -> Void
 
-
     private let columns = [
 
         GridItem(
@@ -38,16 +37,11 @@ struct ListView: View {
                 columns: columns,
                 spacing: 18
             ) {
-
                 ForEach(displayedArtworks) { artwork in
 
                     Button {
-
-                        // On renvoie l'artwork sélectionné
                         onArtworkSelected(artwork)
-
                     } label: {
-
                         ListCard(
                             artwork: artwork
                         )

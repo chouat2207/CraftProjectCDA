@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct ButtonsDistance: View {
-//    @State private var estAppuye13 = false
-//    @State private var estAppuye36 = false
-//    @State private var estAppuye10 = false
     @Binding var selected : DistanceEnm?
     
     var body: some View {
@@ -23,7 +20,6 @@ struct ButtonsDistance: View {
                         selected = distance
                     }
                 }    
-                
                 label: {
                     
                     Text(distance.rawValue)

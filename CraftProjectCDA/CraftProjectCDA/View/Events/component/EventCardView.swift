@@ -19,17 +19,12 @@ var body: some View {
     HStack(alignment: .top, spacing: 12) {
 
         Image(event.imageName)
-            .resizable()
-            .scaledToFill()
-            .frame(width: 140, height: 120)
-            .clipped()
+            .resizable().scaledToFill() .frame(width: 140, height: 120).clipped()
 
         VStack(alignment: .leading, spacing: 8) {
-
             Text(event.name)
                 .font(.headline)
                 .fontWeight(.bold)
-
             Text(event.description)
                 .font(.caption)
                 .foregroundStyle(.gray)
@@ -42,12 +37,9 @@ var body: some View {
     }
     .padding(8)
     .background(.white)
-    .clipShape(
-        RoundedRectangle(cornerRadius: 12)
-    )
-    .overlay {
-        RoundedRectangle(cornerRadius: 12)
-            .stroke(.gray, lineWidth: 1)
+    .clipShape( RoundedRectangle(cornerRadius: 12))
+    .overlay { RoundedRectangle(cornerRadius: 12)
+        .stroke(.gray, lineWidth: 1)
     }
 }
 

@@ -13,8 +13,6 @@ struct ListCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ZStack(alignment: .bottomLeading) {
-                
-                // Image de l’œuvre
                 Rectangle()
                                    .fill(.clear)
                                    .frame(height: 135)
@@ -25,19 +23,15 @@ struct ListCard: View {
                                    }
                                    .clipped()
 
-                // Image de l’artisan
                 Image(artwork.imageArtisan)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 42, height: 42)
                     .clipShape(Circle())
-                    .overlay {
-                        Circle()
-                            .stroke(.white, lineWidth: 2)
-                    }
+                    .overlay {Circle()
+                            .stroke(.white, lineWidth: 2)}
                     .offset(x: 12, y: 20)
-            }
-
+    }
             Text(artwork.name)
                 .font(.system(size: 14, weight: .light))
                 .lineLimit(1)
@@ -55,13 +49,9 @@ struct ListCard: View {
         )
         .shadow(
             color: .black.opacity(0.12),
-            radius: 4,
-            x: 0,
-            y: 2
-        )
+            radius: 4,x: 0,y: 2)
     }
 }
-
 #Preview {
     ListCard(artwork: artworks[3])
         .frame(width: 170)
