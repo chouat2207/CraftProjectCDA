@@ -73,21 +73,7 @@ struct SettingsAccountView: View {
                                 .font(.caption)
                                 .foregroundStyle(.black)
                                 .padding(.bottom,10)
-                            Button{
-                                
-                            }label: {
-                                HStack{
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 17)
-                                            .frame(width: 180,height: 40)
-                                            .foregroundStyle(.mint.opacity(0.5))
-                                        Text("Découvrir le compte Artisan")
-                                            .font(.caption)
-                                            .foregroundStyle(.black)
-                                    }
-                                    Spacer()
-                                }
-                            }
+                            BecomeArtisanButton()
                         }
                         
                     }header: {
@@ -126,17 +112,11 @@ struct SettingsAccountView: View {
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .kerning(1)
-                            
-                        
                     }
-                    
                     .padding(.trailing,185)
                 }
-                
             }
-            
         }
-       
     }
 }
 

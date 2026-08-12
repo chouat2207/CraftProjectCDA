@@ -17,6 +17,7 @@ struct User: Identifiable, DisplayableItem {
     var name: String
     var pseudonym: String
     var imageName: String
+    var bannerName: String
     var joinedDate: String
     var artisanProfileID: UUID?
     var address: String
@@ -28,13 +29,14 @@ struct User: Identifiable, DisplayableItem {
     var reviewsID: [UUID]
     
     // Made custom init to conform to DisplayableItem protocol
-    init(id: UUID, firstName: String, lastName: String, pseudonym: String, imageName: String, joinedDate: String, artisanProfileID: UUID? = nil, address: String, city: String, description: String, favoriteArtworksID: [UUID], followingID: [UUID], reviewsID: [UUID]) {
+    init(id: UUID, firstName: String, lastName: String, pseudonym: String, imageName: String, bannerName: String, joinedDate: String, artisanProfileID: UUID? = nil, address: String, city: String, description: String, favoriteArtworksID: [UUID], followingID: [UUID], reviewsID: [UUID]) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.name = firstName + " " + lastName
         self.pseudonym = pseudonym
         self.imageName = imageName
+        self.bannerName = bannerName
         self.joinedDate = joinedDate
         self.artisanProfileID = artisanProfileID
         self.address = address

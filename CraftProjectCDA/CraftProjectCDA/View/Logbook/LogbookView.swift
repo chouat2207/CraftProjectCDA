@@ -10,7 +10,7 @@ import SwiftUI
 struct LogbookView: View {
     var body: some View {
   
-            VStack{
+            ScrollView {
                 
                 LogbookCardView()
                 
