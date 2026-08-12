@@ -9,9 +9,7 @@ import SwiftUI
 struct EventsView: View {
     
     // Données communes de l'application
-    @Environment(SharedViewModel.self)
-    
-    private var svm
+    @Environment(SharedViewModel.self) private var svm
     
     // ViewModel spécifique à EventsView
     @State private var viewModel = EventsViewModel()
@@ -20,28 +18,25 @@ struct EventsView: View {
         // Permet d'utiliser les Binding :$vm.searchText, $vm.selectedCategory
         @Bindable var vm = viewModel
         
-        VStack(
-            alignment: .leading,
-            spacing: 20
-        ) {
-            
-            HStack {
-                
-                Text("Évènements")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                
-                Spacer()
-                
-                if let user = svm.mainUser {
-                    
-                    Image(user.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 45, height: 45)
-                        .clipShape(Circle())
-                }
-                }
+        NavigationStack {
+            VStack(alignment: .leading, spacing: 20) {
+                Header(imageName: svm.mainUser?.imageName ?? "PlaceholderPortrait", title: "Évènements")
+//                            HStack {
+//                                Text("Évènements")
+//                                    .font(.largeTitle)
+//                                    .fontWeight(.bold)
+//                
+//                                Spacer()
+//                
+//                                if let user = svm.mainUser {
+//                
+//                                    Image(user.imageName)
+//                                        .resizable()
+//                                        .scaledToFill()
+//                                        .frame(width: 45, height: 45)
+//                                        .clipShape(Circle())
+//                                }
+//                            }
                 
                 HStack {
                     
@@ -85,9 +80,8 @@ struct EventsView: View {
                 .padding(.horizontal)
                 
                 ScrollView {
-                    
+            
                     LazyVStack(spacing: 16) {
-                        
                         ForEach(
                             vm.filteredEvents(
                                 from: svm.eventsData
@@ -101,39 +95,38 @@ struct EventsView: View {
                     }
                     .padding()
                 }
-            
-
-            
-            .sheet(
-                isPresented: $vm.showingSheet
-            ) {
-                
-                FilterCarteListeView(
-                    displayedArtworks:
-                        ArtisanCategoryEnm.allCases,
+                .sheet(
+                    isPresented: $vm.showingSheet
+                ) {
                     
-                    selectedContent:
-                        $vm.selectedContent,
-                    
-                    selectedCategory:
-                        $vm.selectedCategory,
-                    
-                    selectedDistance:
-                        $vm.selectedDistance
-                )
-                .presentationDetents([
-                    .medium,
-                    .large
-                ])
-                .presentationDragIndicator(
-                    .visible)
+                    FilterCarteListeView(
+                        displayedArtworks:
+                            ArtisanCategoryEnm.allCases,
+                        
+                        selectedContent:
+                            $vm.selectedContent,
+                        
+                        selectedCategory:
+                            $vm.selectedCategory,
+                        
+                        selectedDistance:
+                            $vm.selectedDistance
+                    )
+                    .presentationDetents([
+                        .medium,
+                        .large
+                    ])
+                    .presentationDragIndicator(
+                        .visible)
+                }
             }
         }
+        
     }
 }
 
 #Preview {
-
+    
     EventsView()
         .environment(SharedViewModel())
 }
