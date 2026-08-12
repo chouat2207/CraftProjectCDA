@@ -71,11 +71,7 @@ struct ProfileView: View {
                 }
                 
             }
-            
-            
-            
-            
-            
+        
             HStack{
                 VStack(alignment: .leading){
                     
@@ -120,16 +116,9 @@ struct ProfileView: View {
             }else if selectedTab == "reviews"{
                 //ForEach Users -> reviewsID
                 ReviewsView()
-                
-                
-                
-                
+             
             }
-            
-            
-            
-            
-            
+      
         }
     }
     
