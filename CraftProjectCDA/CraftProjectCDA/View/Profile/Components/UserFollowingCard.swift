@@ -10,6 +10,7 @@ import SwiftUI
 struct UserFollowingCard: View {
     let user: User
     var body: some View {
+        
         ZStack{
             Rectangle()
                 .cornerRadius(10)
@@ -17,7 +18,7 @@ struct UserFollowingCard: View {
             VStack {
                 Image(user.imageName)
                     .imageModifier(frameWidth: 180, frameHeight: 140, clipShape: UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
-                   
+                
                 Spacer()
                 HStack {
                     Text("\(user.firstName) "+"\(user.lastName)")
@@ -32,6 +33,7 @@ struct UserFollowingCard: View {
         .padding()
         .frame(width: 180, height: 190)
         .shadow(radius: 2)
+        
     }
 }
 
