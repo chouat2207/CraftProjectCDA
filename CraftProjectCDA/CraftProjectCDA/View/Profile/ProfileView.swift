@@ -141,7 +141,6 @@ struct UserFollowing: View {
     
     
     var body: some View {
-        
         ZStack{
             Rectangle()
                 .cornerRadius(10)

@@ -8,7 +8,7 @@ import Foundation
 
 @Observable
 final class DirectMessageViewModel {
-    let peerID: UUID
+    private let peerID: UUID
     private let messageService: MessageService
 
     init(peerID: UUID, messageService: MessageService) {
@@ -25,11 +25,15 @@ final class DirectMessageViewModel {
                     || ($0.senderID == peerID && $0.receiverID == mainUserID)
             }
             .sorted { $0.postDate < $1.postDate }
-            .map {
+            .map {message in
                 DirectMessage(
-                    senderID: $0.senderID,
-                    content: $0.content,
-                    isFromMainUser: $0.senderID == mainUserID
+                    id: message.id,
+                    senderID: message.senderID,
+                    senderImageName:
+                        messageService.userData.first(where: {$0.id == message.senderID})?.imageName ?? "PlaceholderPortrait",
+                    date: message.postDate,
+                    content: message.content,
+                    isFromMainUser: message.senderID == mainUserID
                 )
             }
     }

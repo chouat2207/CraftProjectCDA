@@ -10,6 +10,7 @@ import MapKit
 
 
 struct User: Identifiable, DisplayableItem {
+    
     var id: UUID
     var firstName: String
     var lastName: String
@@ -25,7 +26,6 @@ struct User: Identifiable, DisplayableItem {
     // Array of artisans the user is following
     var followingID: [UUID]
     var reviewsID: [UUID]
-    
     
     // Made custom init to conform to DisplayableItem protocol
     init(id: UUID, firstName: String, lastName: String, pseudonym: String, imageName: String, joinedDate: String, artisanProfileID: UUID? = nil, address: String, city: String, description: String, favoriteArtworksID: [UUID], followingID: [UUID], reviewsID: [UUID]) {
@@ -44,5 +44,4 @@ struct User: Identifiable, DisplayableItem {
         self.followingID = followingID
         self.reviewsID = reviewsID
     }
-    
 }

@@ -125,7 +125,6 @@ struct PickerListCarteView: View {
                         )
                         .clipShape(Circle())
                         .overlay {
-
                             Circle()
                                 .stroke(
                                     .black,
@@ -133,7 +132,7 @@ struct PickerListCarteView: View {
                                 )
                         }
                 }
-                .padding(.horizontal, 3)
+                //.padding(.horizontal, 3)
 
                 PickerCarte(
                     selection: $selection
