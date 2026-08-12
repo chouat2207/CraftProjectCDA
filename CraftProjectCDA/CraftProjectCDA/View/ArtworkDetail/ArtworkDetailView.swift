@@ -96,6 +96,7 @@ struct ArtworkDetailView: View {
             }
             
         }
+        
         .onAppear {
             viewModel.artwork = artwork
         }

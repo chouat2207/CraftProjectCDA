@@ -13,7 +13,8 @@ struct DiscoveryHScrollView: View {
     
 //    @Environment(DiscoveryViewModel.self) var discoveryVM
     var body: some View {
-        VStack{
+        
+        VStack {
             HStack {
                 Text(sectionTitle)
                     .font(.title2)
@@ -23,7 +24,7 @@ struct DiscoveryHScrollView: View {
             ScrollView(.horizontal) {
                 LazyHStack {
                     ForEach(items, id:\.id) { item in
-                        DiscoveryCard(itemName: item.name, itemImageName: item.imageName)
+                        DiscoveryCard(item: item)
                     }
                 }
             }

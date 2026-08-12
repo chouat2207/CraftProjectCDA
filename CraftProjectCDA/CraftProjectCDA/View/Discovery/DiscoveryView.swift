@@ -22,7 +22,7 @@ struct DiscoveryView: View {
                 }
             }
             .navigationTitle("À découvrir")
-            .discoveryToolbar(
+            .userProfileToolbar(
                 imageName: sharedVM.mainUser?.imageName ?? "PlaceholderPortrait"
             )
         }
