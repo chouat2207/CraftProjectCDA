@@ -18,7 +18,7 @@ struct ProfileView: View {
             
             VStack{
                 ZStack{
-                    Image("GarasuPhotoDeCouverture")
+                    Image(user.bannerName)
                         .imageModifier(frameWidth: 410, frameHeight: 230, clipShape: Rectangle())
                         .ignoresSafeArea()
                     

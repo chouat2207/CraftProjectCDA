@@ -63,7 +63,6 @@ struct SheetArtisanAccount: View {
                         }
                     }
                     
-                    
                     Button{
                         
                     }label: {

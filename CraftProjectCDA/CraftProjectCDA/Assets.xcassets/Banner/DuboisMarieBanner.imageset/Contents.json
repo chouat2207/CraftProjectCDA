@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "AMD_VaseLhydreDeLerne_H15-5cm_porcelaine_2026.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

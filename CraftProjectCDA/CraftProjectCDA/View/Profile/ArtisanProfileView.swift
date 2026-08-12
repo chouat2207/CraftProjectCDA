@@ -17,7 +17,7 @@ struct ArtisanProfileView: View {
         NavigationStack{
             VStack{
                 ZStack{
-                    CoverImageUserCard()
+                    CoverImageUserCard(user: users[0])
                     
                     VStack{
                         HStack(alignment: .center){
