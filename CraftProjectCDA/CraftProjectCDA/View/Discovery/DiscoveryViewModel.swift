@@ -36,6 +36,13 @@ class DiscoveryViewModel {
         ]
     }
     
+    func getItemImage(imageName: String) -> String {
+        if imageName == "" {
+            return "PlaceholderItem"
+        }
+        return imageName
+    }
+    
     var filteredUserListByArtisanProfileActive: [User] {
         userData.filter({$0.artisanProfileID != nil})
     }

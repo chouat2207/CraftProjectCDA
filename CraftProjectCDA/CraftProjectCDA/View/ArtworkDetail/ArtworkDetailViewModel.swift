@@ -12,7 +12,7 @@ import PhotosUI
 class ArtworkDetailViewModel {
    
     var artwork : Artwork
-    var navigateToMessage : Bool = false
+//    var navigateToMessage : Bool = false
 
     var artisan: User {
             users.first(where: { $0.id == artwork.artistID }) ?? users[0]
@@ -22,9 +22,9 @@ class ArtworkDetailViewModel {
             self.artwork = artwork
         }
     
-    func contactArtisan() {
-        navigateToMessage = true
-    }
+//    func contactArtisan() {
+//        navigateToMessage = true
+//    }
 }
 
 /* CODE AVANT SVM

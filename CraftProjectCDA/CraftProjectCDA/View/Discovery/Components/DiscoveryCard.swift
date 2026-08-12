@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DiscoveryCard: View {
+    @Environment(DiscoveryViewModel.self) var discoveryVM
     var item: DisplayableItem
     var body: some View {
         NavigationStack {
@@ -31,7 +32,7 @@ struct DiscoveryCard: View {
                         .cornerRadius(10)
                         .foregroundStyle(.white)
                     VStack {
-                        Image(item.imageName)
+                        Image(discoveryVM.getItemImage(imageName: item.imageName))
                             .resizable()
                             .scaledToFill()
                             .frame(width: 180, height: 140)
@@ -40,6 +41,7 @@ struct DiscoveryCard: View {
                         HStack {
                             Text(item.name)
                                 .font(.caption)
+                                .foregroundStyle(.black)
                             Spacer()
                         }
                         
@@ -53,8 +55,4 @@ struct DiscoveryCard: View {
             }
         }
     }
-}
-
-#Preview {
-    DiscoveryCard(item: artworks[0])
 }

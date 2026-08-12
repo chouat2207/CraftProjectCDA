@@ -99,14 +99,14 @@ struct PickerListCarteView: View {
                                         .overlay { Circle().stroke(.black, lineWidth: 1)}
                                 }
                                                           }
-                            .padding(.top, 0)
-                            .padding(.horizontal,5)
+                            
+                            .padding(.horizontal,7)
                             PickerCarte(
                                 selection:
                                     $vm.selection
                             )
                         }
-                        .offset(y: -50)
+                        .offset(y: -54)
                     }
                     .padding(0)
                 }
@@ -146,6 +146,3 @@ struct PickerListCarteView: View {
             SharedViewModel()
         )
 }
-
-
-
