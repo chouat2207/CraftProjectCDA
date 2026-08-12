@@ -13,6 +13,5 @@ struct UserToUserMessage: Identifiable {
     var postDate: Date
     var senderID: UUID
     var receiverID: UUID
-    
     var itemID: UUID?
 }

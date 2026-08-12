@@ -29,11 +29,11 @@ struct CardList: View {
 
                            NavigationLink {
                                
-                               ArtworkDetailView(
-                                   viewModel: ArtworkDetailViewModel(
-                                       artwork: artwork
-                                   )
-                               )
+//                               ArtworkDetailView(
+//                                   viewModel: ArtworkDetailViewModel(
+//                                       artwork: artwork
+//                                   )
+//                               )
 
                            } label: {
 

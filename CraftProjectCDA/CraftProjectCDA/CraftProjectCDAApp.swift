@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct CraftProjectCDAApp: App {
     @State var messageService: MessageService = MessageService()
+    @State var sharedVM: SharedViewModel = SharedViewModel()
     var body: some Scene {
         WindowGroup {
             TabBarView()
-           .environment(messageService)
+                .environment(messageService)
+                .environment(sharedVM)
         }
     }
 }

@@ -8,56 +8,52 @@
 import SwiftUI
 
 struct DirectMessageView: View {
-    @State private var messageViewModel: DirectMessageViewModel
+    @Environment(MessageService.self) var messageService: MessageService
+    @State var directMessageVM: DirectMessageViewModel?
+    var peerID: UUID
     var peerName: String
-    var profileImageName: String = "person.crop.circle.fill"
+    var profileImageName: String
     @State var message: String = ""
-
-    init(messageViewModel: DirectMessageViewModel, peerName: String, profileImageName: String = "person.crop.circle.fill") {
-        _messageViewModel = State(initialValue: messageViewModel)
-        self.peerName = peerName
-        self.profileImageName = profileImageName
-    }
-
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
                 Divider()
                 ScrollView {
-                    VStack(spacing: 12) {
-                        ForEach(messageViewModel.directMessages) { message in
-                            MessageCardView(content: message.content, isFromMainUser: message.isFromMainUser)
+                    if let directMessageVM {
+                        VStack(spacing: 12) {
+                            ForEach(directMessageVM.directMessages) { message in
+                                MessageCardView(
+                                    content: message.content,
+                                    isFromMainUser: message.isFromMainUser,
+                                    imageName: message.senderImageName,
+                                    dateText: message.date.toString()
+                                )
+                            }
                         }
+                        .padding()
                     }
-                    .padding()
                 }
                 .defaultScrollAnchor(.bottom)
-
-                TextFieldView(message: $message, onSend: messageViewModel.postMessage)
+                TextFieldView(
+                    message: $message,
+                    onSend: { directMessageVM?.postMessage(content: $0)})
             }
-            .background(Color.white)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    HStack(spacing: 10) {
-                        Image(systemName: profileImageName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 32, height: 32)
-                            .foregroundColor(.gray)
-                        Text(peerName)
-                            .font(.headline)
-                            .foregroundColor(.primary)
-                    }
-                }
+            .customToolbar(imageName: profileImageName, userName: peerName)
+        }
+        .onAppear() {
+            if directMessageVM == nil {
+                directMessageVM = DirectMessageViewModel(peerID: peerID, messageService: messageService)
             }
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
 #Preview {
     DirectMessageView(
-        messageViewModel: DirectMessageViewModel(peerID: .marie, messageService: MessageService()),
-        peerName: "Didier"
+        peerID: .marie,
+        peerName: "Marie",
+        profileImageName: "PlaceholderPortrait"
     )
+    .environment(MessageService())
 }
