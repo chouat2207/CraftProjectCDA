@@ -59,9 +59,7 @@ struct ReviewUserCard: View {
             VStack{
                 Text("Un savoir-faire impressionnant, ainsi qu'une personnalité chaleureuse !")
                     .frame(width: 290, height: 80)
-                    
-                    
-                    
+                 
             }
             .padding(.leading, 50)
             .padding(.top,30)

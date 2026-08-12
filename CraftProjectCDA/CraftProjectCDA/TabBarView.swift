@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @State var sharedVM = SharedViewModel()
+    @Environment(MessageService.self) var messageService
+    //    @State var sharedVM = SharedViewModel()
+    @Environment(SharedViewModel.self) var sharedVM
     
     var body: some View {
         
@@ -16,30 +18,32 @@ struct TabBarView: View {
             Tab("Découvrir", systemImage: "house.fill") {
                 DiscoveryView()
                     .environment(DiscoveryViewModel())
-                }
+            }
             
             Tab("Recherche", systemImage: "magnifyingglass") {
                 PickerListCarteView()
-                  
             }
             
             Tab("Évènements", systemImage: "calendar") {
                 EventsView()
-         
             }
+            
             
             Tab("Messages", systemImage: "paperplane.fill") {
                 ConversationsView()
+                
             }
             
             Tab("Favoris", systemImage: "star.fill") {
-                
+                FavoritesView()
             }
         }
-        .environment(sharedVM)
+
     }
-} 
+}
 
 #Preview {
     TabBarView()
+        .environment(MessageService())
+        .environment(SharedViewModel())
 }

@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Matíz 1.jpg",
+      "filename" : "Matíz 1.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -11,7 +11,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "Matíz 3.jpg",
+      "filename" : "Matíz 3.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

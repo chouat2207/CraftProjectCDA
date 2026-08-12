@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DiscoveryView: View {
+    @Environment(SharedViewModel.self) var sharedVM
     @State var discoveryVM: DiscoveryViewModel = DiscoveryViewModel()
     var body: some View {
         NavigationStack {
@@ -21,6 +22,9 @@ struct DiscoveryView: View {
                 }
             }
             .navigationTitle("À découvrir")
+            .discoveryToolbar(
+                imageName: sharedVM.mainUser?.imageName ?? "PlaceholderPortrait"
+            )
         }
     }
 }
@@ -28,4 +32,5 @@ struct DiscoveryView: View {
 #Preview {
     DiscoveryView()
         .environment(DiscoveryViewModel())
+        .environment(SharedViewModel())
 }

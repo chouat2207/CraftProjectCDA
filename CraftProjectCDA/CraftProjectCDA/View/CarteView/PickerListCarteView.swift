@@ -65,7 +65,7 @@ struct PickerListCarteView: View {
                             vm.showingSheet = true
 
                         } label: {
-
+                            
                             Image(
                                 systemName:
                                     "slider.vertical.3"
@@ -83,7 +83,7 @@ struct PickerListCarteView: View {
                                 )
                             )
                             .overlay {
-
+                                
                                 RoundedRectangle(
                                     cornerRadius: 10
                                 )
@@ -278,13 +278,10 @@ struct PickerListCarteView: View {
 
                 if let selectedArtwork =
                     vm.selectedArtwork {
-
+                    //ArtworkDetailViewModel(artwork: selectedArtwork))
                     ArtworkDetailView(
                         viewModel:
-                            ArtworkDetailViewModel(
-                                artwork:
-                                    selectedArtwork
-                            )
+                            ArtworkDetailViewModel(artwork: selectedArtwork), artwork: selectedArtwork
                     )
                 }
             }

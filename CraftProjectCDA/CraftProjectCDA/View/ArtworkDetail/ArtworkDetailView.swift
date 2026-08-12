@@ -8,17 +8,20 @@
 import SwiftUI
 
 struct ArtworkDetailView: View {
-    @State var viewModel : ArtworkDetailViewModel
-//    @Environment(SharedViewModel.self) var sharedVM
+    @State var viewModel = ArtworkDetailViewModel()
+    @Environment(SharedViewModel.self) var sharedVM
+    
+    let artwork: Artwork
     
     var body: some View {
         VStack{
             ZStack(alignment: .bottomLeading){
                 Image(viewModel.artwork.imageName)
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
                     .frame(height: 280)
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: 420)
+                    .clipped()
                 
                 HStack(){
                     Image(viewModel.artisan.imageName)
@@ -33,15 +36,16 @@ struct ArtworkDetailView: View {
                         Text(viewModel.artwork.name)
                             .fontWeight(.semibold)
                             .font(.title)
+                            .lineLimit(1)
                             .padding(.top)
                         
                         Text("Par \(viewModel.artisan.firstName) \(viewModel.artisan.lastName) ")
                     }
                     Spacer()
                     Button(action: {
-                        viewModel.toggleFavorite()
+                        sharedVM.toggleFavorite(artworkID: viewModel.artwork.id)
                     }) {
-                        Image(systemName: viewModel.isFavorite ? "heart.fill" : "heart")
+                        Image(systemName: sharedVM.isFavorite(artworkID: viewModel.artwork.id) ? "heart.fill" : "heart")
                             .font(.largeTitle)
                             .foregroundStyle(.red)
                     }
@@ -49,6 +53,7 @@ struct ArtworkDetailView: View {
                 .alignmentGuide(.bottom, computeValue: { dimension in
                     35
                 })
+                .padding(.horizontal,8)
             }
             ScrollView(.vertical/*, showsIndicators: false*/) {
                 VStack(spacing: 10){
@@ -60,7 +65,7 @@ struct ArtworkDetailView: View {
                         Text("\(viewModel.artwork.details)")
                         Image(viewModel.artwork.imageName)
                             .resizable()
-                            .scaledToFit()
+                            .scaledToFill()
                             .clipShape(Circle())
                     }
                     .padding(.top)
@@ -81,13 +86,19 @@ struct ArtworkDetailView: View {
             }
             
             .padding(.horizontal)
-            .navigationDestination(isPresented: $viewModel.navigateToMessage) { Text("Conversation avec l'artisan \(viewModel.artisan.firstName)")
-            }
+            // A VOIR AVEC SARAH
+//            .navigationDestination(isPresented: $viewModel.navigateToMessage) { DirectMessageView(peerID: , peerName: , profileImageName: <#T##String#>)
+//            }
+            
+        }
+        .onAppear {
+            viewModel.artwork = artwork
         }
     }
 }
 
 #Preview {
-    ArtworkDetailView(viewModel: ArtworkDetailViewModel(artwork: artworks[2]))
-
+    ArtworkDetailView(artwork: artworks[2])
+        .environment(SharedViewModel())
+    
 }
