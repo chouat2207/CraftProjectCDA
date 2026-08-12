@@ -11,9 +11,7 @@ struct TabBarView: View {
     @Environment(MessageService.self) var messageService
     //    @State var sharedVM = SharedViewModel()
     @Environment(SharedViewModel.self) var sharedVM
-    
     var body: some View {
-        
         TabView {
             Tab("Découvrir", systemImage: "house.fill") {
                 DiscoveryView()

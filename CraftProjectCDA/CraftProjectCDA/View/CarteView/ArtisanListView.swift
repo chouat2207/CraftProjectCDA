@@ -14,7 +14,6 @@ struct ArtisanListView: View {
         GridItem(.flexible(), spacing: 14)
     ]
 
-
     var body: some View {
         NavigationStack {
             
@@ -24,11 +23,8 @@ struct ArtisanListView: View {
                     columns: columns,
                     spacing: 18
                 ) {
-                    
                     ForEach(filteredArtisans) { artisan in
-                        
                         NavigationLink {
-                            
                             Text("Détail de l'artisan")
                         } label: {
                             

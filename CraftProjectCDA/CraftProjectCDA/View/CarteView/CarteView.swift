@@ -22,14 +22,10 @@ struct CarteView: View {
     var body: some View {
 
         Map(position: $position) {
-
             UserAnnotation()
-
             ForEach(displayedArtisans) { artisan in
-
                 let coordinate = artisan.shopLocation
                 let imageName = artisan.imageName
-
                 Annotation(
                     "",
                     coordinate: coordinate
@@ -41,7 +37,7 @@ struct CarteView: View {
                 }
             }
         }
-       
+        
         .onChange(of: displayedArtisans.map { $0.id }) {
             updateMapPosition()
         }

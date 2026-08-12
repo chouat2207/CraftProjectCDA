@@ -19,7 +19,6 @@ struct ArtisanCard: View {
     }
     var body: some View {
             VStack(spacing: 10) {
-                
                 Image(artisan.imageName)
                     .resizable()
                     .scaledToFill()
@@ -30,25 +29,16 @@ struct ArtisanCard: View {
                 Text(
                     //map ici : Si matchedUser contient un User, utilise-le pour créer le texte
                     matchedUser.map {
-                        "\($0.firstName) \($0.lastName)"
-                    } ?? "Artisan"
-                )
-                .font(.headline)
-                .lineLimit(1)
+                        "\($0.firstName) \($0.lastName)"} ?? "Artisan")
+                .font(.headline).lineLimit(1)
             }
             .frame(maxWidth: .infinity)
             .background(.white)
             .clipShape(
-                RoundedRectangle(
-                    cornerRadius: 16
-                )
-            )
+                RoundedRectangle(cornerRadius: 16))
             .shadow(
                 color: .black.opacity(0.12),
-                radius: 4,
-                x: 0,
-                y: 2
-            )
+                radius: 4,x: 0,y: 2)
         }
     }
 
