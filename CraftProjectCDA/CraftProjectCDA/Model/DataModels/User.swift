@@ -23,7 +23,6 @@ struct User: Identifiable, DisplayableItem {
     var city: String
     var description: String
     var favoriteArtworksID: [UUID]
-    
     // Array of artisans the user is following
     var followingID: [UUID]
     var reviewsID: [UUID]

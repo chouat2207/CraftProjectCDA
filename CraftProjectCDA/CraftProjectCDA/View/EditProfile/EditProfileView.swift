@@ -9,6 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct EditProfileView: View {
+    @Environment(SharedViewModel.self) var sharedVM
     @State var editProfileViewModel: EditProfileViewModel
     let user: User
     
@@ -200,7 +201,7 @@ struct EditProfileView: View {
                         .padding(.vertical,5)
                     
                     Button{
-                    editProfileViewModel.saveEditChanges(user: user)
+                        sharedVM.updateMainUserProfile(pseudonym: pseudoInput, description: bioInput, imageName: "")
                     }label: {
                         ZStack(alignment: .center){
                             RoundedRectangle(cornerRadius: 32)
@@ -251,4 +252,5 @@ struct EditProfileView: View {
 
 #Preview {
     EditProfileView(editProfileViewModel: EditProfileViewModel(), user: users[5])
+        .environment(SharedViewModel())
 }

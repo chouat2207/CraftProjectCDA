@@ -15,6 +15,7 @@ struct MainNoteCard: View {
             Image("ShapeReviews")
                 .resizable()
                 .scaledToFit()
+                .frame(width: 270)
             Text("4,5")
                 .font(.system(size: 80))
                 .fontWeight(.bold)
@@ -22,7 +23,7 @@ struct MainNoteCard: View {
                 .foregroundStyle(.white)
             
         }
-        .frame(width: 270)
+        
        
 
     }
