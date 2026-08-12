@@ -23,7 +23,6 @@ struct ProfileView: View {
                         .ignoresSafeArea()
                     
                     VStack{
-                        
                         HStack(alignment: .center){
                             
                             Image(user.imageName)
@@ -34,36 +33,17 @@ struct ProfileView: View {
                             
                             Text(user.pseudonym)
                                 .fontWeight(.semibold)
-                            
                             Spacer()
-                            
-                            NavigationLink{
-                                profileViewModel.showSettings()
-                            }label: {
-                                Image(systemName: "gearshape.fill")
-                                    .foregroundStyle(.gray)
-                                    .font(.system(size: 24))
-                                    .padding(.trailing,8)
-                            }
+                            SettingsButton()
                         }
                     }
-                    .padding(.horizontal,6)
+                    .padding(.horizontal,5)
                     .offset(y: 70)
                 }
-                
-                
                 VStack(){
-                    NavigationLink{
-                        profileViewModel.showEdit()
-                    }label: {
-                        Image(systemName: "square.and.pencil")
-                            .foregroundStyle(.blue)
-                            .font(.system(size: 20))
-                        
-                        Text("EDIT")
-                            .foregroundStyle(.blue)
-                    }
+                    EditProfileButton()
                 }
+                .offset(x: -27,y: -35)
             }
             
             HStack{
@@ -77,21 +57,20 @@ struct ProfileView: View {
                         .italic()
                         .font(.footnote)
                 }
-                .padding(.leading,10)
+                .padding(.horizontal,15)
+                
                 Spacer()
             }
             UserSectionPicker()
+                .padding(.top,10)
         }
     }
-    
 }
-
-
 
 #Preview { NavigationStack{
     ProfileView(
         profileViewModel: ProfileViewModel(),
-        user: users[0]
+        user: users[5]
     )
 }
 .environment(SharedViewModel())

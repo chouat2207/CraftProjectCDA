@@ -15,7 +15,6 @@ struct LogbookCardView: View {
       
             
             // 1ST LOGBOOK'S POST
-  
         VStack{
            
                 ZStack{
