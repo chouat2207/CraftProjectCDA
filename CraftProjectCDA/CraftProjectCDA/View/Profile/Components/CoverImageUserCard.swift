@@ -13,18 +13,14 @@ struct CoverImageUserCard: View {
             ZStack{
                 
                 Image("GarasuPhotoDeCouverture")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 500, height: 270)
-                    .clipShape(Rectangle())
-                    
-                    
+                    .imageModifier(frameWidth: 410, frameHeight: 230, clipShape: Rectangle())
+                    .ignoresSafeArea()
                 
                 ZStack{
                     UnevenRoundedRectangle(topLeadingRadius: 32, bottomLeadingRadius: 32, bottomTrailingRadius: 0, topTrailingRadius: 0)
                         .frame(width: 100,height: 35)
                         .foregroundStyle(.white)
-                        
+                    
                     HStack{
                         Image(systemName: "star.fill")
                             .font(.title3)
@@ -33,15 +29,11 @@ struct CoverImageUserCard: View {
                             .font(.headline)
                             .foregroundStyle(.orange)
                             .fontWeight(.bold)
-                            
+                        
                     }
-                    
                 }
-                .padding(.init(top: 225, leading: 310, bottom: 0, trailing: 10))
-             
+                .offset(x: 150, y: 95)
             }
-            .padding(.top,-50)
-            Spacer()
         }
         .ignoresSafeArea()
         
