@@ -31,7 +31,6 @@ struct TabBarView: View {
             
             Tab("Messages", systemImage: "paperplane.fill") {
                 ConversationsView()
-                
             }
             
             Tab("Favoris", systemImage: "star.fill") {

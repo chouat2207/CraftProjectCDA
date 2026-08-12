@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension View {
-    func discoveryToolbar(imageName: String) -> some View {
+    func userProfileToolbar(imageName: String) -> some View {
         self
             .toolbar{
                 ToolbarItem(placement: .topBarTrailing){

@@ -86,7 +86,7 @@ struct ProfileView: View {
             
             HStack(){
                 
-              UserImagePicker()
+              UserSectionPicker()
              
             }
       
