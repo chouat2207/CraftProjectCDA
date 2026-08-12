@@ -12,6 +12,9 @@ struct DiscoveryView: View {
     @State var discoveryVM: DiscoveryViewModel = DiscoveryViewModel()
     var body: some View {
         NavigationStack {
+        if let user = sharedVM.mainUser {
+            Header(imageName: user.imageName, title: "À Découvrir", user: user)
+        }
             VStack {
                 ScrollView {
                     DiscoveryNewsScrollView()
@@ -21,10 +24,6 @@ struct DiscoveryView: View {
                     }
                 }
             }
-            .navigationTitle("À découvrir")
-            .discoveryToolbar(
-                imageName: sharedVM.mainUser?.imageName ?? "PlaceholderPortrait"
-            )
         }
     }
 }

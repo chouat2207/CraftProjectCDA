@@ -20,24 +20,15 @@ struct ButtonsCategory: View {
     ]
 
     var body: some View {
-
-        LazyVGrid(
-            columns: columns,
-            spacing: 10
-        ) {
-
+        LazyVGrid(columns: columns,spacing: 10) {
             ForEach(displayedArtworks) { category in
-
                 Button {
-
                     if selection == category {
                         selection = nil
                     } else {
                         selection = category
                     }
-
                 } label: {
-
                     Text(category.rawValue)
                         .font(.system(size: 14))
                         .foregroundStyle(.black)
@@ -54,23 +45,18 @@ struct ButtonsCategory: View {
                             )
                             : Color.white
                         )
-                        .clipShape(
-                            RoundedRectangle(cornerRadius: 12)
-                        )
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
                         .overlay {
-
                             RoundedRectangle(cornerRadius: 12)
                                 .stroke(.gray, lineWidth: 1)
                         }
-                }
-                .buttonStyle(.plain)
+                } .buttonStyle(.plain)
             }
         }
     }
 }
 #Preview {
     @Previewable @State var selection: ArtisanCategoryEnm? = nil
-
     ButtonsCategory(
         displayedArtworks: ArtisanCategoryEnm.allCases,
         selection: $selection

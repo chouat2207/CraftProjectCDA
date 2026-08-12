@@ -9,17 +9,17 @@ import SwiftUI
 
 struct SettingsAccountView: View {
     var body: some View {
-        NavigationView{
-            
-            VStack{
-                List{
-                    Section{
-                        HStack{
+        
+        NavigationView {
+            VStack {
+                List {
+                    Section {
+                        HStack {
                             Text("Informations personnelles")
                             Spacer()
                             Image(systemName: "chevron.right")
                         }
-                        HStack{
+                        HStack {
                             Text("Adresse e-mail")
                             Spacer()
                             Text("*******@gmail.com")
@@ -27,7 +27,7 @@ struct SettingsAccountView: View {
                                 .foregroundStyle(.black.opacity(0.8))
                             Image(systemName: "chevron.right")
                         }
-                        HStack{
+                        HStack {
                             Text("Mot de passe")
                             Spacer()
                             Text("••••••••••")
@@ -35,19 +35,19 @@ struct SettingsAccountView: View {
                                 .foregroundStyle(.black.opacity(0.8))
                             Image(systemName: "chevron.right")
                         }
-                    }header: {
+                    } header: {
                         Text("Compte")
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundStyle(.black)
                     }
-                    Section{
-                        HStack{
+                    Section {
+                        HStack {
                             Text("Notifications")
                             Spacer()
                             Image(systemName: "chevron.right")
                         }
-                        HStack{
+                        HStack {
                             Text("Langue")
                             Spacer()
                             Text("Français")
@@ -55,20 +55,19 @@ struct SettingsAccountView: View {
                                 .foregroundStyle(.black.opacity(0.8))
                             Image(systemName: "chevron.right")
                         }
-                        HStack{
+                        HStack {
                             Text("Confidentialité")
                             Spacer()
-                            
                             Image(systemName: "chevron.right")
                         }
-                    }header: {
+                    } header: {
                         Text("Préférences")
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundStyle(.black)
                         
                     }
-                    Section{
+                    Section {
                         VStack(alignment: .leading){
                             Text("Passez en compte Artisan et créez votre vitrine.")
                                 .font(.caption)

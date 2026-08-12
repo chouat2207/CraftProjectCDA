@@ -67,11 +67,9 @@ struct ProfileView: View {
     }
 }
 
-#Preview { NavigationStack{
+#Preview {
     ProfileView(
-        profileViewModel: ProfileViewModel(),
-        user: users[5]
+        user: users[0]
     )
-}
 .environment(SharedViewModel())
 }

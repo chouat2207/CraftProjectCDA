@@ -9,10 +9,14 @@ import SwiftUI
 
 struct ConversationsView: View {
     @Environment(MessageService.self) var messageService: MessageService
+    @Environment(SharedViewModel.self) var sharedVM: SharedViewModel
     @State var conversationVM: ConversationsViewModel?
 
     var body: some View {
         NavigationStack {
+            if let user = sharedVM.mainUser {
+                Header(imageName: user.imageName, title: "Messages", user: user)
+            }
             ScrollView {
                 if let conversationVM {
                     LazyVStack(spacing: 12) {
@@ -35,7 +39,6 @@ struct ConversationsView: View {
                     .padding(.top, 8)
                 }
             }
-            .navigationTitle("Messages")
         }
         .onAppear {
             if conversationVM == nil {
@@ -48,4 +51,5 @@ struct ConversationsView: View {
 #Preview {
     ConversationsView()
         .environment(MessageService())
+        .environment(SharedViewModel())
 }
