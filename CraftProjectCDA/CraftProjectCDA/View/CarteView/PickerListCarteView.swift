@@ -2,7 +2,7 @@
 //  CraftProjectCDA
 //  Created by Apprenant 77 on 31/07/2026.
 import SwiftUI
-struct PickerListCarteView: View {    
+struct PickerListCarteView: View {
     @Environment(SharedViewModel.self)
     private var svm
     
@@ -28,15 +28,12 @@ struct PickerListCarteView: View {
                     HStack {
                         SearchBarCarte(
                             searchText: $vm.searchText
-                        )                        
+                        )
                         Button {
                             vm.showingSheet = true
                             
                         } label: {
-                            Image(systemName: "slider.vertical.3")
-                                .font(.system(size: 20))
-                                .foregroundStyle(.gray)
-                                .filterButtonStyle()
+                            VerticalSliderIcon()
                         }
                         
                         if let mainUser = svm.mainUser {
@@ -49,11 +46,11 @@ struct PickerListCarteView: View {
                                 }
                         }
                     } .padding(.horizontal, 7)
-        
+                    
                     PickerCarte(
                         selection: $vm.selection
                     )
-    
+                    
                     switch vm.selectedContent {
                         
                     case .creation, .none:
@@ -66,14 +63,14 @@ struct PickerListCarteView: View {
                                 )
                             }
                         )
-
+                        
                     case .artisan:
                         ArtisanListView(filteredArtisans:
-                                filteredArtisans)
+                                            filteredArtisans)
                     case .evenement:
                         Text("Évènements").font(.title2)
                     }
-                case .carte:                 
+                case .carte:
                     ZStack(alignment: .top) {
                         CarteView(
                             displayedArtisans: filteredArtisans,
@@ -85,7 +82,7 @@ struct PickerListCarteView: View {
                                     searchText:
                                         $vm.searchText
                                 )
-   
+                                
                                 Button {
                                     
                                     vm.showingSheet = true
@@ -99,12 +96,12 @@ struct PickerListCarteView: View {
                                     .foregroundStyle(.gray)
                                     .filterButtonStyle()
                                 }
-            
+                                
                                 if let mainUser =
                                     svm.mainUser {
                                     Image(mainUser.imageName)
-                                    .imageModifier(frameWidth: 40, frameHeight: 44, clipShape: Circle())
-                                    .overlay { Circle().stroke(.black, lineWidth: 1)}
+                                        .imageModifier(frameWidth: 40, frameHeight: 44, clipShape: Circle())
+                                        .overlay { Circle().stroke(.black, lineWidth: 1)}
                                 }
                             }
                             .padding(.top, 0)

@@ -14,6 +14,9 @@ struct ConversationsView: View {
 
     var body: some View {
         NavigationStack {
+            if let user = sharedVM.mainUser {
+                Header(imageName: user.imageName, title: "Messages", user: user)
+            }
             ScrollView {
                 if let conversationVM {
                     LazyVStack(spacing: 12) {
@@ -36,10 +39,6 @@ struct ConversationsView: View {
                     .padding(.top, 8)
                 }
             }
-            .navigationTitle("Messages")
-            .userProfileToolbar(
-                imageName: sharedVM.mainUser?.imageName ?? "PlaceholderPortrait"
-            )
         }
         .onAppear {
             if conversationVM == nil {

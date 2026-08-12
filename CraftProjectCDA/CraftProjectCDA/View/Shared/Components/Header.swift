@@ -11,6 +11,7 @@ struct Header: View {
     
     var imageName: String
     var title: String
+    var user: User
     
     var body: some View {
         HStack {
@@ -19,7 +20,7 @@ struct Header: View {
                 .fontWeight(.bold)
             Spacer()
             NavigationLink {
-                ProfileView(editProfileViewModel: EditProfileViewModel())
+                ProfileView(profileViewModel: ProfileViewModel(), user: user)
             }
             label: {
                 Image(imageName)
@@ -28,25 +29,8 @@ struct Header: View {
         }
         .padding()
     }
-    
-    //                            HStack {
-    //                                Text("Évènements")
-    //                                    .font(.largeTitle)
-    //                                    .fontWeight(.bold)
-    //
-    //                                Spacer()
-    //
-    //                                if let user = svm.mainUser {
-    //
-    //                                    Image(user.imageName)
-    //                                        .resizable()
-    //                                        .scaledToFill()
-    //                                        .frame(width: 45, height: 45)
-    //                                        .clipShape(Circle())
-    //                                }
-    //                            }
 }
 
 #Preview {
-    Header(imageName: "", title: "Didier")
+    Header(imageName: "", title: "Didier", user: users[0])
 }

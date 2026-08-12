@@ -19,7 +19,7 @@ struct DiscoveryCard: View {
                 case let item as Artwork:
                     ArtworkDetailView(artwork: item)
                 case let item as User:
-                    DiscoveryView()
+                    ProfileView(user: item)
                 default:
                     DiscoveryView()
                 }
