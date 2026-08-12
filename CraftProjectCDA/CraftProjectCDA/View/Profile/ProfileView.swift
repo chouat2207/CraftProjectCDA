@@ -11,7 +11,7 @@ struct ProfileView: View {
     @Environment(SharedViewModel.self) var sharedVM
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
     @State var editProfileViewModel: EditProfileViewModel
-    @State var selectedTab = "following"
+
     
     var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: 10, maximum: 185)),count: 2)
     
@@ -22,18 +22,12 @@ struct ProfileView: View {
             ZStack{
                 
                 Image("GarasuPhotoDeCouverture")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 400, height: 230)
-                    .clipShape(Rectangle())
+                    .imageModifier(frameWidth: 400, frameHeight: 230, clipShape: Rectangle())
             
                 HStack{
                     
                     Image(profileViewModel.mainUser.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 130, height: 130)
-                        .clipShape(Circle())
+                        .imageModifier(frameWidth: 130, frameHeight: 130, clipShape: Circle())
                         .overlay(Circle()
                             .stroke(.white, lineWidth: 7)
                         )
@@ -92,30 +86,7 @@ struct ProfileView: View {
             
             HStack(){
                 
-                Picker("", selection: $selectedTab){
-                    Text("Abonnements")
-                    
-                        .tag("following")
-                    
-                    Text("Avis")
-                    
-                        .tag("reviews")
-                }
-                .pickerStyle(.segmented)
-                .scaleEffect(1.2)
-                .colorMultiply(.mint.opacity(0.7))
-                
-            }
-            .padding(.horizontal,115)
-            
-            
-            if selectedTab == "following"{
-                ForEach (profileViewModel.filterByFollower) { user in
-                    UserFollowing(user: user)
-                }
-            }else if selectedTab == "reviews"{
-                //ForEach Users -> reviewsID
-                ReviewsView()
+              UserImagePicker()
              
             }
       
@@ -124,48 +95,8 @@ struct ProfileView: View {
     
 }
 
-// ABONNEMENTS
-struct UserFollowing: View {
-    let user: User
-    
-    
-    var body: some View {
-        ZStack{
-            Rectangle()
-                .cornerRadius(10)
-                .foregroundStyle(.white)
-            VStack {
-                Image(user.imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 180, height: 140)
-                    .clipShape(UnevenRoundedRectangle(topLeadingRadius: 10, topTrailingRadius: 10))
-                Spacer()
-                HStack {
-                    Text("\(user.firstName) "+"\(user.lastName)")
-                        .font(.caption)
-                    Spacer()
-                }
-                
-                .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 0))
-                Spacer()
-            }
-        }
-        .padding()
-        .frame(width: 180, height: 190)
-        .shadow(radius: 2)
-        
-    }
-}
+       
 
-// AVIS
-struct UserReviews: View {
-    let user: User
-    
-    var body: some View{
-        
-    }
-}
 #Preview { NavigationStack{
     ProfileView(profileViewModel: ProfileViewModel(), editProfileViewModel: EditProfileViewModel())}
 .environment(SharedViewModel())
