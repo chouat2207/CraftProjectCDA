@@ -33,8 +33,8 @@
 		873F46B23012B22100EBA8AE = {
 			isa = PBXGroup;
 			children = (
-				873F46BD3012B22100EBA8AE /* CraftProjectCDA */,
 				873F46BC3012B22100EBA8AE /* Products */,
+				873F46BD3012B22100EBA8AE /* CraftProjectCDA */,
 			);
 			sourceTree = "<group>";
 		};

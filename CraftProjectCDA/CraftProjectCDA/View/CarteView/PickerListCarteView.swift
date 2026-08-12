@@ -4,94 +4,72 @@
 //
 //  Created by Apprenant 77 on 31/07/2026.
 
+
 import SwiftUI
 
 struct PickerListCarteView: View {
+//Shared View Model
 
-    let displayedUser: User
+    @Environment(SharedViewModel.self)
+    private var svm
 
-    let artwork: [Artwork]
-    
-    let displayedArtisans: [ArtisanProfile]
+    // ViewModel
 
-    let displayedCategory: [ArtisanCategoryEnm]
-
-    @State private var searchText = ""
-
-    @State private var selection: PickerCarte.Content = .liste
-
-    @State private var showingSheet = false
-
-    @State private var selectedContent: TypeContenuEnm? = .creation
-
-    @State private var selectedCategory: ArtisanCategoryEnm?
-    
-    @State private var selectedDistance : DistanceEnm?
-    
-    
-    private var hasActiveFilter: Bool {
-        selectedCategory != nil || !searchText.isEmpty
-    }
-
-    
-   // Filter des artworks
-    private var filteredArtworks: [Artwork] {
-
-        artwork.filter { currentArtwork in
-
-            // Catégorie
-            let categoryMatches =
-                selectedCategory == nil ||
-                currentArtwork.artisanCategory == selectedCategory
-
-            // Barre de recherche
-            let searchMatches =
-                searchText.isEmpty ||
-                currentArtwork.name
-                    .localizedCaseInsensitiveContains(searchText)
+    @State private var viewModel =
+        PickerListCarteViewModel()
 
 
-            return categoryMatches && searchMatches
-        }
-    }
-
-
-    private var filteredArtisans: [ArtisanProfile] {
-
-        // On récupère les ID des créations
-        // qui restent après le filtre
-        let filteredArtworkIDs = Set(
-            filteredArtworks.map { $0.id }
-        )
-        // On cherche ensuite quels artisans
-        // possèdent ces créations
-        return displayedArtisans.filter { artisan in
-
-            artisan.artworksID.contains { artworkID in
-
-                filteredArtworkIDs.contains(artworkID)
-            }
-        }
-    }
     var body: some View {
 
-        VStack {
+        @Bindable var vm = viewModel
 
-            switch selection {
 
-            case .liste:
+        // Créations filtrées
 
-                HStack {
+        let filteredArtworks =
+            vm.filteredArtworks(
+                from: svm.artworksData
+            )
 
-                    SearchBarCarte(
-                        searchText: $searchText
-                    )
-                    // Bouton filtre
-                    Button {
-                        showingSheet = true
-                    } label: {
+        // Artisans filtrés
 
-                        Image(systemName: "slider.vertical.3")
+        let filteredArtisans =
+            vm.filteredArtisans(
+                from: svm.artisanProfilesData,
+                artworks: svm.artworksData
+            )
+
+
+        NavigationStack {
+
+            VStack {
+
+                switch vm.selection {
+                // LISTE
+            
+                case .liste:
+
+                    HStack {
+
+                        // Recherche
+
+                        SearchBarCarte(
+                            searchText: $vm.searchText
+                        )
+
+
+                        // MARK: Bouton filtre
+
+                        Button {
+
+                            vm.showingSheet = true
+
+                        } label: {
+                            
+                            Image(
+                                systemName:
+                                    "slider.vertical.3"
+                            )
                             .font(.system(size: 20))
                             .foregroundStyle(.gray)
                             .frame(
@@ -105,7 +83,7 @@ struct PickerListCarteView: View {
                                 )
                             )
                             .overlay {
-
+                                
                                 RoundedRectangle(
                                     cornerRadius: 10
                                 )
@@ -114,95 +92,150 @@ struct PickerListCarteView: View {
                                     lineWidth: 1
                                 )
                             }
-                    }
-                    // Image user
-                    Image(displayedUser.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(
-                            width: 40,
-                            height: 44
-                        )
-                        .clipShape(Circle())
-                        .overlay {
-                            Circle()
-                                .stroke(
-                                    .black,
-                                    lineWidth: 1
-                                )
                         }
-                }
-                //.padding(.horizontal, 3)
 
-                PickerCarte(
-                    selection: $selection
-                )
-                // Contenu de la liste
-                switch selectedContent {
-                case .creation, .none:  // Créations
 
-                    CardList(
-                        displayedArtworks: filteredArtworks
-                    )
-                // Artisans
-                case .artisan:
-                
-                                ArtisanListView(filteredArtisans: displayedArtisans)
-                // Evènements
-                case .evenement:
-                    Text("Evènements")
-                        .font(.title2)
-                }
-            // CARTE
-            case .carte:
+                        // Image utilisateur
 
-                ZStack(alignment: .top) {
-                    // la carte reçoit les artisans filtrés
-                    CarteView(
-                        displayedArtisans:
-                        filteredArtisans,
-                        hasActiveFilter: hasActiveFilter
-                    )
-                    VStack {
-                        HStack {
-                            SearchBarCarte(
-                                searchText: $searchText
-                            )
-
-                            // Bouton filtre
-                            Button {
-
-                                showingSheet = true
-
-                            } label: {
-                                Image(
-                                    systemName: "slider.vertical.3"
-                                )
-                                .font(.system(size: 20))
-                                .foregroundStyle(.gray)
+                        if let mainUser = svm.mainUser {
+                            Image(mainUser.imageName)
+                                .resizable()
+                                .scaledToFill()
                                 .frame(
-                                    width: 38,
+                                    width: 40,
                                     height: 44
                                 )
-                                .background(.white)
-                                .clipShape(
-                                    RoundedRectangle(
-                                        cornerRadius: 10
-                                    )
-                                )
+                                .clipShape(Circle())
                                 .overlay {
 
-                                    RoundedRectangle(
-                                        cornerRadius: 10
-                                    )
-                                    .stroke(
-                                        .black,
-                                        lineWidth: 1
-                                    )
+                                    Circle()
+                                        .stroke(
+                                            .black,
+                                            lineWidth: 1
+                                        )
                                 }
-                            }
+                        }
+                    }
+                    .padding(.horizontal, 3)
 
-                                Image(displayedUser.imageName)
+
+                    PickerCarte(
+                        selection: $vm.selection
+                    )
+                    // CONTENU
+   
+
+                    switch vm.selectedContent {
+
+                    // Créations
+
+                    case .creation, .none:
+
+                        ListView(
+                            displayedArtworks: filteredArtworks,
+                            onArtworkSelected: { selectedArtwork in
+
+                                vm.openArtworkDetail(
+                                    selectedArtwork
+                                )
+                            }
+                        )
+
+
+                    // Artisans
+
+                    case .artisan:
+
+                        ArtisanListView(
+                            filteredArtisans:
+                                filteredArtisans
+                        )
+
+
+                    // evenements
+
+                    case .evenement:
+
+                        Text("Évènements")
+                            .font(.title2)
+                    }
+
+
+                // CARTE
+                case .carte:
+
+                    ZStack(
+                        alignment: .top
+                    ) {
+
+                        CarteView(
+                            displayedArtisans:
+                                filteredArtisans,
+
+                            hasActiveFilter:
+                                vm.hasActiveFilter
+                        )
+
+
+                        VStack {
+
+                            HStack {
+
+                                // Recherche
+
+                                SearchBarCarte(
+                                    searchText:
+                                        $vm.searchText
+                                )
+
+
+                                //Filtre
+
+                                Button {
+
+                                    vm.showingSheet = true
+
+                                } label: {
+
+                                    Image(
+                                        systemName:
+                                            "slider.vertical.3"
+                                    )
+                                    .font(
+                                        .system(size: 20)
+                                    )
+                                    .foregroundStyle(.gray)
+                                    .frame(
+                                        width: 38,
+                                        height: 44
+                                    )
+                                    .background(.white)
+                                    .clipShape(
+                                        RoundedRectangle(
+                                            cornerRadius: 10
+                                        )
+                                    )
+                                    .overlay {
+
+                                        RoundedRectangle(
+                                            cornerRadius: 10
+                                        )
+                                        .stroke(
+                                            .black,
+                                            lineWidth: 1
+                                        )
+                                    }
+                                }
+
+
+                                // Image utilisateur
+
+                                if let mainUser =
+                                    svm.mainUser {
+
+                                    Image(
+                                        mainUser.imageName
+                                    )
                                     .resizable()
                                     .scaledToFill()
                                     .frame(
@@ -218,49 +251,78 @@ struct PickerListCarteView: View {
                                                 lineWidth: 1
                                             )
                                     }
-           
+                                }
+                            }
+                            .padding(
+                                .horizontal,
+                                3
+                            )
+
+
+                            PickerCarte(
+                                selection:
+                                    $vm.selection
+                            )
                         }
-                        .padding(.horizontal, 3)
-
-
-                        PickerCarte(
-                            selection: $selection
-                        )
                     }
+                   
                 }
             }
-        }
 
-        // SHEET
+            // NAVIGATION DETAIL
 
-        .sheet(
-            isPresented: $showingSheet
-        ) {
+            .navigationDestination(
+                isPresented:
+                    $vm.navigateToArtworkDetail
+            ) {
 
-            FilterCarteListeView(
-                displayedArtworks: displayedCategory,
-                selectedContent: $selectedContent,
-                selectedCategory: $selectedCategory,
-                selectedDistance: $selectedDistance
-            )
-            .presentationDetents([
-                .medium,
-                .large
-            ])
-            .presentationDragIndicator(.visible)
+                if let selectedArtwork =
+                    vm.selectedArtwork {
+                    //ArtworkDetailViewModel(artwork: selectedArtwork))
+                    ArtworkDetailView(
+                        viewModel:
+                            ArtworkDetailViewModel(artwork: selectedArtwork), artwork: selectedArtwork
+                    )
+                }
+            }
+            // SHEET 
+
+            .sheet(
+                isPresented:
+                    $vm.showingSheet
+            ) {
+
+                FilterCarteListeView(
+
+                    displayedArtworks:
+                        ArtisanCategoryEnm.allCases,
+
+                    selectedContent:
+                        $vm.selectedContent,
+
+                    selectedCategory:
+                        $vm.selectedCategory,
+
+                    selectedDistance:
+                        $vm.selectedDistance
+                )
+                .presentationDetents([
+                    .medium,
+                    .large
+                ])
+                .presentationDragIndicator(
+                    .visible
+                )
+            }
         }
     }
 }
-
-
 #Preview {
 
-    PickerListCarteView(
-        displayedUser: users[0],
-        artwork: artworks,
-        displayedArtisans: artisanProfiles,
-        displayedCategory: ArtisanCategoryEnm.allCases
-    )
+    PickerListCarteView()
+           .environment(
+               SharedViewModel()
+           )
 }
 
 
