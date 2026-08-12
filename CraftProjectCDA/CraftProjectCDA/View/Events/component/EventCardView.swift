@@ -27,6 +27,7 @@ struct EventCardView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(event.name)
                         .font(.headline)
+                        .foregroundStyle(.black)
                         .fontWeight(.bold)
                     Text(event.description)
                         .font(.caption)
