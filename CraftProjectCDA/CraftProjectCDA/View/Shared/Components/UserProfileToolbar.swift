@@ -12,7 +12,12 @@ extension View {
         self
             .toolbar{
                 ToolbarItem(placement: .topBarTrailing){
+                    NavigationLink {
+                        ProfileView(editProfileViewModel: EditProfileViewModel())
+                    }
+                    label: {
                         AvatarView(imageName: imageName, frameWidth: 32, frameHeight: 32)
+                    }
                 }
             }
 
