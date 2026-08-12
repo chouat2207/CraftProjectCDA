@@ -10,62 +10,62 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(SharedViewModel.self) var sharedVM
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
-    @State var editProfileViewModel: EditProfileViewModel
-
-    
-    var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: 10, maximum: 185)),count: 2)
+    var user: User
     
     var body: some View {
         
         NavigationStack{
             
-            ZStack{
-                
-                Image("GarasuPhotoDeCouverture")
-                    .imageModifier(frameWidth: 400, frameHeight: 230, clipShape: Rectangle())
-            
-                HStack{
+            VStack{
+                ZStack{
+                    Image("GarasuPhotoDeCouverture")
+                        .imageModifier(frameWidth: 410, frameHeight: 230, clipShape: Rectangle())
+                        .ignoresSafeArea()
                     
-                    Image(profileViewModel.mainUser.imageName)
-                        .imageModifier(frameWidth: 130, frameHeight: 130, clipShape: Circle())
-                        .overlay(Circle()
-                            .stroke(.white, lineWidth: 7)
-                        )
-                        .offset(x: -59, y: 115)
-                    
-                    
-                    Text(profileViewModel.mainUser.pseudonym)
-                        .fontWeight(.semibold)
-                    
-                    // SETTINGS BUTTON
-                    NavigationLink{
-                        profileViewModel.showSettings()
-                    }label: {
-                        Image(systemName: "gearshape.fill")
-                            .foregroundStyle(.gray)
-                            .font(.system(size: 24))
-                            .padding(.trailing,8)
+                    VStack{
+                        
+                        HStack(alignment: .center){
+                            
+                            Image(user.imageName)
+                                .imageModifier(frameWidth: 130, frameHeight: 130, clipShape: Circle())
+                                .overlay(Circle()
+                                    .stroke(.white, lineWidth: 7)
+                                )
+                            
+                            Text(user.pseudonym)
+                                .fontWeight(.semibold)
+                            
+                            Spacer()
+                            
+                            NavigationLink{
+                                profileViewModel.showSettings()
+                            }label: {
+                                Image(systemName: "gearshape.fill")
+                                    .foregroundStyle(.gray)
+                                    .font(.system(size: 24))
+                                    .padding(.trailing,8)
+                            }
+                        }
                     }
-                    
+                    .padding(.horizontal,6)
+                    .offset(y: 70)
                 }
                 
-                VStack{
-                NavigationLink{
-                    profileViewModel.showEdit()
-                }label: {
-                    Image(systemName: "square.and.pencil")
-                        .foregroundStyle(.blue)
-                        .font(.system(size: 20))
-                    
-                    Text("EDIT")
-                        .foregroundStyle(.blue)
-                        .padding(.trailing,190)
-                    
-                }
-                }
                 
+                VStack(){
+                    NavigationLink{
+                        profileViewModel.showEdit()
+                    }label: {
+                        Image(systemName: "square.and.pencil")
+                            .foregroundStyle(.blue)
+                            .font(.system(size: 20))
+                        
+                        Text("EDIT")
+                            .foregroundStyle(.blue)
+                    }
+                }
             }
-        
+            
             HStack{
                 VStack(alignment: .leading){
                     
@@ -73,31 +73,26 @@ struct ProfileView: View {
                         .foregroundStyle(.gray)
                         .fontWeight(.semibold)
                     
-                    
-                    Text(profileViewModel.mainUser.description)
+                    Text(user.description)
                         .italic()
                         .font(.footnote)
                 }
                 .padding(.leading,10)
                 Spacer()
             }
-            //
-            // SECTION FOLLOW / REVIEWS
-            
-            HStack(){
-                
-              UserImagePicker()
-             
-            }
-      
+            UserSectionPicker()
         }
     }
     
 }
 
-       
+
 
 #Preview { NavigationStack{
-    ProfileView(profileViewModel: ProfileViewModel(), editProfileViewModel: EditProfileViewModel())}
+    ProfileView(
+        profileViewModel: ProfileViewModel(),
+        user: users[0]
+    )
+}
 .environment(SharedViewModel())
 }
