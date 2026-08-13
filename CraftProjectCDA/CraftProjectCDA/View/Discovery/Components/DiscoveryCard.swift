@@ -32,7 +32,6 @@ struct DiscoveryCard: View {
             label: {
                 ZStack {
                     Rectangle()
-                    
                         .cornerRadius(10)
                         .foregroundStyle(.white)
                     VStack {
@@ -55,7 +54,7 @@ struct DiscoveryCard: View {
                 }
                 .padding()
                 .frame(width: 180, height: 190)
-                .shadow(radius: 2)
+                .shadow(radius: 1)
             }
     }
 }

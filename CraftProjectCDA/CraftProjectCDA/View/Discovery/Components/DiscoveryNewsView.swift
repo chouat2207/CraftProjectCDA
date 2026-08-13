@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DiscoveryNewsView: View {
     var imageName: String
+
     var body: some View {
         ZStack {
             Circle()

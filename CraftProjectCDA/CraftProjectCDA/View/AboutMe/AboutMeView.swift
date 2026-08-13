@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AboutMeView: View {
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
+    @Environment(SharedViewModel.self) var sharedVM
+//    @State var artisan : ArtisanProfile
     
     var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: 10, maximum: .infinity)),count: 2)
     
@@ -25,6 +27,7 @@ struct AboutMeView: View {
 
                     Text("Passioné de verrerie  depuis mon plus jeune âge, et suite à de multiples participations à  des ateliers, j’ai décidé de me reconvertir   dans cet art que j’affectionne. \n\nÀ travers  différentes inspirations  artistiques, notamment les Oeufs de Fabergé, et le Codex Seraphinianus de Serafini, je  construis petit à petit mon univers coloré et fantaisiste.\n\nAdepte du thermoformage et du fusing.")
                         .font(.headline)
+                    
                  
                 }
                 
@@ -57,5 +60,6 @@ struct AboutMeView: View {
 
 #Preview {
     AboutMeView()
+        .environment(SharedViewModel())
     
 }

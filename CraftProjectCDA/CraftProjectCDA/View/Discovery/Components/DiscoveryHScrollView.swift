@@ -17,7 +17,8 @@ struct DiscoveryHScrollView: View {
         VStack {
             HStack {
                 Text(sectionTitle)
-                    .font(.title2)
+                    .font(.title3)
+                    .fontWeight(.semibold)
                     .padding(.leading)
                 Spacer()
             }
@@ -28,7 +29,9 @@ struct DiscoveryHScrollView: View {
                     }
                 }
             }
-            .padding([.bottom, .leading])
+//            .padding([.bottom, .leading])
+            .padding(.bottom, 2)
+            .padding(.leading)
         }
     }
 }
