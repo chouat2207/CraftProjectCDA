@@ -12,12 +12,7 @@ struct ArtisanSectionPicker: View {
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
     @State var selectedTab = "artworks"
     @State private var showAddArtwork = false
-    
-    var user : User
-    
-    private var isCurrentUser: Bool {
-        return sharedVM.mainUser?.id == user.id
-    }
+    var isUserMainUser: Bool
     
     var body: some View {
         VStack {
@@ -45,7 +40,7 @@ struct ArtisanSectionPicker: View {
                         GridItem(.flexible())
                     ], spacing: 15) {
                         
-                        if !isCurrentUser {
+                        if isUserMainUser  {
                             Button {
                                 showAddArtwork = true
                             } label: {
@@ -104,6 +99,6 @@ struct ArtisanSectionPicker: View {
 }
 
 #Preview {
-    ArtisanSectionPicker(user: users[0])
-        .environment(SharedViewModel())
+//    ArtisanSectionPicker()
+//        .environment(SharedViewModel())
 }
