@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ArtisanListView: View {
+    @Environment(SharedViewModel.self)
+    private var svm
     let filteredArtisans: [ArtisanProfile]
     private let columns = [
         GridItem(.flexible(), spacing: 14),
@@ -25,9 +27,12 @@ struct ArtisanListView: View {
                 ) {
                     ForEach(filteredArtisans) { artisan in
                         NavigationLink {
-                            Text("Détail de l'artisan")
-                        } label: {
-                            
+                            if let user = svm.usersData.first(
+                                where: { user in user.id == artisan.id}) {
+                                ArtisanProfileView(user: user)}
+                            else {Text("Utilisateur introuvable")
+                        }
+                        } label : {
                             ArtisanCard(artisan: artisan)
                         }
                         .buttonStyle(.plain)
@@ -41,4 +46,5 @@ struct ArtisanListView: View {
 }
 #Preview {
     ArtisanListView(filteredArtisans: artisanProfiles)
+        .environment(SharedViewModel())
 }

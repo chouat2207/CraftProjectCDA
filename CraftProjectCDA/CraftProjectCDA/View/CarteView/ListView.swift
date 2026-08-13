@@ -15,36 +15,19 @@ struct ListView: View {
     // on la renvoie à PickerListCarteView
     let onArtworkSelected: (Artwork) -> Void
 
-    private let columns = [
-
-        GridItem(
-            .flexible(),
-            spacing: 14
-        ),
-
-        GridItem(
-            .flexible(),
-            spacing: 14
-        )
-    ]
+    private let columns = [GridItem(.flexible(),spacing: 14),GridItem(.flexible(),spacing: 14)]
 
 
     var body: some View {
 
         ScrollView {
 
-            LazyVGrid(
-                columns: columns,
-                spacing: 18
-            ) {
+            LazyVGrid(columns: columns,spacing: 18) {
                 ForEach(displayedArtworks) { artwork in
-
                     Button {
                         onArtworkSelected(artwork)
                     } label: {
-                        ListCard(
-                            artwork: artwork
-                        )
+                        ListCard(artwork: artwork)
                     }
                     .buttonStyle(.plain)
                 }
@@ -55,11 +38,8 @@ struct ListView: View {
     }
 }
 #Preview {
-
     ListView(
         displayedArtworks: artworks
-    ) { artwork in
-
-        print(artwork.name)
-    }
+    ) 
+    { artwork in print(artwork.name)}
 }
