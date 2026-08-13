@@ -29,7 +29,6 @@ struct ArtisanSectionPicker: View {
                 }
                 .pickerStyle(.segmented)
                 .scaleEffect(1.2)
-//                .colorMultiply(.mint.opacity(0.7))
                 .padding(.horizontal, 40)
 
             }
@@ -60,7 +59,6 @@ struct ArtisanSectionPicker: View {
                                 .background(
                                     RoundedRectangle(cornerRadius: 12)
                                         .strokeBorder(Color.mint.opacity(0.6))
-                                    //                                    .background(Color.mint.opacity(0.05))
                                 )
                             }
                             .frame(maxWidth: .infinity)
