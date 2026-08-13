@@ -29,8 +29,9 @@ struct ArtisanSectionPicker: View {
                 }
                 .pickerStyle(.segmented)
                 .scaleEffect(1.2)
-                .colorMultiply(.mint.opacity(0.7))
+//                .colorMultiply(.mint.opacity(0.7))
                 .padding(.horizontal, 40)
+
             }
             
             if selectedTab == "artworks" {
