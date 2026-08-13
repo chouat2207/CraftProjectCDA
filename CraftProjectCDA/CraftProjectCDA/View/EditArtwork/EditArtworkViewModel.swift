@@ -71,7 +71,8 @@ final class EditArtworkViewModel {
             displayedArtworkImage = loadedImage
         }
     }
-    func addArtwork() {
+    
+    func addArtwork(artwork: Artwork) {
         artworks.insert(artwork, at: 0)
     }
     
@@ -81,10 +82,10 @@ final class EditArtworkViewModel {
         }
     }
     
-    func save() {
+    func save(artwork: Artwork) {
         switch mode {
         case .creation :
-            addArtwork()
+            addArtwork(artwork: artwork)
         case .edition :
             updateArtwork()
         }

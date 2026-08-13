@@ -32,7 +32,6 @@ final class ConversationsViewModel {
             let peerID =
             (message.senderID == mainUserID)
             ? message.receiverID : message.senderID
-            
             if !result.contains(where: { $0.peerID == peerID }) {
                 let lastMessage = reversedMessages.first {
                     $0.senderID == peerID || $0.receiverID == peerID
@@ -55,11 +54,12 @@ final class ConversationsViewModel {
     }
     
     func getPeerProfilePicture(peerID: UUID) -> String {
-        let temp = usersData.first(where: { $0.id == peerID })!.imageName
-        if temp == "" {
+        guard let profilePicture = usersData.first(where: {$0.id == peerID })?.imageName,
+              !profilePicture.isEmpty else {
             return "PlaceholderPortrait"
         }
-        return temp
+        
+        return profilePicture
     }
     
     var conversationViewData: [ConversationViewData] {

@@ -11,7 +11,6 @@ struct DiscoveryCard: View {
     @Environment(DiscoveryViewModel.self) var discoveryVM
     var item: DisplayableItem
     var body: some View {
-        NavigationStack {
             NavigationLink {
                 // check type de item + if condition
                 switch item {
@@ -53,6 +52,5 @@ struct DiscoveryCard: View {
                 .frame(width: 180, height: 190)
                 .shadow(radius: 2)
             }
-        }
     }
 }

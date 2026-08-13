@@ -83,10 +83,10 @@ final class SharedViewModel {
         }
     }
     
-    func createArtisanProfile(user: User) -> ArtisanProfile {
+    func createArtisanProfile(id: UUID, user: User) -> ArtisanProfile {
         // si artisan proflite contient pas de profil avec user id, alors on le crée, si on trouve user id, alors il existe déjà, on fait autre chose
         ArtisanProfile(
-            id: user.id,
+            id: id,
             isActive: true,
             imageName: user.imageName,
             shopAddress: user.address,
@@ -106,6 +106,7 @@ final class SharedViewModel {
     func becomeArtisan(){
         guard var user = mainUser, user.artisanProfileID == nil else { return }
         
+     
         let newArtisanID = UUID()
         user.artisanProfileID = newArtisanID
         self.mainUser = user
@@ -113,7 +114,9 @@ final class SharedViewModel {
         if let index = usersData.firstIndex(where: { $0.id == user.id}){
             usersData[index] = user
         }
-        let newArtisanProfile = createArtisanProfile(user: user)
+        let newArtisanProfile = createArtisanProfile(id: newArtisanID, user: user)
+            artisanProfilesData.append(newArtisanProfile)
+        }
 //        let newArtisanProfile = ArtisanProfile(
 //            id: newArtisanID,
 //            isActive: true,
@@ -130,8 +133,21 @@ final class SharedViewModel {
 //            about: user.description,
 //            followedByID: []
 //        )
-        
-        artisanProfilesData.append(newArtisanProfile)
+    
+    func filterArtworks(byID userID: UUID) -> [Artwork] {
+        artworksData.filter({$0.artistID == userID})
+    }
+    // Quick fix for presentation (Mathieu)
+    func saveArtwork(artworkName: String, artworkDescription: String, artCategory: String) {
+        let newArtwork: Artwork = Artwork(
+            name: artworkName, imageName: "Placeholder",
+            imageArtisan: mainUser!.imageName,
+            artCategory: artCategory,
+            artisanCategory: .bijoutier,
+            description: artworkDescription,
+            details: "",
+            artistID: mainUser!.id)
+        artworksData.insert(newArtwork, at: 0)
     }
     
 }

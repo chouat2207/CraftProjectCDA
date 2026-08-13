@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct BecomeArtisanButton: View {
-    @State private var isShowed = false
-    @State private var showSheet = false
+//    @State private var isShowed = false
+//    @State private var showSheet = false
     var body: some View {
      
-        Button{
-            if isShowed {
-                showSheet = true
-            }else {
-                
-            }
-            isShowed.toggle()
-        }label: {
-            HStack{
+//        Button{
+//            if isShowed {
+//                showSheet = true
+//            }else {
+//                
+//            }
+//            isShowed.toggle()
+//        }label: {
+//            HStack{
                 ZStack{
                     RoundedRectangle(cornerRadius: 17)
                         .frame(width: 180,height: 40)
@@ -30,12 +30,12 @@ struct BecomeArtisanButton: View {
                         .foregroundStyle(.black)
                 }
 
-            }
-        }
-        if showSheet{
-            SheetArtisanAccount()
-                
-        }
+//            }
+//        }
+//        if showSheet{
+//            SheetArtisanAccount(isShowingCreationView: $isShowed)
+//                
+//        }
         
     }
 }
