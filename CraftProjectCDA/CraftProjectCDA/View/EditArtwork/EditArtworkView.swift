@@ -13,11 +13,14 @@ struct EditArtworkView: View {
     @Environment(\.dismiss) private var dismiss
     @State var viewModel = EditArtworkViewModel()
     
+    
     @State private var artworkName: String = ""
     @State private var artworkDescription: String = ""
     @State private var selectedImageName: String = ""
     @State private var isShowingPicker = false
+    
     let mockAssetNames: [String] = ["pottery1", "pottery2", "pottery3","jewelry1", "jewelry2", "jewelry3"]
+    
     var body: some View {
         ScrollView {
             VStack{

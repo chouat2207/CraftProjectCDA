@@ -55,7 +55,7 @@ struct ArtworkDetailView: View {
                 })
                 .padding(.horizontal,8)
             }
-            ScrollView(.vertical/*, showsIndicators: false*/) {
+            ScrollView(.vertical) {
                 VStack(spacing: 10){
                     Text("\(viewModel.artwork.description)")
                         .padding(.bottom)
