@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct MessageButton: View {
-    
+    var user: User
     var body: some View {
         
-        Button{
-            
-        }label: {
+        NavigationLink {
+            DirectMessageView(peerID: user.id, peerName: user.name, profileImageName: user.imageName)
+        } label: {
             ZStack(alignment: .center){
                 RoundedRectangle(cornerRadius: 32)
                     .frame(width: 160,height: 40)
@@ -35,5 +35,5 @@ struct MessageButton: View {
 }
 
 #Preview {
-    MessageButton()
+    MessageButton(user: users[0])
 }

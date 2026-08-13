@@ -89,7 +89,7 @@ struct ArtisanProfileView: View {
                 // if id == mainuserid
                 // on cache
                 if !isCurrentUser {
-                    MessageButton()
+                    MessageButton(user: user)
                 }
             }
             .padding()
