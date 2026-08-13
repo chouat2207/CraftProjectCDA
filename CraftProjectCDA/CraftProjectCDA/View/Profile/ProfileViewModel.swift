@@ -18,7 +18,6 @@ class ProfileViewModel{
     let mainArtisanID: UUID = .haruto
     let mainUserID: UUID = .haruto
     
-    
     var mainUser: User {
         users.first(where: {$0.id == mainUserID})!
     }

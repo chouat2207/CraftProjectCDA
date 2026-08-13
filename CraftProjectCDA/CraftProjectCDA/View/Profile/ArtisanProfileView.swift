@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ArtisanProfileView: View {
-    
+    @Environment(SharedViewModel.self) private var sharedVM
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
+    @State private var showSettings: Bool = false
     @State private var isShowEdit: Bool = false
     @State private var showAddArtwork : Bool = false
     
     var user: User
+    
+    private var isCurrentUser: Bool {
+        return sharedVM.mainUser?.id == user.id
+    }
     
     var body: some View {
         NavigationStack{
@@ -34,17 +39,27 @@ struct ArtisanProfileView: View {
                                 .fontWeight(.semibold)
                             Spacer()
                             
-                            SettingsButton()
+                            if isCurrentUser {
+                                Button {
+                                    showSettings = true
+                                } label : {
+                                    SettingsButton()
+                                }
+                            }
                         }
-                        
                     }
                     .padding(.horizontal,5)
                     .offset(y: 70)
                 }
                 HStack(spacing: 7){
-                   
-                        EditProfileButton()
-                     
+                    if isCurrentUser {
+                        Button {
+                            isShowEdit = true
+                        } label : {
+                            
+                            EditProfileButton()
+                        }
+                    }
                 }
                 .offset(x: -27,y: -35)
                 
@@ -64,15 +79,20 @@ struct ArtisanProfileView: View {
                 .padding(.horizontal,15)
                 
                 HStack{
-                    FollowButton()
+                    if !isCurrentUser {
+                        FollowButton()
+                    }
+                    
                     Spacer()
                     // if id == mainuserid
                     // on cache
-                    MessageButton()
+                    if !isCurrentUser {
+                        MessageButton()
+                    }
                 }
                 .padding()
-                
-                ArtisanSectionPicker()
+                                    
+                ArtisanSectionPicker(user: users[0])
             }
         }
     }
@@ -82,4 +102,5 @@ struct ArtisanProfileView: View {
 
 #Preview {
     ArtisanProfileView(user: users[0])
+        .environment(SharedViewModel())
 }
