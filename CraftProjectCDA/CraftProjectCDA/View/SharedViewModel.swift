@@ -121,7 +121,7 @@ final class SharedViewModel {
     func filterArtworks(byID userID: UUID) -> [Artwork] {
         artworksData.filter({$0.artistID == userID})
     }
-    // Quick fix for presentation so we can add an artwork (Mathieu)
+    // Quick fix for presentation so we can add an artwork
     func saveArtwork(artworkImageName: String, artworkName: String, artworkDescription: String, artCategory: String) {
         let newArtwork: Artwork = Artwork(
             name: artworkName,

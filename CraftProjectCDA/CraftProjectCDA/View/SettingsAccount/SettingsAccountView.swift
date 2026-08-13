@@ -14,8 +14,6 @@ struct SettingsAccountView: View {
     @State private var isShowingCreationView = false
     
     var body: some View {
-        
-//        NavigationStack {
             VStack {
                 List {
                     Section {
@@ -36,7 +34,6 @@ struct SettingsAccountView: View {
                             Text("Mot de passe")
                             Spacer()
                             Text("••••••••••")
-//                                .font(.default)
                                 .font(.body)
                                 .foregroundStyle(.black.opacity(0.8))
                             Image(systemName: "chevron.right")
@@ -133,12 +130,10 @@ struct SettingsAccountView: View {
                             .fontWeight(.bold)
                             .kerning(1)
                     }
-//                    .padding(.trailing,185)
                 }
             }
         }
     }
-//}
 
 #Preview {
     SettingsAccountView()

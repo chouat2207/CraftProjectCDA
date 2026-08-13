@@ -14,7 +14,6 @@ extension View {
                 ToolbarItem(placement: .principal) {
                     NavigationLink {
                         EventsView()
-                        // ProfileView(editProfileViewModel: EditProfileViewModel())
                     }
                     label: {
                         AvatarView(imageName: imageName, frameWidth: 40, frameHeight: 40)
