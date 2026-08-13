@@ -26,7 +26,7 @@ struct UserSectionPicker: View {
             .padding(.horizontal,40)
             .pickerStyle(.segmented)
             .scaleEffect(1.2)
-            .colorMultiply(.mint.opacity(0.7))
+//            .colorMultiply(.mint.opacity(0.7))
             
             
             if selectedTab == "following"{

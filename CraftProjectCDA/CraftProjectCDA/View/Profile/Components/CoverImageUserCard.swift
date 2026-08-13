@@ -14,9 +14,8 @@ struct CoverImageUserCard: View {
             ZStack{
                 
                 Image(user.bannerName)
-                    .imageModifier(frameWidth: 410, frameHeight: 230, clipShape: Rectangle())
+                    .imageModifier(frameWidth: 410, frameHeight: 280, clipShape: Rectangle())
                     .ignoresSafeArea()
-                
                 ZStack{
                     UnevenRoundedRectangle(topLeadingRadius: 32, bottomLeadingRadius: 32, bottomTrailingRadius: 0, topTrailingRadius: 0)
                         .frame(width: 100,height: 35)
@@ -42,5 +41,5 @@ struct CoverImageUserCard: View {
 }
 
 #Preview {
-    CoverImageUserCard(user: users[2])
+    CoverImageUserCard(user: users[4])
 }

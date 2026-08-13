@@ -12,22 +12,21 @@ struct EditArtworkView: View {
     @Environment(SharedViewModel.self) var sharedVM
     @Environment(\.dismiss) private var dismiss
     @State var viewModel = EditArtworkViewModel()
+    
     @State private var artworkName: String = ""
     @State private var artworkDescription: String = ""
+    @State private var selectedImageName: String = ""
+    @State private var isShowingPicker = false
+    let mockAssetNames: [String] = ["pottery1", "pottery2", "pottery3","jewelry1", "jewelry2", "jewelry3"]
     var body: some View {
         ScrollView {
             VStack{
-                PhotosPicker(selection: $viewModel.selectedArtworkPhotoItem, matching: .images){
-                    ZStack{
-                        if let displayedArtworkImage = viewModel.displayedArtworkImage {
-                            displayedArtworkImage
-                                .resizable()
-                                .scaledToFill()
-                                .frame(height: 280)
-                                .frame(maxWidth: .infinity)
-                                .clipped()
-                        } else if !viewModel.artwork.imageName.isEmpty {
-                            Image(viewModel.artwork.imageName)
+                Button {
+                    isShowingPicker = true
+                } label: {
+                    ZStack {
+                        if !selectedImageName.isEmpty {
+                            Image(selectedImageName)
                                 .resizable()
                                 .scaledToFill()
                                 .frame(height: 280)
@@ -38,16 +37,15 @@ struct EditArtworkView: View {
                                 .fill(Color.gray.opacity(0.1))
                                 .frame(height: 280)
                                 .overlay {
-                                    Image(systemName: "photo.badge.plus")
-                                        .font(.system(size: 100))
-                                        .foregroundColor(.gray)
+                                    VStack(spacing: 8) {
+                                        Image(systemName: "photo.badge.plus")
+                                            .font(.system(size: 60))
+                                        Text("Ajouter une image")
+                                            .font(.subheadline)
+                                    }
+                                    .foregroundColor(.gray)
                                 }
                         }
-                    }
-                }
-                .onChange(of: viewModel.selectedArtworkPhotoItem) {
-                    Task {
-                        await viewModel.loadSelectedImage()
                     }
                 }
                 
@@ -80,10 +78,20 @@ struct EditArtworkView: View {
                 .padding()
             }
         }
-        //        .ignoresSafeArea(edges: .top)
+        .sheet(isPresented: $isShowingPicker) {
+            AssetImagePickerSheet(
+                assetNames: mockAssetNames,
+                selectedImageName: $selectedImageName
+            )
+        }
         
         Button {
-            sharedVM.saveArtwork(artworkName: artworkName, artworkDescription: artworkDescription, artCategory: viewModel.artwork.artCategory)
+            sharedVM.saveArtwork(
+                artworkImageName: selectedImageName,
+                artworkName: artworkName,
+                artworkDescription: artworkDescription,
+                artCategory: viewModel.artwork.artCategory
+            )
             dismiss()
         } label: {
             Text("Enregistrer")

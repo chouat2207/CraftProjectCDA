@@ -24,7 +24,6 @@ struct EditProfileView: View {
     @State var siteInput = ""
     
     var body: some View {
-        //        NavigationView{
         VStack(alignment: .leading) {
             
             
@@ -237,19 +236,7 @@ struct EditProfileView: View {
             }
         }
     }
-    
-    
-    
-    
-    
-    //            .navigationTitle(Text("Éditer votre profil").font(.largeTitle))
-    //            .navigationBarTitleDisplayMode(.inline)
-    
-    
-    
 }
-
-//}
 
 #Preview {
     EditProfileView(editProfileViewModel: EditProfileViewModel(), user: users[5])

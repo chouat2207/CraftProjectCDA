@@ -41,8 +41,7 @@ struct FilterCarteListeView: View {
                     Button {
                         selectedContent = nil
                     } label: {
-                        Text("Effacer")
-                            .foregroundStyle(.gray)
+                        Text("Effacer").foregroundStyle(.gray)
                     }
                 }
 
@@ -50,8 +49,7 @@ struct FilterCarteListeView: View {
                     selection: $selectedContent
                 )
                 HStack {
-                    Text("Catégories")
-                        .TextFilter()
+                    Text("Catégories").TextFilter()
                     Spacer()
                     Button {
 
@@ -67,8 +65,7 @@ struct FilterCarteListeView: View {
                     selection: $selectedCategory
                 )
                 HStack {
-                    Text("Distance de ma localisation")
-                        .TextFilter()
+                    Text("Distance de ma localisation").TextFilter()
                     Spacer()
                     Button {
                         selectedDistance = nil

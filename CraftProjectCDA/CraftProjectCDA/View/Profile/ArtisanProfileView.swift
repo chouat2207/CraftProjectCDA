@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ArtisanProfileView: View {
     @Environment(SharedViewModel.self) private var sharedVM
+    @Environment(\.dismiss) private var dismiss
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
     @State private var showSettings: Bool = false
     @State private var isShowEdit: Bool = false
@@ -21,78 +22,96 @@ struct ArtisanProfileView: View {
     }
     
     var body: some View {
-        NavigationStack{
-            VStack{
-                ZStack{
-                    CoverImageUserCard(user: users[0])
-                    
-                    VStack{
-                        HStack(alignment: .center){
-                            Image(user.imageName)
-                                .imageModifier(frameWidth: 130, frameHeight: 130, clipShape: Circle())
-                                .overlay(Circle()
-                                    .stroke(.white, lineWidth: 7)
-                                )
-                            
-                            Text(user.pseudonym)
-                                .fontWeight(.semibold)
-                            Spacer()
-                            
-                            if isCurrentUser {
-                                Button {
-                                    showSettings = true
-                                } label : {
-                                    SettingsButton()
-                                }
+        //        NavigationStack{
+        VStack{
+            ZStack(){
+                CoverImageUserCard(user: user)
+                
+                VStack{
+                    HStack(alignment: .center){
+                        
+                        Image(user.imageName)
+                            .imageModifier(frameWidth: 130, frameHeight: 130, clipShape: Circle())
+                            .overlay(Circle()
+                                .stroke(.white, lineWidth: 7)
+                            )
+                        
+                        Text(user.pseudonym)
+                            .fontWeight(.semibold)
+                        Spacer()
+                        
+                        if isCurrentUser {
+                            Button {
+                                showSettings = true
+                            } label : {
+                                SettingsButton()
                             }
                         }
                     }
-                    .padding(.horizontal,5)
-                    .offset(y: 70)
                 }
-                HStack(spacing: 7){
-                    if isCurrentUser {
-                        Button {
-                            isShowEdit = true
-                        } label : {
-                            
-                            EditProfileButton()
-                        }
-                    }
-                }
-                .offset(x: -27,y: -35)
-                HStack{
-                    VStack(alignment: .leading){
+                .padding(.horizontal,5)
+                .offset(y: 70)
+            }
+            HStack(spacing: 7){
+                if isCurrentUser {
+                    Button {
+                        isShowEdit = true
+                    } label : {
                         
-                        Text("Artisan")
-                            .foregroundStyle(.gray)
-                            .fontWeight(.semibold)
-                        
-                        Text(user.description)
-                            .italic()
-                            .font(.footnote)
+                        EditProfileButton()
                     }
-                    Spacer()
                 }
-                .padding(.horizontal,15)
-                
-                HStack{
-                    if !isCurrentUser {
-                        FollowButton()
-                    }
+            }
+            .offset(x: -27,y: -35)
+            
+            HStack{
+                VStack(alignment: .leading){
                     
-                    Spacer()
-                    // if id == mainuserid
-                    // on cache
-                    if !isCurrentUser {
-                        MessageButton()
-                    }
+                    Text("Artisan")
+                        .foregroundStyle(.gray)
+                        .fontWeight(.semibold)
+                    
+                    Text(user.description)
+                        .italic()
+                        .font(.footnote)
                 }
-                .padding()
-                                    
-                ArtisanSectionPicker(user: users[0])
+                Spacer()
+            }
+//            .padding(.top)
+            .padding(.horizontal,15)
+            
+            HStack{
+                if !isCurrentUser {
+                    FollowButton()
+                }
+                
+                Spacer()
+                // if id == mainuserid
+                // on cache
+                if !isCurrentUser {
+                    MessageButton(user: user)
+                }
+            }
+            .padding()
+            
+            ArtisanSectionPicker(isUserMainUser: sharedVM.mainUser?.id == user.id ? true : false)
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("") {
+                    dismiss()
+                }
             }
         }
+        .navigationDestination(isPresented: $showSettings){
+            SettingsAccountView().environment(sharedVM)
+        }
+        .sheet(isPresented: $isShowEdit) {
+            EditProfileView(editProfileViewModel: EditProfileViewModel(), user: user)
+                .environment(sharedVM)
+        }
+        //        }
     }
 }
 

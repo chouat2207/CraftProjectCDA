@@ -23,7 +23,7 @@ struct ReviewUserCard: View {
                     Image(profileViewModel.mainUser.imageName)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 80, height: 80)
+                        .frame(width: 60, height: 60)
                         .clipShape(Circle())
                         .overlay(Circle()
                             .stroke(.white, lineWidth: 5)

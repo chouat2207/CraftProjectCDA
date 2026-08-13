@@ -9,7 +9,10 @@ import SwiftUI
 
 struct DirectMessageView: View {
     @Environment(MessageService.self) var messageService: MessageService
+    
+    // Same reason as conversation view
     @State var directMessageVM: DirectMessageViewModel?
+    
     var peerID: UUID
     var peerName: String
     var profileImageName: String

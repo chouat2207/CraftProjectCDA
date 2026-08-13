@@ -14,23 +14,6 @@
 
 import Foundation
 
-extension UUID {
-    static let msg1 = UUID()
-    static let msg2 = UUID()
-    static let msg3 = UUID()
-    static let msg4 = UUID()
-    static let msg5 = UUID()
-    static let msg6 = UUID()
-    static let msg7 = UUID()
-    static let msg8 = UUID()
-    static let msg9 = UUID()
-    static let msg10 = UUID()
-    static let msg11 = UUID()
-    static let msg12 = UUID()
-    static let msg13 = UUID()
-    static let msg14 = UUID()
-}
-
 var userToUserMessages: [UserToUserMessage] = [
     // MARK: - Conversation avec Marie (12 messages)
     // 0

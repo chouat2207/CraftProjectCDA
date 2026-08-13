@@ -13,7 +13,7 @@ struct DiscoveryView: View {
     @State var discoveryVM: DiscoveryViewModel = DiscoveryViewModel()
     var body: some View {
         NavigationStack {
-            VStack {
+            VStack(spacing: 0) {
                 if let user = sharedVM.mainUser {
                     Header(imageName: user.imageName, title: "À Découvrir", user: user)
                 }

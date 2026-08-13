@@ -21,7 +21,7 @@ struct ArtisanProfileCreationView: View {
     @State private var categoryInput = "Verrerie"
     @State private var phoneInput = ""
     @State private var websiteInput = ""
-    @State private var aboutInput = ""
+//    @State private var aboutInput = ""
     
     var body: some View {
         NavigationStack {
@@ -33,8 +33,8 @@ struct ArtisanProfileCreationView: View {
                     .overlay(Color.mint.opacity(0.7))
                 
                 ScrollView {
-                    VStack(alignment: .leading) {
-                        
+//                    VStack(alignment: .leading) {
+                    HStack {
                         Text("PHOTO DE VOTRE PROFIL")
                             .font(.callout)
                             .fontWeight(.semibold)
@@ -80,7 +80,7 @@ struct ArtisanProfileCreationView: View {
                         .padding(10)
                         .padding(.vertical, 5)
                     
-                    VStack {
+                    HStack {
                         Text("VOTRE BANNIÈRE")
                             .font(.callout)
                             .fontWeight(.semibold)
@@ -135,12 +135,6 @@ struct ArtisanProfileCreationView: View {
                     .padding(.horizontal, 15)
                     .padding(.bottom,15)
                     
-                    //                    Divider()
-                    //                        .frame(minHeight: 1.5)
-                    //                        .overlay(Color.mint.opacity(0.4))
-                    //                        .padding(10)
-                    //                        .padding(.vertical, 5)
-                    
                     VStack(alignment: .leading) {
                         Text("VOTRE TÉLÉPHONE")
                             .font(.callout)
@@ -155,33 +149,17 @@ struct ArtisanProfileCreationView: View {
                     }
                     .padding(.horizontal, 15)
                     .padding(.bottom,15)
-                    //                    Divider()
-                    //                        .frame(minHeight: 1.5)
-                    //                        .overlay(Color.mint.opacity(0.4))
-                    //                        .padding(10)
-                    //                        .padding(.vertical, 5)
-                    //
+                    
                     
                     VStack(alignment: .leading) {
                         Text("À PROPOS DE VOTRE ATELIER")
                             .font(.callout)
                             .fontWeight(.semibold)
                             .kerning(1)
-                        
-                        TextField(" Décrivez votre savoir-faire...", text: $aboutInput)
-                            .padding(.bottom, 50)
-                            .padding(3)
-                            .multilineTextAlignment(.leading)
-                            .overlay(RoundedRectangle(cornerRadius: 7)
-                                .stroke(.mint, lineWidth: 1))
                     }
                     .padding(.horizontal, 15)
                     .padding(.bottom,15)
-                    //                    Divider()
-                    //                        .frame(minHeight: 1.5)
-                    //                        .overlay(Color.mint.opacity(0.4))
-                    //                        .padding(10)
-                    //                        .padding(.vertical, 5)
+    
                     
                     VStack(alignment: .leading) {
                         Text("VOTRE SITE WEB")
@@ -231,16 +209,24 @@ struct ArtisanProfileCreationView: View {
             //            .navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("<") {
+                        dismiss()
+                    }
+                    .foregroundStyle(.mint)
+                }
                 ToolbarItem(placement: .principal) {
-                    Text("Devenir Artisan")
+                    Text("Devenez Artisan")
+                        .font(.largeTitle)
                         .font(.headline)
                         .fontWeight(.bold)
                         .kerning(1)
                 }
             }
             .onAppear {
-                if let user = sharedVM.mainUser {
-                    aboutInput = user.description
+                if sharedVM.mainUser != nil
+                {
+//                    aboutInput = user.description
                 }
             }
             .navigationDestination(isPresented: $navigateToArtisanProfile) {

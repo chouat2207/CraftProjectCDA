@@ -12,6 +12,8 @@ import SwiftUI
 @Observable
 final class EditArtworkViewModel {
     
+    
+    
     enum Mode {
         case creation
         case edition
