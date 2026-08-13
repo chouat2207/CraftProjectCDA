@@ -4,15 +4,6 @@
 //
 //  Created by Apprenant 85 on 30/07/2026.
 //
-
-//
-//  Artworks.swift
-//  CraftProjectCDA
-//
-//  Created by Apprenant 85 on 30/07/2026.
-//
-
-
 import Foundation
 
 extension UUID {
@@ -53,7 +44,16 @@ var artworks: [Artwork] = [
 
         Ces couches qui se créent, année après année, pour former une mémoire universelle, celle de la Terre et de notre empreinte. Autant d’épaisseurs, comme les pages d’un livre qui nous racontent l’histoire, notre histoire.
         """,
-        details: "",
+        details: """
+        DÉTAILS :
+
+        Taille : 25 x 30 cm
+        Poids : 1,8 kg
+        Couleur : Amande et terre cuite
+        Matière : Grès émaillé
+
+        Prix : 1 250 €
+        """,
         artistID: .amande
     ),
 
@@ -64,8 +64,21 @@ var artworks: [Artwork] = [
         imageArtisan: "TierraOcre",
         artCategory: "Poterie",
         artisanCategory: .ceramiste,
-        description: "",
-        details: "",
+        description: """
+        Inspirée des motifs géométriques Art Déco et des traditions céramiques des Pueblos, Deco 156 marie précision des lignes et textures minérales brutes.
+
+        À travers un travail minutieux d'engobes et de cuissons traditionnelles, cette pièce dialogue entre modernisme architectural et artisanat ancestral.
+        """,
+        details: """
+        DÉTAILS :
+
+        Taille : 18 x 22 cm
+        Contenance : 1,2 L
+        Couleur : Ocre rouge et noir mat
+        Matière : Terre cuite et engobe
+
+        Prix : 340 €
+        """,
         artistID: .eloise
     ),
 
@@ -101,8 +114,21 @@ var artworks: [Artwork] = [
         imageArtisan: "BoucheratJulie",
         artCategory: "Céramique",
         artisanCategory: .ceramiste,
-        description: "",
-        details: "",
+        description: """
+        Trio de pièces sculpturales aux silhouettes généreuses, Josie, Albert & Michel célèbre la complicité des formes et le toucher de la matière brute.
+
+        Chaque élément exprime un caractère propre tout en s'inscrivant dans une harmonie collective pensée pour habituer l'espace avec douceur.
+        """,
+        details: """
+        DÉTAILS :
+
+        Taille : 14 x 18 cm
+        Contenance : 350 ml
+        Couleur : Blanc grès et sable
+        Matière : Grès chamotté
+
+        Prix : 420 €
+        """,
         artistID: .julie
     ),
 
@@ -122,7 +148,16 @@ var artworks: [Artwork] = [
 
         Disponible en version intérieure ou extérieure.
         """,
-        details: "",
+        details: """
+        DÉTAILS :
+
+        Taille : 35 x 25 cm
+        Contenance : Non applicable
+        Couleur : Sable naturel
+        Matière : Argile cuite
+
+        Prix : 610 €
+        """,
         artistID: .lisa
     ),
 
@@ -144,7 +179,16 @@ var artworks: [Artwork] = [
 
         Un demi-cylindre en coton plissé s'enroule autour de son jumeau en céramique, comme un pull autour de la taille.
         """,
-        details: "",
+        details: """
+        DÉTAILS :
+
+        Taille : 75 x 80 cm
+        Poids : 18 kg
+        Couleur : Écru et céramique mate
+        Matière : Céramique et coton plissé
+
+        Prix : 2 400 €
+        """,
         artistID: .lisa
     ),
 
@@ -162,7 +206,16 @@ var artworks: [Artwork] = [
 
         Hommage à la blancheur légendaire de la porcelaine de Limoges, cette création explore la puissance de cette teinte dans toute sa majesté et sa profonde luminosité.
         """,
-        details: "",
+        details: """
+        DÉTAILS :
+
+        Taille : 20 x 14 cm
+        Contenance : 500 ml
+        Couleur : Blanc minéral
+        Matière : Porcelaine de Limoges
+
+        Prix : 890 €
+        """,
         artistID: .anneSophie
     ),
 
@@ -173,8 +226,21 @@ var artworks: [Artwork] = [
         imageArtisan: "Garasu",
         artCategory: "Verrerie",
         artisanCategory: .verrier,
-        description: "",
-        details: "",
+        description: """
+        Inspirée des formes botaniques fascinantes et sauvages, Carnigrass capture la fluidité du verre en fusion pour figer un mouvement végétal en suspension.
+
+        À travers un jeu subtil de transparences et d'inclusions colorées, la pièce capte la lumière pour révéler une dynamique organique unique.
+        """,
+        details: """
+        DÉTAILS :
+
+        Taille : 30 x 15 cm
+        Poids : 1,2 kg
+        Couleur : Vert émeraude
+        Matière : Verre soufflé
+
+        Prix : 780 €
+        """,
         artistID: .haruto
     ),
 
@@ -194,7 +260,16 @@ var artworks: [Artwork] = [
 
         Chaque pièce apporte une touche de merveille aquatique à n’importe quel espace.
         """,
-        details: "",
+        details: """
+        DÉTAILS :
+
+        Taille : 40 x 30 cm
+        Poids : 2,1 kg
+        Couleur : Bleu irisé
+        Matière : Vitrail et verre irisé
+
+        Prix : 950 €
+        """,
         artistID: .haruto
     ),
 
@@ -205,8 +280,21 @@ var artworks: [Artwork] = [
         imageArtisan: "Garasu",
         artCategory: "Joaillerie",
         artisanCategory: .bijoutier,
-        description: "",
-        details: "",
+        description: """
+        Réinterprétation contemporaine de l'orfèvrerie classique, cet œuf associe la précision du travail du verre à la délicatesse des métaux précieux.
+
+        Une exploration de l'infiniment petit où chaque ciselure capte les éclats lumineux pour transformer l'objet en symbole d'élégance immuable.
+        """,
+        details: """
+        DÉTAILS :
+
+        Taille : 12 x 8 cm
+        Poids : 320 g
+        Couleur : Cristal et or
+        Matière : Verre ciselé et métal doré
+
+        Prix : 1 850 €
+        """,
         artistID: .haruto
     ),
 
@@ -217,8 +305,21 @@ var artworks: [Artwork] = [
         imageArtisan: "Garasu",
         artCategory: "Verrerie",
         artisanCategory: .verrier,
-        description: "",
-        details: "",
+        description: """
+        Hommage aux architectures complexes des récifs coralliens, Corallia fige la fragilité du monde marin dans une sculpture en verre fusionné.
+
+        Les alvéoles translucides diffractent la lumière avec douceur, créant une impression visuelle de mouvement marin perpétuel.
+        """,
+        details: """
+        DÉTAILS :
+
+        Taille : 25 x 25 cm
+        Poids : 1,5 kg
+        Couleur : Coral translucide
+        Matière : Verre fusionné
+
+        Prix : 670 €
+        """,
         artistID: .haruto
     ),
 
@@ -229,8 +330,21 @@ var artworks: [Artwork] = [
         imageArtisan: "Garasu",
         artCategory: "Verrerie",
         artisanCategory: .verrier,
-        description: "",
-        details: "",
+        description: """
+        Anomalys questionne la perfection formelle en élevant le défaut et la déformation contrôlée au rang d'expression artistique.
+
+        Travaillée par variations thermiques, la matière vitreuse offre des jeux de réfraction optiques captivants sous chaque angle d'observation.
+        """,
+        details: """
+        DÉTAILS :
+
+        Taille : 22 x 18 cm
+        Poids : 1,8 kg
+        Couleur : Fumé violine
+        Matière : Verre moussé
+
+        Prix : 720 €
+        """,
         artistID: .haruto
     ),
 
@@ -241,8 +355,21 @@ var artworks: [Artwork] = [
         imageArtisan: "Garasu",
         artCategory: "Dessin",
         artisanCategory: .dessinateur,
-        description: "",
-        details: "",
+        description: """
+        Inspirée de l'encyclopédie imaginaire éponyme, cette illustration entrelace formes botaniques et lignes anatomiques surréelles.
+
+        Un travail minutieux à la plume et à l'encre qui invite à la contemplation et au décodage d'un univers fantastique.
+        """,
+        details: """
+        DÉTAILS :
+
+        Taille : 40 x 50 cm
+        Format : Encadré
+        Couleur : Encre noire et sepia
+        Matière : Papier coton 300g
+
+        Prix : 490 €
+        """,
         artistID: .haruto
     ),
 
@@ -253,8 +380,21 @@ var artworks: [Artwork] = [
         imageArtisan: "TierraOcre",
         artCategory: "Poterie",
         artisanCategory: .ceramiste,
-        description: "",
-        details: "",
+        description: """
+        Petite coupelle en argile façonnée à la main selon les techniques séculaires des potiers du Sud-Ouest américain.
+
+        Ses gravures sobres et sa texture minérale incarnent l'alliance essentielle entre la terre crue, la main de l'artisan et le feu.
+        """,
+        details: """
+        DÉTAILS :
+
+        Taille : 16 x 3 cm
+        Contenance : 150 ml
+        Couleur : Terracotta
+        Matière : Argile brute
+
+        Prix : 180 €
+        """,
         artistID: .eloise
     ),
 
@@ -265,8 +405,21 @@ var artworks: [Artwork] = [
         imageArtisan: "TierraOcre",
         artCategory: "Poterie",
         artisanCategory: .ceramiste,
-        description: "",
-        details: "",
+        description: """
+        Vase aux proportions équilibrées et à l'encolure serrée, rappelant la tradition des urnes cérémonielles Pueblo.
+
+        Cuite au feu de bois, la pièce arbore des nuances chaudes naturelles et des effets de fumigation uniques sur son engobe.
+        """,
+        details: """
+        DÉTAILS :
+
+        Taille : 28 x 20 cm
+        Contenance : 2,5 L
+        Couleur : Ocre et carbone
+        Matière : Terre cuite polie
+
+        Prix : 390 €
+        """,
         artistID: .eloise
     ),
 
@@ -277,8 +430,21 @@ var artworks: [Artwork] = [
         imageArtisan: "TierraOcre",
         artCategory: "Poterie",
         artisanCategory: .ceramiste,
-        description: "",
-        details: "",
+        description: """
+        Pot artisanal en terre cuite dont la surface est polie au galet pour obtenir une douceur tactile remarquable.
+
+        Les motifs peints à l'engobe célèbrent la géométrie sacrée et la beauté des formes utiles transmises de génération en génération.
+        """,
+        details: """
+        DÉTAILS :
+
+        Taille : 22 x 22 cm
+        Contenance : 1,8 L
+        Couleur : Brun terre
+        Matière : Grès cuit au feu
+
+        Prix : 310 €
+        """,
         artistID: .eloise
     ),
 
@@ -289,286 +455,21 @@ var artworks: [Artwork] = [
         imageArtisan: "TierraOcre",
         artCategory: "Poterie",
         artisanCategory: .ceramiste,
-        description: "",
-        details: "",
+        description: """
+        Pièce majestueuse rendant hommage au patrimoine visuel et aux récits symboliques de la culture Navajo.
+
+        L'alliance des pigments naturels et de la terre façonnée confère à ce vase une présence forte et un ancrage minéral affirmé.
+        """,
+        details: """
+        DÉTAILS :
+
+        Taille : 32 x 18 cm
+        Contenance : 3 L
+        Couleur : Ocre rouge et craie
+        Matière : Terre cuite et engobes
+
+        Prix : 450 €
+        """,
         artistID: .eloise
     )
 ]
-
-//import Foundation
-//enum ArtisanCategory: String, CaseIterable, Identifiable {
-//    case bijoutier = "Bijoutier"
-//    case brodeur = "Brodeur"
-//    case ceramiste = "Céramiste"
-//    case chapelier = "Chapelier"
-//    case cordonnier = "Cordonnier"
-//    case couturier = "Couturier"
-//    case ebeniste = "Ébéniste"
-//    case encadreur = "Encadreur"
-//    case horloger = "Horloger"
-//    case luthier = "Luthier"
-//    case maroquinier = "Maroquinier"
-//    case marqueteur = "Marqueteur"
-//    case mosaiste = "Mosaïste"
-//    case sculpteur = "Sculpteur"
-//    case sellier = "Sellier"
-//    case serigraphe = "Sérigraphe"
-//    case tailleur = "Tailleur"
-//    case tanneur = "Tanneur"
-//    case tapissier = "Tapissier"
-//    case verrier = "Verrier"
-//    case poterie = "Poterie"
-//
-//    var id: String {
-//        rawValue
-//    }
-//}
-//
-//extension UUID {
-//    static let artworkLouisVuitton = UUID()
-//    static let artworkDeco156 = UUID()
-//    static let artworkJeong = UUID()
-//    static let artworkJosieAlbertMichel = UUID()
-//    static let artworkAppliqueAbanico = UUID()
-//    static let artworkArmchair = UUID()
-//    static let artworkWhiteOffering = UUID()
-//    static let artworkCarnigrass = UUID()
-//    static let artworkWhaleTail = UUID()
-//    static let artworkOeufDeFaberge = UUID()
-//    static let artworkCorallia = UUID()
-//    static let artworkAnomalys = UUID()
-//    static let artworkCodexSeraphinianus = UUID()
-//    static let artworkPuebloSaucer = UUID()
-//    static let artworkPuebloVase = UUID()
-//    static let artworkPuebloPot = UUID()
-//    static let artworkNavajoVase = UUID()
-//}
-//// artworks[index]
-//var artworks: [Artwork] = [
-//    Artwork(
-//        id: .artworkLouisVuitton,
-//        name: "Louis Vuitton",
-//        imageName: "HaeghenAmandeLouisVuitton", 
-//        imageArtisan: "HaeghenAmande",
-//        artCategory: ArtisanCategory.ceramiste, 
-//        description: """
-//        À l’image d’un collectionneur,
-//        qui célèbre le passé, et d’un peintre qui dessine l’avenir dans un collage en perpétuel mouvement.
-//        200 ans qui nous rappellent que personne ne peut rien contre le temps. Les temps changent, mais certaines choses sont immuables et traversent les années avec une étrange robustesse.
-//        
-//        La prise de conscience de ce temps qui passe, la sédimentation, un processus au cours duquel les particules de toute matière cessent progressivement de bouger et s’agglomèrent en couches. Ces couches qui se créent, année après année, pour former une mémoire universelle, celle de la Terre et de notre empreinte. Autant d’épaisseurs, comme les pages d’un livre qui nous racontent l’histoire, notre histoire.
-//        """,
-//        details: "",
-//        artistID: .amande
-//    ),
-//    
-//    Artwork(
-//        id: .artworkDeco156,
-//        name: "Deco 156",
-//        imageName: "JemezPuebloDeco156",
-//        imageArtisan: "TierraOcre",
-//        artCategory: ArtisanCategory.poterie,
-//        description: "",
-//        details: "",
-//        artistID: .eloise
-//    ),
-//    
-////    Artwork(
-////        id: .artworkJeong,
-////        name: "Jeong 정",
-////        imageName: "DuboisMarieJeong",
-////        imageArtisan: "DuboisMarie",
-////        artCategory: "Céramique",
-////        description: """
-////        Jeong (정), inspirée de la Chine des Song et de la Corée Joseon,
-////        explore des formes épurées et des objets pensés pour être utilisés,
-////        incarnés et transmis.
-////
-////        À travers mes recherches d'émaux, je privilégie des tonalités
-////        naturelles et nuancées.
-////        """,
-////        details: """
-////        DÉTAILS :
-////
-////        Taille : 6 x 8 cm
-////        Contenance : 200 ml
-////        Couleur : Brun cuba
-////        Matière : Porcelaine
-////
-////        Prix : 568 €
-////        """,
-////        artistID: .marie
-////    ),
-////
-////    Artwork(
-////        id: .artworkJosieAlbertMichel,
-////        name: "Josie, Albert & Michel",
-////        imageName: "BoucheratJulieJosieAlbertMichel",
-////        imageArtisan: "BoucheratJulie",
-////        artCategory: "Céramique",
-////        description: "",
-////        details: "",
-////        artistID: .julie
-////    ),
-//// 
-////    
-//    Artwork(
-//        id: .artworkAppliqueAbanico,
-//        name: "Applique Abanico",
-//        imageName: "AllegraLisaAppliqueAbanico",
-//        imageArtisan: "AllegraLisa",
-//        artCategory: "Argile",
-//        description: """
-//        L'applique Abanico a une silhouette douce, inspirée d’une arche sculpturale, elle capte la lumière avec subtilité pour révéler toute la richesse de sa matière.
-//        
-//        La finition texturée, légèrement granuleuse, joue avec les ombres et les reflets pour créer une atmosphère chaleureuse et apaisante. Lorsqu’elle est allumée, la lumière glisse délicatement le long de ses courbes, dessinant sur le mur un halo raffiné et architectural. Disponible en version intérieur, ou extérieur.
-//        """,
-//        details: "",
-//        artistID: .lisa
-//    ),
-//    
-//    Artwork(
-//        id: .artworkArmchair,
-//        name: "Armchair",
-//        imageName: "AllegraLisaArmchair",
-//        imageArtisan: "AllegraLisa",
-//        artCategory: "Ceramique",
-//        description: """
-//            Les lignes épurées et minimalistes du fauteuil ARK apportent une touche raffinée à un salon, associé à un canapé, ou à une chambre à coucher, où il sert d’élément décoratif. Il peut également être associé à la lampe ARK ou à d’autres pièces de la collection. La collection ARK se compose de : deux lampadaires, un fauteuil, un tabouret, une table d’appoint et un bureau.
-//            
-//            Chaque pièce en céramique est associée à un autre matériau : le chêne ou le tissu. Des planches de bois ou des coussins moelleux relient les monolithes en céramique, tel un pont reliant deux rives. Un demi-cylindre en coton plissé s'enroule autour de son jumeau en céramique, comme un pull autour de la taille. L'équilibre est toujours au rendez-vous : un coussin en apesanteur ou un demi-cylindre en lévitation.
-//            """,
-//        details: "",
-//        artistID: .lisa
-//    ),
-//    
-//    Artwork(
-//        id: .artworkWhiteOffering,
-//        name: "White Offering",
-//        imageName: "MouyssinatNadegeWhiteOffering",
-//        imageArtisan: "MouyssinatNadege",
-//        artCategory: "Porcelaine",
-//        description: """
-//            Façonnées patiemment à la main, ces courbes douces, naturally allongées et organiques prennent vie. La surface est affinée par de multiples ponçages successifs, qui lui confèrent sa douceur satinée et minérale.
-//            
-//            Hommage à la blancheur légendaire de la porcelaine de Limoges, cette création explore la puissance de cette teinte dans toute sa majesté et sa profonde luminosité.
-//            """,
-//        details: "",
-//        artistID: .anneSophie
-//    ),
-//    
-//    Artwork(
-//        id: .artworkCarnigrass,
-//        name: "Carnigrass",
-//        imageName: "GarasuAboutMeCarnigrass",
-//        imageArtisan: "",
-//        artCategory: "Verrerie",
-//        description: "",
-//        details: "",
-//        artistID: .haruto
-//    ),
-//    
-//    Artwork(
-//        id: .artworkWhaleTail,
-//        name: "Whale Tail",
-//        imageName: "SeaLeaWhaleTail", 
-//        imageArtisan: "SeaLea",
-//        artCategory: "Verrerie",
-//        description: """
-//            De magnifiques sculptures représentant des queues de baleine et de requin occupent le devant de la scène, incarnant une forme emblématique qui captive l’imagination. Inspirées par la magie de l’observation des baleines, chaque sculpture est réalisée à la main pour évoquer les souvenirs et les moments précieux passés aux côtés de ces créatures majestueuses dans leur habitat naturel.
-//            
-//            Nos sculptures en vitrail sont méticuleusement réalisées dans cet esprit, à partir de verre irisé qui offre un jeu fascinant de couleurs et de reflets imitant la lueur éthérée et les teintes de l’océan. Chaque pièce est un véritable atout pour votre intérieur, apportant une touche de merveille aquatique à n’importe quel espace.
-//            """,
-//        details: "",
-//        artistID: .haruto
-//    ),
-//    
-//    Artwork(
-//        id: .artworkOeufDeFaberge,
-//        name: "Oeuf de Fabergé",
-//        imageName: "GarasuInspirationOeufDeFaberge",
-//        imageArtisan: "",
-//        artCategory: "Joaillerie",
-//        description: "",
-//        details: "",
-//        artistID: .haruto
-//    ),
-//    
-//    Artwork(
-//        id: .artworkCorallia,
-//        name: "Corallia",
-//        imageName: "GarasuInspirationCorallia", 
-//        imageArtisan: "",
-//        artCategory: "Verrerie",
-//        description: "",
-//        details: "",
-//        artistID: .haruto
-//    ),
-//    
-//    Artwork(
-//        id: .artworkAnomalys,
-//        name: "Anomalys",
-//        imageName: "GarasuInspirationAnomalys", 
-//        imageArtisan: "",
-//        artCategory: "Verrerie",
-//        description: "",
-//        details: "",
-//        artistID: .haruto
-//    ),
-//    
-//    Artwork(
-//        id: .artworkCodexSeraphinianus,
-//        name: "Codex Seraphinianus",
-//        imageName: "GarasuInspirationCodexSeraphinianus",
-//        imageArtisan: "",
-//        artCategory: "Dessin",
-//        description: "",
-//        details: "",
-//        artistID: .haruto
-//    ),
-//    
-//    Artwork(
-//        id: .artworkPuebloSaucer,
-//        name: "Pueblo Saucer",
-//        imageName: "TierraOcrePuebloSaucer", 
-//        imageArtisan: "TierraOcre",
-//        artCategory: "Poterie",
-//        description: "",
-//        details: "",
-//        artistID: .eloise
-//    ),
-//    
-//    Artwork(
-//        id: .artworkPuebloVase,
-//        name: "Pueblo Vase",
-//        imageName: "TierraOcrePuebloPottery",
-//        imageArtisan: "",
-//        artCategory: "Poterie",
-//        description: "TierraOcre",
-//        details: "",
-//        artistID: .eloise
-//    ),
-//    
-//    Artwork(
-//        id: .artworkPuebloPot,
-//        name: "Pueblo Pot",
-//        imageName: "TierraOcrePuebloPottery2",
-//        imageArtisan: "TierraOcre",
-//        artCategory: "Poterie",
-//        description: "",
-//        details: "",
-//        artistID: .eloise
-//    ),
-//    
-//    Artwork(
-//        id: .artworkNavajoVase,
-//        name: "Navajo Vase",
-//        imageName: "TierraOcreNavajoPottery", 
-//        imageArtisan: "TierraOcre",
-//        artCategory: "Poterie",
-//        description: "",
-//        details: "",
-//        artistID: .eloise
-//    ),
-//    
-//]
