@@ -13,6 +13,12 @@ struct ArtisanSectionPicker: View {
     @State var selectedTab = "artworks"
     @State private var showAddArtwork = false
     
+    var user : User
+    
+    private var isCurrentUser: Bool {
+        return sharedVM.mainUser?.id == user.id
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -39,18 +45,27 @@ struct ArtisanSectionPicker: View {
                         GridItem(.flexible())
                     ], spacing: 15) {
                         
-                        Button {
-                            showAddArtwork = true
-                        } label: {
-                            VStack(spacing: 8) {
-                                Image(systemName: "plus.circle.fill")
-                                    .font(.system(size: 36))
-                                    .foregroundStyle(.mint)
-                                
-                                Text("Ajouter une création")
-                                    .font(.caption)
-                                    .fontWeight(.semibold)
-                                    .foregroundStyle(.black.opacity(0.7))
+                        if !isCurrentUser {
+                            Button {
+                                showAddArtwork = true
+                            } label: {
+                                VStack(spacing: 8) {
+                                    Image(systemName: "plus.circle.fill")
+                                        .font(.system(size: 36))
+                                        .foregroundStyle(.mint)
+                                    
+                                    Text("Ajouter une création")
+                                        .font(.caption)
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.black.opacity(0.7))
+                                }
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 190)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .strokeBorder(Color.mint.opacity(0.6))
+                                    //                                    .background(Color.mint.opacity(0.05))
+                                )
                             }
                             .frame(maxWidth: .infinity)
                             .frame(height: 190)
@@ -89,6 +104,6 @@ struct ArtisanSectionPicker: View {
 }
 
 #Preview {
-    ArtisanSectionPicker()
+    ArtisanSectionPicker(user: users[0])
         .environment(SharedViewModel())
 }
