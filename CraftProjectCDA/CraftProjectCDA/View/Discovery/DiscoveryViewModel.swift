@@ -10,6 +10,8 @@ import SwiftUI
 
 @Observable
 class DiscoveryViewModel {
+    
+    // Need to refactor to use sharedVM
     var userData: [User]
     var artworkData: [Artwork]
     var eventData: [Event]

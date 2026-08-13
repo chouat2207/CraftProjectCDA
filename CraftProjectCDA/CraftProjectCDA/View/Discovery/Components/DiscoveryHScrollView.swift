@@ -11,7 +11,6 @@ struct DiscoveryHScrollView: View {
     var sectionTitle: String
     var items: [any DisplayableItem & Identifiable]
     
-//    @Environment(DiscoveryViewModel.self) var discoveryVM
     var body: some View {
         
         VStack {
@@ -29,14 +28,9 @@ struct DiscoveryHScrollView: View {
                     }
                 }
             }
-//            .padding([.bottom, .leading])
+
             .padding(.bottom, 2)
             .padding(.leading)
         }
     }
 }
-
-//#Preview {
-//    DiscoveryHScrollView<T: DisplayableItem & Identifiable>()
-//        .environment(DiscoveryViewModel())
-//}
