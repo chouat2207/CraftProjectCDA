@@ -21,7 +21,7 @@ struct PickerListCarteView: View {
         )
         
         NavigationStack {
-            VStack {
+            VStack(spacing: 0) {
                 switch vm.selection {
                 case .liste:
                     
@@ -76,8 +76,8 @@ struct PickerListCarteView: View {
                             displayedArtisans: filteredArtisans,
                             hasActiveFilter: vm.hasActiveFilter
                         )
-                        VStack {
-                            HStack {
+                        VStack(spacing: 0) {
+                            HStack{
                                 SearchBarCarte(
                                     searchText:
                                         $vm.searchText
@@ -137,6 +137,7 @@ struct PickerListCarteView: View {
                 .presentationDragIndicator(.visible)
             }
         }
+        
     }
 }
 #Preview {

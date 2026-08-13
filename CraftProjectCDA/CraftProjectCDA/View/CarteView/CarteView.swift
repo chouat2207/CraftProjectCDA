@@ -37,7 +37,7 @@ struct CarteView: View {
                 }
             }
         }
-        
+        .ignoresSafeArea()
         .onChange(of: displayedArtisans.map { $0.id }) {
             updateMapPosition()
         }
