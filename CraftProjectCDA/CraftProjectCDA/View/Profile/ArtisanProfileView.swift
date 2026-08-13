@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ArtisanProfileView: View {
-    
+    @Environment(SharedViewModel.self) private var sharedVM
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
     @State private var isShowEdit: Bool = false
     @State private var showAddArtwork : Bool = false
@@ -23,7 +23,6 @@ struct ArtisanProfileView: View {
                     
                     VStack{
                         HStack(alignment: .center){
-                            
                             Image(user.imageName)
                                 .imageModifier(frameWidth: 130, frameHeight: 130, clipShape: Circle())
                                 .overlay(Circle()
@@ -42,12 +41,9 @@ struct ArtisanProfileView: View {
                     .offset(y: 70)
                 }
                 HStack(spacing: 7){
-                   
                         EditProfileButton()
-                     
                 }
                 .offset(x: -27,y: -35)
-                
                 HStack{
                     VStack(alignment: .leading){
                         
@@ -82,4 +78,5 @@ struct ArtisanProfileView: View {
 
 #Preview {
     ArtisanProfileView(user: users[0])
+        .environment(SharedViewModel())
 }

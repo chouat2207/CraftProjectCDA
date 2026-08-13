@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ArtisanSectionPicker: View {
+    @Environment(SharedViewModel.self) private var sharedVM
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
     @State var selectedTab = "artworks"
     @State private var showAddArtwork = false
@@ -56,12 +57,19 @@ struct ArtisanSectionPicker: View {
                             .background(
                                 RoundedRectangle(cornerRadius: 12)
                                     .strokeBorder(Color.mint.opacity(0.6))
-//                                    .background(Color.mint.opacity(0.05))
                             )
                         }
-
-                        ForEach(profileViewModel.filterByArtworks(artistID: .haruto)) { artwork in
-                            ArtisanArtworkCard(artworkArtisan: artwork)
+                        
+                        // Quick if let to fix presentation, need to be adressed later (Mathieu)
+                        if let userID = sharedVM.mainUser?.id {
+                            ForEach(sharedVM.filterArtworks(byID: userID)) { artwork in
+                                ArtisanArtworkCard(artworkArtisan: artwork)
+                            }
+                        }
+                        else {
+                            ForEach(sharedVM.artworksData) { artwork in
+                                ArtisanArtworkCard(artworkArtisan: artwork)
+                            }
                         }
                     }
                     .padding(.horizontal, 15)
@@ -82,4 +90,5 @@ struct ArtisanSectionPicker: View {
 
 #Preview {
     ArtisanSectionPicker()
+        .environment(SharedViewModel())
 }
