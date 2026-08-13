@@ -19,7 +19,12 @@ struct DiscoveryCard: View {
                 case let item as Artwork:
                     ArtworkDetailView(artwork: item)
                 case let item as User:
-                    ProfileView(user: item)
+//                    if item.artisanProfileID != nil {
+                        ArtisanProfileView(user: item)
+//                    }
+//                    else {
+//                        ProfileView(user: item)
+//                    }
                 default:
                     DiscoveryView()
                 }
