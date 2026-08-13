@@ -134,4 +134,20 @@ final class SharedViewModel {
 //            followedByID: []
 //        )
     
+    func filterArtworks(byID userID: UUID) -> [Artwork] {
+        artworksData.filter({$0.artistID == userID})
+    }
+    // Quick fix for presentation (Mathieu)
+    func saveArtwork(artworkName: String, artworkDescription: String, artCategory: String) {
+        let newArtwork: Artwork = Artwork(
+            name: artworkName, imageName: "Placeholder",
+            imageArtisan: mainUser!.imageName,
+            artCategory: artCategory,
+            artisanCategory: .bijoutier,
+            description: artworkDescription,
+            details: "",
+            artistID: mainUser!.id)
+        artworksData.insert(newArtwork, at: 0)
+    }
+    
 }
