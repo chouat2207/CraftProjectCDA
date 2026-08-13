@@ -134,15 +134,5 @@ var artisanProfiles = [
         about: "Sous le pseudonyme TIERRAOCRE, Éloïse imagine et façonne des pièces uniques inspirées des terres méditerranéennes. Passionnée de poterie depuis l'enfance, elle privilégie les matières brutes, les émaux naturels et le partage des savoir-faire artisanaux lors d'ateliers ouverts au public.",
         followedByID: [.marie, .haruto]
     )
-
-//var artisanProfiles = [
-//    lisaArtisanProfile,
-//    julieArtisanProfile,
-//    marieArtisanProfile,
-//    amandeArtisanProfile,
-//    nadegeArtisanProfile,
-//    leaArtisanProfile,
-//    anneSophieArtisanProfile,
-//    eloiseArtisanProfile]
 ]
 
