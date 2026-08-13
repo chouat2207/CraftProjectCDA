@@ -10,6 +10,8 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(SharedViewModel.self) var sharedVM
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
+    //    @State private var isShowingEditProfile = false
+    
     var user: User
     
     var body: some View {
@@ -34,42 +36,62 @@ struct ProfileView: View {
                             Text(user.pseudonym)
                                 .fontWeight(.semibold)
                             Spacer()
-                            SettingsButton()
+                           
+                            NavigationLink {
+                                SettingsAccountView()
+                                    .environment(sharedVM)
+                            } label: {
+                                SettingsButton()
+                            }
+                            .buttonStyle(.plain)
                         }
+                        
                     }
                     .padding(.horizontal,5)
                     .offset(y: 70)
                 }
-                VStack(){
+                //                VStack(){
+                //                    EditProfileButton()
+                //                }
+                //                .offset(x: -27,y: -35)
+                //            }
+                
+                NavigationLink {
+                    EditProfileView(
+                        editProfileViewModel: EditProfileViewModel(),
+                        user: user
+                    )
+                    .environment(sharedVM)
+                } label: {
                     EditProfileButton()
                 }
-                .offset(x: -27,y: -35)
-            }
-            
-            HStack{
-                VStack(alignment: .leading){
-                    
-                    Text("Utilisateur")
-                        .foregroundStyle(.gray)
-                        .fontWeight(.semibold)
-                    
-                    Text(user.description)
-                        .italic()
-                        .font(.footnote)
-                }
-                .padding(.horizontal,15)
+                .buttonStyle(.plain)
+                .offset(x: -27, y: -35)
                 
-                Spacer()
+                HStack{
+                    VStack(alignment: .leading){
+                        
+                        Text("Utilisateur")
+                            .foregroundStyle(.gray)
+                            .fontWeight(.semibold)
+                        
+                        Text(user.description)
+                            .italic()
+                            .font(.footnote)
+                    }
+                    .padding(.horizontal,15)
+                    
+                    Spacer()
+                }
+                UserSectionPicker()
+                    .padding(.top,10)
             }
-            UserSectionPicker()
-                .padding(.top,10)
         }
     }
 }
-
 #Preview {
     ProfileView(
         user: users[0]
     )
-.environment(SharedViewModel())
+    .environment(SharedViewModel())
 }

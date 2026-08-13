@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct SettingsAccountView: View {
+    
+    @Environment(SharedViewModel.self) private var sharedVM
+    @State private var isShowingSheet = false
+    @State private var isShowingCreationView = false
+    
     var body: some View {
         
-        NavigationView {
+//        NavigationStack {
             VStack {
                 List {
                     Section {
@@ -31,7 +36,8 @@ struct SettingsAccountView: View {
                             Text("Mot de passe")
                             Spacer()
                             Text("••••••••••")
-                                .font(.default)
+//                                .font(.default)
+                                .font(.body)
                                 .foregroundStyle(.black.opacity(0.8))
                             Image(systemName: "chevron.right")
                         }
@@ -73,7 +79,12 @@ struct SettingsAccountView: View {
                                 .font(.caption)
                                 .foregroundStyle(.black)
                                 .padding(.bottom,10)
-                            BecomeArtisanButton()
+                            Button {
+                                isShowingSheet = true
+                            } label : {
+                                BecomeArtisanButton()
+                            }
+                            .buttonStyle(.plain)
                         }
                         
                     }header: {
@@ -104,22 +115,32 @@ struct SettingsAccountView: View {
                 }
             }
             .navigationTitle(Text(""))
+            .sheet(isPresented: $isShowingSheet) {
+                SheetArtisanAccount(isShowingCreationView: $isShowingCreationView)
+                    .presentationDetents([.height(450)])
+                    .presentationDragIndicator(.visible)
+                    .presentationBackground(.clear)
+            }
+            .fullScreenCover(isPresented: $isShowingCreationView) {
+                            ArtisanProfileCreationView()
+                                .environment(sharedVM)
+                        }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
                 ToolbarItem(placement: .principal) {
                     HStack{
                         Text("Réglages")
-                            .font(.largeTitle)
                             .fontWeight(.bold)
                             .kerning(1)
                     }
-                    .padding(.trailing,185)
+//                    .padding(.trailing,185)
                 }
             }
         }
     }
-}
+//}
 
 #Preview {
     SettingsAccountView()
+        .environment(SharedViewModel())
 }

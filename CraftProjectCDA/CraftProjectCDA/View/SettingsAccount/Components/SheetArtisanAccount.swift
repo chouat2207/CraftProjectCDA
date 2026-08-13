@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct SheetArtisanAccount: View {
-
+    @Binding var isShowingCreationView: Bool
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         
         VStack{
             ZStack{
-                RoundedRectangle(cornerRadius: 32)
+                RoundedRectangle(cornerRadius: 30)
                     .frame(width: 390,height: 450)
                     .foregroundStyle(.mint.quinary)
                 VStack(alignment: .leading){
@@ -50,7 +51,9 @@ struct SheetArtisanAccount: View {
                 VStack{
                     
                     Button{
-                        
+                  
+                                isShowingCreationView = true
+                        dismiss()
                     }label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 17)
@@ -64,7 +67,7 @@ struct SheetArtisanAccount: View {
                     }
                     
                     Button{
-                        
+                       dismiss()
                     }label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 17)
@@ -79,14 +82,11 @@ struct SheetArtisanAccount: View {
                    
                 }
                 .padding(.top,160)
-                
             }
-            
-            
         }
     }
 }
 
 #Preview {
-    SheetArtisanAccount()
+    SheetArtisanAccount(isShowingCreationView: .constant(false))
 }
