@@ -30,7 +30,3 @@ struct DiscoveryNewsView: View {
         }
     }
 }
-
-//#Preview {
-//    DiscoveryNewsView(imageName: .constant(""))
-//}

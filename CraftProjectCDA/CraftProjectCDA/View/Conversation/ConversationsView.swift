@@ -10,6 +10,10 @@ import SwiftUI
 struct ConversationsView: View {
     @Environment(MessageService.self) var messageService: MessageService
     @Environment(SharedViewModel.self) var sharedVM: SharedViewModel
+    
+    // Using optional that i unwrap in the body, not sure if this is a
+    // proper solution, view was crashing because of the view model was
+    // trying to use the service
     @State var conversationVM: ConversationsViewModel?
 
     var body: some View {
