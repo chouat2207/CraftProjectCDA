@@ -7,28 +7,16 @@
 
 import SwiftUI
 
-enum Tabz: Hashable {
-    case discover
-    case research
-    case events
-    case messages
-    case favorites
-}
-
 struct TabBarView: View {
     
-    
-    
     @Environment(MessageService.self) var messageService
-    //    @State var sharedVM = SharedViewModel()
     @Environment(SharedViewModel.self) var sharedVM
+    
     var body: some View {
         TabView {
             Tab("Découvrir", systemImage: "house.fill") {
-                NavigationStack {
                     DiscoveryView()
                         .environment(DiscoveryViewModel())
-                }
             }
             
             Tab("Recherche", systemImage: "magnifyingglass") {

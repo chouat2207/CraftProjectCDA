@@ -7,23 +7,25 @@
 
 import SwiftUI
 
+
 struct DiscoveryView: View {
     @Environment(SharedViewModel.self) var sharedVM
     @State var discoveryVM: DiscoveryViewModel = DiscoveryViewModel()
     var body: some View {
-        VStack {
-            if let user = sharedVM.mainUser {
-                Header(imageName: user.imageName, title: "À Découvrir", user: user)
-            }
-            
-            ScrollView {
-                DiscoveryNewsScrollView()
-                ForEach(discoveryVM.discoverySections){
-                    section in
-                    DiscoveryHScrollView(sectionTitle: section.title, items: section.items)
+        NavigationStack {
+            VStack {
+                if let user = sharedVM.mainUser {
+                    Header(imageName: user.imageName, title: "À Découvrir", user: user)
+                }
+                
+                ScrollView {
+                    DiscoveryNewsScrollView()
+                    ForEach(discoveryVM.discoverySections){
+                        section in
+                        DiscoveryHScrollView(sectionTitle: section.title, items: section.items)
+                    }
                 }
             }
-            
         }
     }
 }
