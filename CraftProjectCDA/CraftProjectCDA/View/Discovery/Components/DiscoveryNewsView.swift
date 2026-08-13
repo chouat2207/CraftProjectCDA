@@ -8,24 +8,25 @@
 import SwiftUI
 
 struct DiscoveryNewsView: View {
-    var imageName: String
+    var user: User
 
     var body: some View {
-        ZStack {
-            Circle()
-                .frame(width: 94, height: 94)
-                .foregroundStyle(.green)
-            VStack {
-                Image(imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 84, height: 84)
-                    .clipShape(Circle())
+        NavigationLink {
+            ArtisanProfileView(user: user)
+        }
+        label: {
+            ZStack {
+                Circle()
+                    .frame(width: 94, height: 94)
+                    .foregroundStyle(.green)
+                VStack {
+                    Image(user.imageName)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 84, height: 84)
+                        .clipShape(Circle())
+                }
             }
         }
     }
 }
-
-//#Preview {
-//    DiscoveryNewsView(imageName: .constant(""))
-//}

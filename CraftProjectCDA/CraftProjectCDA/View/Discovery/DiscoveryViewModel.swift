@@ -10,6 +10,8 @@ import SwiftUI
 
 @Observable
 class DiscoveryViewModel {
+    
+    // Need to refactor to use sharedVM
     var userData: [User]
     var artworkData: [Artwork]
     var eventData: [Event]
@@ -35,7 +37,8 @@ class DiscoveryViewModel {
         return imageName
     }
     
-    var filteredUserListByArtisanProfileActive: [User] {
-        userData.filter({$0.artisanProfileID != nil})
+    func activeFollowedUsers(for user: User, artworks: [Artwork]) -> [User] {
+        users.filter({user.followingID.contains($0.id)})
+
     }
 }

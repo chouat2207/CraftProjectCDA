@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct DiscoveryNewsScrollView: View {
+    @Environment(SharedViewModel.self) var sharedVM
     @Environment(DiscoveryViewModel.self) var discoveryVM
+    
     var body: some View {
         VStack{
             HStack {
@@ -20,17 +22,14 @@ struct DiscoveryNewsScrollView: View {
             }
             ScrollView(.horizontal) {
                 LazyHStack {
-                    ForEach(discoveryVM.filteredUserListByArtisanProfileActive) { user in
-                        DiscoveryNewsView(imageName: user.imageName)
+                    if let mainUser = sharedVM.mainUser {
+                        ForEach(discoveryVM.activeFollowedUsers(for: mainUser, artworks: sharedVM.artworksData)) { user in
+                            DiscoveryNewsView(user: user)
+                        }
                     }
                 }
             }
-//            .padding([.bottom, .leading])
             .padding(.leading)
         }
     }
 }
-
-//#Preview {
-//    DiscoveryNewsScrollView()
-//}

@@ -156,13 +156,6 @@ struct ArtisanProfileCreationView: View {
                             .font(.callout)
                             .fontWeight(.semibold)
                             .kerning(1)
-                        
-//                        TextField(" Décrivez votre savoir-faire...", text: $aboutInput)
-//                            .padding(.bottom, 50)
-//                            .padding(3)
-//                            .multilineTextAlignment(.leading)
-//                            .overlay(RoundedRectangle(cornerRadius: 7)
-//                                .stroke(.mint, lineWidth: 1))
                     }
                     .padding(.horizontal, 15)
                     .padding(.bottom,15)
