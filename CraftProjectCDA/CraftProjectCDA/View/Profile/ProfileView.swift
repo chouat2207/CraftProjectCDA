@@ -21,7 +21,7 @@ struct ProfileView: View {
             VStack{
                 ZStack{
                     Image(user.bannerName)
-                        .imageModifier(frameWidth: 410, frameHeight: 230, clipShape: Rectangle())
+                        .imageModifier(frameWidth: 410, frameHeight: 280, clipShape: Rectangle())
                         .ignoresSafeArea()
                     
                     VStack{
