@@ -40,8 +40,7 @@ struct UIKitImage: UIViewRepresentable {
     func updateUIView(_ uiView: UIImageView, context: Context) {
     }
 }
-
-
 #Preview {
     AvatarView(imageName: "AllegraLisa", frameWidth: 32, frameHeight: 32)
 }
+

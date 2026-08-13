@@ -41,4 +41,5 @@ final class DirectMessageViewModel {
     func postMessage(content: String) {
         messageService.postMessage(from: mainUserID, to: peerID, content: content)
     }
+    
 }
