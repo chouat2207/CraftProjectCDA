@@ -11,6 +11,8 @@ struct ArtisanProfileView: View {
     
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
     @State private var isShowEdit: Bool = false
+    @State private var showAddArtwork : Bool = false
+    
     var user: User
     
     var body: some View {
@@ -64,7 +66,9 @@ struct ArtisanProfileView: View {
                 HStack{
                     FollowButton()
                     Spacer()
-                    MessageButton()  
+                    // if id == mainuserid
+                    // on cache
+                    MessageButton()
                 }
                 .padding()
                 
