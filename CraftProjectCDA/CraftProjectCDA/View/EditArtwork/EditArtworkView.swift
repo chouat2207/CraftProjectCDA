@@ -9,9 +9,11 @@ import SwiftUI
 import PhotosUI
 
 struct EditArtworkView: View {
+    @Environment(SharedViewModel.self) var sharedVM
     @Environment(\.dismiss) private var dismiss
-    @State private var viewModel = EditArtworkViewModel()
-    
+    @State var viewModel = EditArtworkViewModel()
+    @State private var artworkName: String = ""
+    @State private var artworkDescription: String = ""
     var body: some View {
         ScrollView {
             VStack{
@@ -50,9 +52,9 @@ struct EditArtworkView: View {
                 }
                 
                 VStack (alignment: .leading, spacing : 30){
-                    EditArtworkTextFieldRowView(title: "Titre : ", placeholder: "Entrez le titre...", text: $viewModel.artwork.name)
+                    EditArtworkTextFieldRowView(title: "Nom :", placeholder: "Entrez le titre...", text: $artworkName)
                     
-                    EditArtworkTextFieldRowView(title: "Description :", placeholder: "Rédigez votre description...", text: $viewModel.artwork.description)
+                    EditArtworkTextFieldRowView(title: "Description :", placeholder: "Rédigez votre description...", text: $artworkDescription)
                     
                     VStack (alignment: .leading) {
                         Text("Catégorie : ")
@@ -81,7 +83,7 @@ struct EditArtworkView: View {
         //        .ignoresSafeArea(edges: .top)
         
         Button {
-            viewModel.save()
+            sharedVM.saveArtwork(artworkName: artworkName, artworkDescription: artworkDescription, artCategory: viewModel.artwork.artCategory)
             dismiss()
         } label: {
             Text("Enregistrer")
@@ -99,4 +101,5 @@ struct EditArtworkView: View {
 
 #Preview {
     EditArtworkView()
+        .environment(SharedViewModel())
 }

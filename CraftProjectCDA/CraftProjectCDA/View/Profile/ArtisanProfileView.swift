@@ -28,7 +28,6 @@ struct ArtisanProfileView: View {
                     
                     VStack{
                         HStack(alignment: .center){
-                            
                             Image(user.imageName)
                                 .imageModifier(frameWidth: 130, frameHeight: 130, clipShape: Circle())
                                 .overlay(Circle()
@@ -62,7 +61,6 @@ struct ArtisanProfileView: View {
                     }
                 }
                 .offset(x: -27,y: -35)
-                
                 HStack{
                     VStack(alignment: .leading){
                         
