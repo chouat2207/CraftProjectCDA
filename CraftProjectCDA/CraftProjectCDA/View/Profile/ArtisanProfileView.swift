@@ -22,7 +22,6 @@ struct ArtisanProfileView: View {
     }
     
     var body: some View {
-        //        NavigationStack{
         VStack{
             ZStack(){
                 CoverImageUserCard(user: user)
