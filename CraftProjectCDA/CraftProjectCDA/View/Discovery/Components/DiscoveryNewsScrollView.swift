@@ -23,7 +23,7 @@ struct DiscoveryNewsScrollView: View {
             ScrollView(.horizontal) {
                 LazyHStack {
                     if let mainUser = sharedVM.mainUser {
-                        ForEach(discoveryVM.activeFollowedUsers(for: mainUser, artworks: sharedVM.artworksData)) { user in
+                        ForEach(discoveryVM.activeFollowedUsers(for: mainUser)) { user in
                             DiscoveryNewsView(user: user)
                         }
                     }

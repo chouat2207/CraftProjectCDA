@@ -22,7 +22,6 @@ struct ArtisanProfileView: View {
     }
     
     var body: some View {
-        //        NavigationStack{
         VStack{
             ZStack(){
                 CoverImageUserCard(user: user)
@@ -77,7 +76,6 @@ struct ArtisanProfileView: View {
                 }
                 Spacer()
             }
-//            .padding(.top)
             .padding(.horizontal,15)
             
             HStack{
@@ -111,7 +109,6 @@ struct ArtisanProfileView: View {
             EditProfileView(editProfileViewModel: EditProfileViewModel(), user: user)
                 .environment(sharedVM)
         }
-        //        }
     }
 }
 

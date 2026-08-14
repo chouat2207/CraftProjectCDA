@@ -96,8 +96,3 @@ struct ArtisanSectionPicker: View {
         }
     }
 }
-
-#Preview {
-//    ArtisanSectionPicker()
-//        .environment(SharedViewModel())
-}
