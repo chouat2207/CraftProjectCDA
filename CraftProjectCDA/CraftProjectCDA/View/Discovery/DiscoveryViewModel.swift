@@ -37,7 +37,7 @@ class DiscoveryViewModel {
         return imageName
     }
     
-    func activeFollowedUsers(for user: User, artworks: [Artwork]) -> [User] {
+    func activeFollowedUsers(for user: User) -> [User] {
         users.filter({user.followingID.contains($0.id)})
 
     }

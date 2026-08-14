@@ -9,13 +9,8 @@ import SwiftUI
 
 struct EditProfileButton: View {
     
-//    @State private var isShowEdit: Bool = false
-//    
     var body: some View {
        
-//        Button{
-//            isShowEdit = true
-//        }label: {
         HStack {
             Image(systemName: "square.and.pencil")
                 .foregroundStyle(.blue)

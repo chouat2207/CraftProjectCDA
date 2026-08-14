@@ -10,7 +10,6 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(SharedViewModel.self) var sharedVM
     @State var profileViewModel: ProfileViewModel = ProfileViewModel()
-    //    @State private var isShowingEditProfile = false
     
     var user: User
     
@@ -51,12 +50,6 @@ struct ProfileView: View {
                     .padding(.horizontal,5)
                     .offset(y: 70)
                 }
-                //                VStack(){
-                //                    EditProfileButton()
-                //                }
-                //                .offset(x: -27,y: -35)
-                //            }
-                
                 NavigationLink {
                     EditProfileView(
                         editProfileViewModel: EditProfileViewModel(),
