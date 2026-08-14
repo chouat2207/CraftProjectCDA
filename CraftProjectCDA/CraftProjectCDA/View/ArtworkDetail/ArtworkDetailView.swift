@@ -24,34 +24,22 @@ struct ArtworkDetailView: View {
                     .clipped()
                 
                 HStack {
-                    NavigationLink {
-                        if viewModel.artisan.artisanProfileID != nil {
-                            ArtisanProfileView(user: viewModel.artisan)
-                        }
-//                        else {
-//                            ProfileView(user: viewModel.artisan)
-//                        }
-                    } label: {
+                    Image(viewModel.artisan.imageName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100)
+                        .clipShape(Circle())
+                        .overlay(Circle()
+                            .stroke(Color.white, lineWidth: 5))
+                    
+                    VStack (alignment: .leading){
+                        Text(viewModel.artwork.name)
+                            .fontWeight(.semibold)
+                            .font(.title)
+                            .lineLimit(1)
+                            .padding(.top)
                         
-                        HStack(){
-                            Image(viewModel.artisan.imageName)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100)
-                                .clipShape(Circle())
-                                .overlay(Circle()
-                                    .stroke(Color.white, lineWidth: 5))
-                            
-                            VStack (alignment: .leading){
-                                Text(viewModel.artwork.name)
-                                    .fontWeight(.semibold)
-                                    .font(.title)
-                                    .lineLimit(1)
-                                    .padding(.top)
-                                
-                                Text("Par \(viewModel.artisan.firstName) \(viewModel.artisan.lastName) ")
-                            }
-                        }
+                        Text("Par \(viewModel.artisan.firstName) \(viewModel.artisan.lastName) ")
                     }
                     Spacer()
                     Button(action: {
@@ -103,15 +91,6 @@ struct ArtworkDetailView: View {
             }
             
             .padding(.horizontal)
-            //
-            //                .navigationDestination(isPresented: $viewModel.navigateToMessage) {
-            //                    DirectMessageView(
-            //                        peerID: viewModel.artisan.id,
-            //                        peerName: viewModel.artisan.name,
-            //                        profileImageName: viewModel.artisan.imageName
-            //                    )
-            //                }
-            
         }
         
         .onAppear {

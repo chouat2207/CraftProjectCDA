@@ -115,7 +115,7 @@ var users: [User] = [
         lastName: "Aoki",
         pseudonym: "@GARASU",
         imageName: "GarasuPhotoDeProfil",
-        bannerName: "GarasuPhotoDeCouverture",
+        bannerName: "GarasuBanner",
         joinedDate: "18/07/2026",
         address: "3 avenue République Dame",
         city: "Marseille",

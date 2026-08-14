@@ -12,19 +12,14 @@ struct DiscoveryCard: View {
     var item: DisplayableItem
     var body: some View {
             NavigationLink {
-                // check type de item + if condition
+                // Unwrap type of item to redirect to correct view
                 switch item {
                 case let item as Event:
                     EventDetailView(event: item)
                 case let item as Artwork:
                     ArtworkDetailView(artwork: item)
                 case let item as User:
-//                    if item.artisanProfileID != nil {
                         ArtisanProfileView(user: item)
-//                    }
-//                    else {
-//                        ProfileView(user: item)
-//                    }
                 default:
                     DiscoveryView()
                 }
@@ -32,7 +27,6 @@ struct DiscoveryCard: View {
             label: {
                 ZStack {
                     Rectangle()
-                    
                         .cornerRadius(10)
                         .foregroundStyle(.white)
                     VStack {
@@ -55,7 +49,7 @@ struct DiscoveryCard: View {
                 }
                 .padding()
                 .frame(width: 180, height: 190)
-                .shadow(radius: 2)
+                .shadow(radius: 1)
             }
     }
 }

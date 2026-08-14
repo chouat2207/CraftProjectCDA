@@ -117,30 +117,15 @@ final class SharedViewModel {
         let newArtisanProfile = createArtisanProfile(id: newArtisanID, user: user)
             artisanProfilesData.append(newArtisanProfile)
         }
-//        let newArtisanProfile = ArtisanProfile(
-//            id: newArtisanID,
-//            isActive: true,
-//            imageName: user.imageName,
-//            shopAddress: user.address,
-//            shopLocation: CLLocationCoordinate2D(latitude: 43.2965, longitude: 5.3698),
-//            reviewsID: [],
-//            totalRating: 5.0,
-//            artCategory: "Verrerie",
-//            website: URL(string: "https://www.garasu.fr")!,
-//            phoneNumber: "",
-//            logbookID: [],
-//            artworksID: [],
-//            about: user.description,
-//            followedByID: []
-//        )
     
     func filterArtworks(byID userID: UUID) -> [Artwork] {
         artworksData.filter({$0.artistID == userID})
     }
-    // Quick fix for presentation (Mathieu)
-    func saveArtwork(artworkName: String, artworkDescription: String, artCategory: String) {
+    // Quick fix for presentation so we can add an artwork (Mathieu)
+    func saveArtwork(artworkImageName: String, artworkName: String, artworkDescription: String, artCategory: String) {
         let newArtwork: Artwork = Artwork(
-            name: artworkName, imageName: "Placeholder",
+            name: artworkName,
+            imageName: artworkImageName,
             imageArtisan: mainUser!.imageName,
             artCategory: artCategory,
             artisanCategory: .bijoutier,

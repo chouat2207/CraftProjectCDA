@@ -8,27 +8,28 @@
 import SwiftUI
 
 struct DiscoveryNewsScrollView: View {
+    @Environment(SharedViewModel.self) var sharedVM
     @Environment(DiscoveryViewModel.self) var discoveryVM
+    
     var body: some View {
         VStack{
             HStack {
                 Text("Actualités")
                     .padding(.leading)
-                    .font(.title2)
+                    .font(.title3)
+                    .fontWeight(.semibold)
                 Spacer()
             }
             ScrollView(.horizontal) {
                 LazyHStack {
-                    ForEach(discoveryVM.filteredUserListByArtisanProfileActive) { user in
-                        DiscoveryNewsView(imageName: user.imageName)
+                    if let mainUser = sharedVM.mainUser {
+                        ForEach(discoveryVM.activeFollowedUsers(for: mainUser, artworks: sharedVM.artworksData)) { user in
+                            DiscoveryNewsView(user: user)
+                        }
                     }
                 }
             }
-            .padding([.bottom, .leading])
+            .padding(.leading)
         }
     }
 }
-
-//#Preview {
-//    DiscoveryNewsScrollView()
-//}

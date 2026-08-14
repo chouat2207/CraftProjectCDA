@@ -25,7 +25,7 @@ struct ArtisanProfileView: View {
         //        NavigationStack{
         VStack{
             ZStack(){
-                CoverImageUserCard(user: users[0])
+                CoverImageUserCard(user: user)
                 
                 VStack{
                     HStack(alignment: .center){
@@ -77,7 +77,7 @@ struct ArtisanProfileView: View {
                 }
                 Spacer()
             }
-            .padding(.top)
+//            .padding(.top)
             .padding(.horizontal,15)
             
             HStack{
@@ -89,7 +89,7 @@ struct ArtisanProfileView: View {
                 // if id == mainuserid
                 // on cache
                 if !isCurrentUser {
-                    MessageButton()
+                    MessageButton(user: user)
                 }
             }
             .padding()

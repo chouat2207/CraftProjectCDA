@@ -17,6 +17,7 @@ struct Artwork: Identifiable, DisplayableItem {
     var description: String
     var details: String
     var artistID: UUID
+    var createdDate: Date = Date()
 }
 
 

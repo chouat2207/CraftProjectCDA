@@ -9,6 +9,7 @@ import Foundation
 
 @Observable
 class MessageService {
+    
     let mainUserID: UUID = .haruto
     var messageData: [UserToUserMessage] = userToUserMessages
     var userData: [User] = users

@@ -27,7 +27,8 @@ struct TextFieldView: View {
                 
             } label: {
                 Image(systemName: "paperplane.fill")
-                    .font(.system(size: 18, weight: .bold))
+                    .font(.system(size: 24))
+                    .fontWeight(.bold)
                     .foregroundStyle(.white)
                     .padding(10)
                     .background(.green)
@@ -38,8 +39,4 @@ struct TextFieldView: View {
         .padding(.vertical, 8)
         
     }
-}
-
-#Preview {
-    //TextFieldView(message: .constant(""))
 }
