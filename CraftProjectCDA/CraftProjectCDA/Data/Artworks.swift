@@ -245,35 +245,6 @@ var artworks: [Artwork] = [
     ),
 
     Artwork(
-        id: .artworkWhaleTail,
-        name: "Whale Tail",
-        imageName: "SeaLeaWhaleTail",
-        imageArtisan: "SeaLea",
-        artCategory: "Verrerie",
-        artisanCategory: .verrier,
-        description: """
-        De magnifiques sculptures représentant des queues de baleine et de requin occupent le devant de la scène, incarnant une forme emblématique qui captive l’imagination.
-
-        Inspirées par la magie de l’observation des baleines, chaque sculpture est réalisée à la main pour évoquer les souvenirs et les moments précieux passés aux côtés de ces créatures majestueuses dans leur habitat naturel.
-
-        Nos sculptures en vitrail sont méticuleusement réalisées dans cet esprit, à partir de verre irisé qui offre un jeu fascinant de couleurs et de reflets imitant la lueur éthérée et les teintes de l’océan.
-
-        Chaque pièce apporte une touche de merveille aquatique à n’importe quel espace.
-        """,
-        details: """
-        DÉTAILS :
-
-        Taille : 40 x 30 cm
-        Poids : 2,1 kg
-        Couleur : Bleu irisé
-        Matière : Vitrail et verre irisé
-
-        Prix : 950 €
-        """,
-        artistID: .haruto
-    ),
-
-    Artwork(
         id: .artworkOeufDeFaberge,
         name: "Oeuf de Fabergé",
         imageName: "GarasuInspirationOeufDeFaberge",
@@ -287,7 +258,7 @@ var artworks: [Artwork] = [
         """,
         details: """
         DÉTAILS :
-
+        
         Taille : 12 x 8 cm
         Poids : 320 g
         Couleur : Cristal et or
@@ -471,5 +442,34 @@ var artworks: [Artwork] = [
         Prix : 450 €
         """,
         artistID: .eloise
+    ),
+    
+    Artwork(
+        id: .artworkWhaleTail,
+        name: "Whale Tail",
+        imageName: "SeaLeaWhaleTail",
+        imageArtisan: "SeaLea",
+        artCategory: "Verrerie",
+        artisanCategory: .verrier,
+        description: """
+        De magnifiques sculptures représentant des queues de baleine et de requin occupent le devant de la scène, incarnant une forme emblématique qui captive l’imagination.
+
+        Inspirées par la magie de l’observation des baleines, chaque sculpture est réalisée à la main pour évoquer les souvenirs et les moments précieux passés aux côtés de ces créatures majestueuses dans leur habitat naturel.
+
+        Nos sculptures en vitrail sont méticuleusement réalisées dans cet esprit, à partir de verre irisé qui offre un jeu fascinant de couleurs et de reflets imitant la lueur éthérée et les teintes de l’océan.
+
+        Chaque pièce apporte une touche de merveille aquatique à n’importe quel espace.
+        """,
+        details: """
+        DÉTAILS :
+
+        Taille : 40 x 30 cm
+        Poids : 2,1 kg
+        Couleur : Bleu irisé
+        Matière : Vitrail et verre irisé
+
+        Prix : 950 €
+        """,
+        artistID: .haruto
     )
 ]
