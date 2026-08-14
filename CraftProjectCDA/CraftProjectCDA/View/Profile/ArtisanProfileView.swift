@@ -95,13 +95,6 @@ struct ArtisanProfileView: View {
             ArtisanSectionPicker(isUserMainUser: sharedVM.mainUser?.id == user.id ? true : false)
         }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button("") {
-                    dismiss()
-                }
-            }
-        }
         .navigationDestination(isPresented: $showSettings){
             SettingsAccountView().environment(sharedVM)
         }
